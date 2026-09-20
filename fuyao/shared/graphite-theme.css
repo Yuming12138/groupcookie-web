@@ -1,0 +1,59 @@
+/* Fuyao graphite-blue shell. Periodic-table category colors remain data colors. */
+:root {
+  --paper: #f3f4f6;
+  --surface: #ffffff;
+  --surface-soft: #f7f9fa;
+  --ink: #1f2933;
+  --muted: #667085;
+  --line: #d8dee6;
+  --teal: #344054;
+  --teal-dark: #20283d;
+  --teal-deep: #20283d;
+  --teal-soft: #e8edf3;
+  --gold: #b7791f;
+  --shadow: 0 14px 34px rgba(31, 41, 55, .08);
+}
+
+body { background: var(--paper); color: var(--ink); }
+.site-header { background: #20283d; border-color: #20283d; color: #fff; box-shadow: none; }
+.brand, .site-nav a, .header-actions { color: rgba(255,255,255,.84); }
+.site-nav a:hover, .site-nav a.active, .detail-link { color: #fff; }
+.site-nav a::after { background: #9bb4d0; }
+.brand-mark i { border-color: #9bb4d0; }
+.brand-mark::before, .brand-mark::after { background: #9bb4d0; }
+.dataset-pill { color: rgba(255,255,255,.72); }
+.detail-link { color: #d7e2ef; }
+.mobile-menu-button { border-color: rgba(255,255,255,.26); background: transparent; color: #fff; }
+.page-main { background: var(--paper); }
+.intro, .page-intro { border-color: var(--line); }
+.eyebrow, .section-index, .panel-label, .data-note, .table-note,
+.filter-kicker, .results-state, .directory-member-role { color: #344054; }
+.quick-search, .property-form, .upload-form, .member-toolbar,
+.view-shell, .results-pane, .filter-rail, .job-panel,
+.directory-member-card, .member-card, .property-results { border-color: var(--line); }
+.quick-search, .property-form, .upload-form, .member-toolbar,
+.view-shell, .results-pane, .directory-member-card, .member-card,
+.property-results { background: var(--surface); box-shadow: var(--shadow); }
+.filter-rail { background: var(--surface-soft); }
+.filter-field input, .filter-field select, .property-form input,
+.property-form select, .predict-field input, .predict-field select { border-color: var(--line); background: var(--surface); }
+.filter-field input:focus, .filter-field select:focus,
+.property-form input:focus, .property-form select:focus,
+.predict-field input:focus, .predict-field select:focus { border-color: var(--teal); outline-color: rgba(52,80,84,.18); }
+.quick-search > svg, .quick-links button, .quick-links a,
+.formula-link, .score, .result-foot a, .directory-member-mail:hover,
+.directory-member-source, .text-action { color: var(--teal); }
+.quick-search button, .primary-button { background: var(--teal); }
+.quick-search button:hover, .primary-button:hover { background: var(--teal-dark); }
+.property-tag.selected, .member-filter button:hover, .member-filter button.selected { border-color: #aab8c7; background: var(--teal-soft); color: var(--teal-dark); }
+.result-table tbody tr:hover { background: #f5f7f9; }
+.file-drop { border-color: #aab8c7; background: var(--surface-soft); }
+.file-drop:hover, .file-drop.dragging, .file-drop:focus-within { border-color: var(--teal); background: var(--teal-soft); }
+.file-drop-icon { background: var(--teal-soft); color: var(--teal); }
+.job-queue, .job-panel { background: var(--teal-dark); }
+.job-panel .panel-label, .job-state { color: #c9d8e8; }
+.member-index { color: var(--gold); }
+.toast { background: var(--teal-dark); }
+:focus-visible { outline-color: #7f96b3; }
+
+/* The category palette is intentionally scoped to the periodic-table theme file. */
