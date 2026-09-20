@@ -1,0 +1,83 @@
+/* Compact Materials-Project-like catalog entry for fuyao. */
+.intro {
+  width: var(--page);
+  min-height: 0;
+  display: block;
+  padding: 24px 0 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.intro > div:first-child {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.quick-search {
+  width: min(760px, 100%);
+  min-height: 48px;
+  margin: 0 auto;
+  border-radius: 5px;
+  box-shadow: 0 4px 14px rgba(31, 41, 55, .08);
+}
+
+.quick-search input { height: 46px; font-size: 15px; }
+.quick-search button { min-height: 46px; padding: 0 18px; }
+.quick-links, .dataset-stats { display: none; }
+
+.workspace-section {
+  width: var(--page);
+  padding: 28px 0 56px;
+  border-bottom: 0;
+}
+
+.section-bar {
+  min-height: 34px;
+  margin-bottom: 14px;
+  justify-content: flex-end;
+}
+
+.section-bar > div:first-child { display: none; }
+.selection-tools { width: 100%; justify-content: flex-end; }
+.selection-status { font-size: 11px; }
+.outline-button { min-height: 32px; }
+
+.element-workspace {
+  display: block;
+}
+
+.periodic-wrap {
+  width: 100%;
+  overflow-x: auto;
+  padding: 20px 18px 22px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.periodic-toolbar { min-width: 860px; }
+.periodic-table { min-width: 860px; }
+.series-row { min-width: 860px; }
+
+.periodic-toolbar { margin-bottom: 16px; }
+.legend { gap: 16px; font-size: 11px; }
+.table-note { font-size: 11px; }
+
+/* The result list remains available, but follows the periodic-table workspace. */
+.element-results { width: 100%; }
+
+.element-results {
+  margin-top: 16px;
+  box-shadow: none;
+}
+
+@media (max-width: 700px) {
+  .intro { padding: 16px; width: 100%; }
+  .workspace-section { width: calc(100% - 32px); padding-top: 20px; }
+  .periodic-wrap { margin-right: -16px; margin-left: -16px; border-right: 0; border-left: 0; border-radius: 0; }
+  .selection-tools { justify-content: space-between; }
+}
