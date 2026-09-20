@@ -32,7 +32,7 @@
     const ehullMax = Number.parseFloat(ehullInput.value);
     const scoreMin = Number.parseFloat(scoreInput.value);
     const haystack = [item.id, item.formula, item.spacegroup, item.propertySearchText, ...(item.propertyTags || []), ...(item.elements || [])].join(' ').toLowerCase();
-    return (!query || haystack.includes(query)) && (!wantedElements.length || wantedElements.every((element) => (item.elements || []).some((value) => value.toLowerCase() === element.toLowerCase()))) && (!state.selectedTags.size || [...state.selectedTags].every((tag) => (item.propertyTags || []).includes(tag))) && (Number.isNaN(ehullMax) || Number(item.eHull) * 1000 <= ehullMax) && (Number.isNaN(scoreMin) || Number(item.score) >= scoreMin);
+    return (!query || haystack.includes(query)) && (!wantedElements.length || wantedElements.every((element) => (item.elements || []).some((value) => value.toLowerCase() === element.toLowerCase()))) && (!state.selectedTags.size || [...state.selectedTags].every((tag) => (item.propertyTags || []).includes(tag))) && (Number.isNaN(ehullMax) || Number(item.eHull) <= ehullMax) && (Number.isNaN(scoreMin) || Number(item.score) >= scoreMin);
   }
 
   function renderResults() {
@@ -49,7 +49,7 @@
     body.innerHTML = visible.map((item) => {
       const scoreClass = Number(item.score) >= 75 ? '' : ' mid';
       const tags = (item.propertyTags || []).slice(0, 2).join(' · ') || '未标注';
-      const hull = Number.isFinite(Number(item.eHull)) ? `${(Number(item.eHull) * 1000).toFixed(0)} meV/atom` : '—';
+      const hull = Number.isFinite(Number(item.eHull)) ? Number(item.eHull).toFixed(3) : '—';
       return `<tr><td><a class="formula-link" href="../material-detail/index.html?id=${encodeURIComponent(item.id)}">${escapeHtml(item.formula)}</a><span class="formula-meta">${escapeHtml(item.id)} · ${escapeHtml((item.elements || []).join(' · '))}</span></td><td>${hull}</td><td class="score${scoreClass}">${escapeHtml(item.score ?? '—')}</td><td>${escapeHtml(item.spacegroup || '—')}</td><td>${escapeHtml(tags)}</td></tr>`;
     }).join('');
     icons();

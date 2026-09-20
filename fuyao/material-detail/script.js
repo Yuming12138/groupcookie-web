@@ -8,7 +8,7 @@
   };
   const present = (value) => value != null && String(value).trim() !== '';
   const formula = (value) => esc(value).replace(/([₀-₉]+)/g, '<sub>$1</sub>');
-  const hull = (value) => Number.isFinite(Number(value)) ? (Number(value) * 1000).toFixed(0) + ' meV/atom' : '未报告';
+  const hull = (value) => Number.isFinite(Number(value)) ? Number(value).toFixed(3) + ' eV/atom' : '未报告';
   const setText = (selector, value) => { const node = $(selector); if (node) node.textContent = value; };
   const setHtml = (selector, value) => { const node = $(selector); if (node) node.innerHTML = value; };
   const toast = $('#toast'); let toastTimer;

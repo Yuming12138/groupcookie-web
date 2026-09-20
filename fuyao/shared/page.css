@@ -34,6 +34,7 @@
 .result-table-wrap { overflow-x: auto; }
 .result-table { width: 100%; min-width: 680px; border-collapse: collapse; font-size: 12px; }
 .result-table th { height: 43px; color: var(--muted); font-size: 10px; font-weight: 500; text-align: left; white-space: nowrap; }
+.result-table .table-unit { color: var(--muted); font-size: 9px; font-weight: 400; letter-spacing: 0; }
 .result-table th:not(:first-child), .result-table td:not(:first-child) { text-align: right; }
 .result-table td { height: 64px; border-top: 1px solid var(--line); color: var(--ink); font-family: "SFMono-Regular", Consolas, monospace; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .result-table td:first-child { font-family: "IBM Plex Sans", "Segoe UI", "Microsoft YaHei", sans-serif; text-align: left; }

@@ -104,6 +104,13 @@
   white-space: nowrap;
 }
 
+.result-table .table-unit {
+  color: var(--muted);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
 .result-table th:nth-child(1) { width: 24%; }
 .result-table th:nth-child(2) { width: 15%; }
 .result-table th:nth-child(3) { width: 15%; }

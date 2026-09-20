@@ -27,13 +27,13 @@
             <form id="property-form">
               <label class="filter-field"><span for="property-query">关键词</span><input id="property-query" name="q" type="search" placeholder="磁性、催化、La2MnRhO6…" autocomplete="off" /></label>
               <label class="filter-field"><span for="element-query">包含元素</span><input id="element-query" name="elements" type="text" placeholder="例如 La, Mn, O…" autocomplete="off" /></label>
-              <label class="filter-field"><span for="ehull-max">E_hull 上限（meV/atom）</span><input id="ehull-max" name="ehull" type="number" min="0" step="1" placeholder="不限" inputmode="decimal" /></label>
+              <label class="filter-field"><span for="ehull-max">E_hull 上限（eV/atom）</span><input id="ehull-max" name="ehull" type="number" min="0" step="0.001" placeholder="不限" inputmode="decimal" /></label>
               <label class="filter-field"><span for="score-min">可合成性评分下限</span><input id="score-min" name="score" type="number" min="0" max="100" step="1" placeholder="不限" inputmode="numeric" /></label>
               <div class="filter-field"><span>性质标签</span><div class="tag-list" id="tag-list" aria-label="性质标签列表"><p class="filter-help">正在读取本地数据…</p></div></div>
               <div class="filter-actions"><span class="filter-count" id="filter-count" aria-live="polite">0 个条件</span><button id="clear-filters" type="button">清除条件</button><button type="submit">更新结果</button></div>
             </form>
           </aside>
-          <section class="results-pane" aria-labelledby="results-title"><div class="results-pane-head"><div><h2 id="results-title">候选材料</h2><p id="results-description">正在读取数据…</p></div><span class="results-state" id="results-state" role="status" aria-live="polite">准备中</span></div><div class="result-table-wrap"><table class="result-table"><thead><tr><th scope="col">材料</th><th scope="col">E_hull</th><th scope="col">评分</th><th scope="col">空间群</th><th scope="col">性质</th></tr></thead><tbody id="result-body"><tr><td colspan="5"><div class="result-empty"><p>正在读取本地材料记录…</p></div></td></tr></tbody></table></div><div class="result-foot"><span id="result-foot-note">结果按评分从高到低展示，当前最多显示 30 条。</span><a href="../homepage/index.html">返回元素检索 <i data-lucide="arrow-up-right" aria-hidden="true"></i></a></div></section>
+          <section class="results-pane" aria-labelledby="results-title"><div class="results-pane-head"><div><h2 id="results-title">候选材料</h2><p id="results-description">正在读取数据…</p></div><span class="results-state" id="results-state" role="status" aria-live="polite">准备中</span></div><div class="result-table-wrap"><table class="result-table"><thead><tr><th scope="col">材料</th><th scope="col">E<sub>hull</sub> <span class="table-unit">(eV/atom)</span></th><th scope="col">评分</th><th scope="col">空间群</th><th scope="col">性质</th></tr></thead><tbody id="result-body"><tr><td colspan="5"><div class="result-empty"><p>正在读取本地材料记录…</p></div></td></tr></tbody></table></div><div class="result-foot"><span id="result-foot-note">结果按评分从高到低展示，当前最多显示 30 条。</span><a href="../homepage/index.html">返回元素检索 <i data-lucide="arrow-up-right" aria-hidden="true"></i></a></div></section>
         </div>
       </section>
     </main>

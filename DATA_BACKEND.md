@@ -10,6 +10,8 @@
 - 批次清单：已同步 6 份 `unsynth_*_sync_manifest_*.json`。
 - `matbench_steels.json.gz` 与 `steels-data.js` 没有纳入材料库；它们是 cmsg 目录中的旧钢材基准页面数据，当前材料检索脚本没有加载它们。
 
+材料记录中的 `eHull` 原始值单位为 `eV/atom`；首页、性质检索和材料详情页统一按 `eV/atom` 展示。历史 API 参数 `ehull_max_mev` 仍保留兼容性，前端页面不再使用该参数。
+
 ## 重复同步
 
 在仓库根目录执行：

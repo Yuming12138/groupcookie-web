@@ -28,13 +28,13 @@
     plain: String(item.formula || '').replace(/[₀-₉]/g, (digit) => String('₀₁₂₃₄₅₆₇₈₉'.indexOf(digit))),
     name: item.spacegroup ? '空间群 ' + item.spacegroup : '候选相',
     bandgap: Number.isFinite(Number(item.bandGapPbeEv)) ? Number(item.bandGapPbeEv) : null,
-    ehull: Number.isFinite(Number(item.eHull)) ? Number(item.eHull) * 1000 : null,
+    ehull: Number.isFinite(Number(item.eHull)) ? Number(item.eHull) : null,
     formation: Number.isFinite(Number(item.formationEnergyEvAtom)) ? Number(item.formationEnergyEvAtom) : null,
     bulk: Number.isFinite(Number(item.bulkModulusGPa)) ? Number(item.bulkModulusGPa) : null,
   });
   const propertyConfig = {
     bandgap: { label: '计算带隙', unit: 'eV', decimals: 2 },
-    ehull: { label: 'E_hull', unit: 'meV/atom', decimals: 0 },
+    ehull: { label: 'E_hull', unit: 'eV/atom', decimals: 3 },
     formation: { label: '形成能', unit: 'eV/atom', decimals: 2 },
     bulk: { label: '体积模量', unit: 'GPa', decimals: 0 },
   };
@@ -95,7 +95,7 @@
     resultPanel.dataset.catalogState = state;
     resultPanel.setAttribute('aria-busy', state === 'loading' ? 'true' : 'false');
   };
-  const formatEhull = (value) => Number.isFinite(Number(value)) ? (Number(value) * 1000).toFixed(0) + ' meV/atom' : '—';
+  const formatEhull = (value) => Number.isFinite(Number(value)) ? Number(value).toFixed(3) : '—';
   const formatTags = (candidate) => {
     const tags = Array.isArray(candidate.propertyTags) ? candidate.propertyTags.filter(Boolean).slice(0, 3) : [];
     return tags.length ? tags.join(' · ') : '未标注';
@@ -141,8 +141,8 @@
     document.querySelector('#property-column-label').textContent = config.label + ' · ' + config.unit;
     const results = document.querySelector('#property-results');
     const formatProperty = (candidate) => Number.isFinite(candidate[property]) ? candidate[property].toFixed(config.decimals) : '—';
-    const formatHull = (candidate) => Number.isFinite(candidate.ehull) ? candidate.ehull.toFixed(0) + ' meV/atom' : '—';
-    results.innerHTML = '<div class="property-result-head"><span>材料</span><span>' + config.label + ' · ' + config.unit + '</span><span>E_hull</span><span>可合成性</span><span></span></div>' + (filtered.length ? filtered.slice(0, 30).map((candidate) => '<div class="property-result-row"><strong>' + escapeHtml(candidate.formula) + '</strong><span>' + formatProperty(candidate) + '</span><span>' + formatHull(candidate) + '</span><span class="' + (Number(candidate.score) >= 75 ? 'score-high' : 'score-mid') + '">' + escapeHtml(candidate.score ?? '—') + '</span><a href="../material-detail/index.html?id=' + encodeURIComponent(candidate.id) + '">查看 <i data-lucide="arrow-up-right" aria-hidden="true"></i></a></div>').join('') : '<p class="empty-result">没有符合范围的示例记录。</p>');
+    const formatHull = (candidate) => Number.isFinite(candidate.ehull) ? candidate.ehull.toFixed(3) : '—';
+    results.innerHTML = '<div class="property-result-head"><span>材料</span><span>' + config.label + ' · ' + config.unit + '</span><span>E_hull · eV/atom</span><span>可合成性</span><span></span></div>' + (filtered.length ? filtered.slice(0, 30).map((candidate) => '<div class="property-result-row"><strong>' + escapeHtml(candidate.formula) + '</strong><span>' + formatProperty(candidate) + '</span><span>' + formatHull(candidate) + '</span><span class="' + (Number(candidate.score) >= 75 ? 'score-high' : 'score-mid') + '">' + escapeHtml(candidate.score ?? '—') + '</span><a href="../material-detail/index.html?id=' + encodeURIComponent(candidate.id) + '">查看 <i data-lucide="arrow-up-right" aria-hidden="true"></i></a></div>').join('') : '<p class="empty-result">没有符合范围的示例记录。</p>');
     icons();
     updateUrl('property', property);
   };
