@@ -13,6 +13,7 @@ import argparse
 import hashlib
 import json
 import math
+import re
 import threading
 from collections import Counter
 from datetime import datetime, timezone
@@ -27,6 +28,7 @@ from urllib.parse import parse_qs, quote, unquote, urlsplit
 ROOT = Path(__file__).resolve().parent
 DATA_ROOT = ROOT / "data"
 CATALOG_PATH = DATA_ROOT / "mp300_materials.json"
+MP_ID_PATTERN = re.compile(r"^mp-\d+$", re.IGNORECASE)
 
 
 def utc_now() -> str:
@@ -46,6 +48,30 @@ def split_values(values: list[str]) -> list[str]:
     for value in values:
         result.extend(part.strip() for part in value.split(",") if part.strip())
     return result
+
+
+def record_identity(item: dict[str, Any]) -> tuple[str, str | None, str]:
+    """Return the catalog id, an MP id when present, and its id namespace.
+
+    The synchronized source uses ``id`` as the stable record key.  MP-derived
+    rows already use the canonical ``mp-<number>`` form, while WBM and other
+    batches use their own identifiers.  We expose the distinction at the API
+    boundary without rewriting the source JSON or pretending that every row
+    came from Materials Project.
+    """
+
+    record_id = str(item.get("id") or "").strip()
+    explicit_mp_id = str(
+        item.get("mpId") or item.get("mp_id") or item.get("mp-id") or ""
+    ).strip()
+    mp_id = explicit_mp_id if MP_ID_PATTERN.fullmatch(explicit_mp_id) else None
+    if mp_id is None and MP_ID_PATTERN.fullmatch(record_id):
+        mp_id = record_id
+    if mp_id:
+        return record_id, mp_id, "materials-project"
+    if item.get("wbmMaterialId"):
+        return record_id, None, "wbm"
+    return record_id, None, "catalog"
 
 
 class CatalogStore:
@@ -114,6 +140,7 @@ class CatalogStore:
                 if tag
             )
             score_values = [number for item in records if (number := finite_number(item.get("score"))) is not None]
+            id_type_counts = Counter(record_identity(item)[2] for item in records)
             structure_count = sum(1 for item in records if (DATA_ROOT / "structures" / f"{item['id']}.cif").is_file())
             report_count = sum(1 for item in records if self._report_path(item).is_file())
             self._records = records
@@ -126,6 +153,8 @@ class CatalogStore:
                 "reports": report_count,
                 "elements": len(element_counts),
                 "propertyTags": len(property_counts),
+                "mpRecords": id_type_counts.get("materials-project", 0),
+                "recordIdTypes": dict(sorted(id_type_counts.items())),
                 "averageScore": round(sum(score_values) / len(score_values), 2) if score_values else None,
                 "elementCounts": dict(sorted(element_counts.items())),
                 "propertyTagCounts": dict(property_counts.most_common()),
@@ -159,9 +188,13 @@ class CatalogStore:
             fields = (
                 "id", "formula", "elements", "spacegroup", "numSites", "eHull",
                 "score", "propertyTags", "bestRoute", "sourcePaper", "sourceDoi",
+                "mpId", "wbmMaterialId",
             )
             result = {field: item.get(field) for field in fields}
-        material_id = str(item.get("id") or "")
+        material_id, mp_id, id_type = record_identity(item)
+        result["recordId"] = material_id
+        result["mpId"] = mp_id
+        result["recordIdType"] = id_type
         result["structureUrl"] = f"/data/structures/{quote(material_id, safe='')}.cif"
         source_path = str(item.get("sourcePath") or "").replace("\\", "/").lstrip("/")
         result["reportUrl"] = f"/{quote(source_path, safe='/')}" if source_path else None

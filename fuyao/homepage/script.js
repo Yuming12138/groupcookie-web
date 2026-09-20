@@ -11,10 +11,20 @@
   const lanthanides = [['La','镧'],['Ce','铈'],['Pr','镨'],['Nd','钕'],['Pm','钷'],['Sm','钐'],['Eu','铕'],['Gd','钆'],['Tb','铽'],['Dy','镝'],['Ho','钬'],['Er','铒'],['Tm','铥'],['Yb','镱'],['Lu','镥']];
   const actinides = [['Ac','锕'],['Th','钍'],['Pa','镤'],['U','铀'],['Np','镎'],['Pu','钚'],['Am','镅'],['Cm','锔'],['Bk','锫'],['Cf','锎'],['Es','锿'],['Fm','镄'],['Md','钔'],['No','锘'],['Lr','铹']];
   let candidates = [];
-  const DATA_URL = '../../data/mp300_materials.json';
+  let catalogLoaded = false;
+  let catalogError = null;
+  const DATA_URLS = ['../../data/mp300_materials.json', '../data/mp300_materials.json', '/fuyao/data/mp300_materials.json'];
   const escapeHtml = (value) => String(value == null ? '' : value).replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
+  const identifyRecord = (item) => {
+    const recordId = String(item?.recordId || item?.id || '').trim();
+    const explicitMpId = String(item?.mpId || item?.mp_id || item?.['mp-id'] || '').trim();
+    const mpId = /^mp-\d+$/i.test(explicitMpId) ? explicitMpId : (/^mp-\d+$/i.test(recordId) ? recordId : null);
+    const recordIdType = mpId ? 'materials-project' : (item?.wbmMaterialId ? 'wbm' : 'catalog');
+    return { recordId, mpId, recordIdType, recordIdLabel: mpId ? 'MP ID' : (recordIdType === 'wbm' ? 'WBM ID' : '记录 ID') };
+  };
   const normalizeCandidate = (item) => ({
     ...item,
+    ...identifyRecord(item),
     plain: String(item.formula || '').replace(/[₀-₉]/g, (digit) => String('₀₁₂₃₄₅₆₇₈₉'.indexOf(digit))),
     name: item.spacegroup ? '空间群 ' + item.spacegroup : '候选相',
     bandgap: Number.isFinite(Number(item.bandGapPbeEv)) ? Number(item.bandGapPbeEv) : null,
@@ -75,8 +85,16 @@
   renderSeries('#lanthanides', lanthanides); renderSeries('#actinides', actinides);
 
   const resultBody = document.querySelector('#element-result-body');
+  const resultPanel = document.querySelector('.element-results');
   const resultMode = document.querySelector('#element-result-mode');
   const resultNote = document.querySelector('#element-result-note');
+  const previewRowCount = resultBody ? resultBody.querySelectorAll('[data-preview-row="true"]').length : 0;
+  const previewMarkup = resultBody ? resultBody.innerHTML : '';
+  const setCatalogState = (state) => {
+    if (!resultPanel) return;
+    resultPanel.dataset.catalogState = state;
+    resultPanel.setAttribute('aria-busy', state === 'loading' ? 'true' : 'false');
+  };
   const formatEhull = (value) => Number.isFinite(Number(value)) ? (Number(value) * 1000).toFixed(0) + ' meV/atom' : '—';
   const formatTags = (candidate) => {
     const tags = Array.isArray(candidate.propertyTags) ? candidate.propertyTags.filter(Boolean).slice(0, 3) : [];
@@ -86,6 +104,15 @@
     const symbols = [...selected];
     const selectionSummary = document.querySelector('#selection-summary');
     if (selectionSummary) selectionSummary.textContent = symbols.length ? symbols.join(' + ') : '未选择元素';
+    if (!catalogLoaded && !symbols.length && previewRowCount) {
+      if (resultBody && !resultBody.querySelector('[data-preview-row="true"]')) resultBody.innerHTML = previewMarkup;
+      const resultCount = document.querySelector('#element-result-count');
+      if (resultCount) resultCount.textContent = previewRowCount;
+      if (resultMode) resultMode.textContent = '默认示例';
+      if (resultNote) resultNote.textContent = catalogError ? '完整目录暂时无法读取；当前保留默认示例记录。' : '默认示例记录；正在读取完整材料目录。';
+      setCatalogState(catalogError ? 'partial' : 'loading');
+      return;
+    }
     const matches = candidates.filter((candidate) => !symbols.length || symbols.every((symbol) => (candidate.elements || []).includes(symbol))).sort((a, b) => Number(b.score || 0) - Number(a.score || 0));
     const resultCount = document.querySelector('#element-result-count');
     if (resultCount) resultCount.textContent = matches.length;
@@ -93,10 +120,11 @@
     if (resultNote) resultNote.textContent = symbols.length ? '结果需同时包含所选元素；当前展示前 6 条。' : '默认展示评分靠前的记录；选择元素后更新结果。';
     if (!resultBody) return;
     if (!matches.length) {
-      resultBody.innerHTML = '<tr><td colspan="6"><p class="empty-result">' + (symbols.length ? '当前数据中没有同时包含所选元素的候选相。' : '材料记录暂时无法读取。') + '</p></td></tr>';
+      resultBody.innerHTML = '<tr><td colspan="6"><p class="empty-result">' + (symbols.length ? '当前数据中没有同时包含所选元素的候选相。' : (catalogLoaded ? '材料目录当前没有记录。' : '材料记录暂时无法读取。')) + '</p></td></tr>';
     } else {
-      resultBody.innerHTML = matches.slice(0, 6).map((candidate) => '<tr><td><a class="result-material" href="../material-detail/index.html?id=' + encodeURIComponent(candidate.id) + '"><strong>' + escapeHtml(candidate.formula) + '</strong><span>' + escapeHtml(candidate.id) + '</span></a></td><td>' + escapeHtml(candidate.spacegroup || '—') + '</td><td class="result-number">' + escapeHtml(formatEhull(candidate.eHull)) + '</td><td class="result-score">' + escapeHtml(candidate.score ?? '—') + '</td><td class="result-properties">' + escapeHtml(formatTags(candidate)) + '</td><td class="result-detail"><a href="../material-detail/index.html?id=' + encodeURIComponent(candidate.id) + '">查看 <span aria-hidden="true">↗</span></a></td></tr>').join('');
+      resultBody.innerHTML = matches.slice(0, 6).map((candidate) => '<tr><td><a class="result-material" href="../material-detail/index.html?id=' + encodeURIComponent(candidate.recordId || candidate.id) + '"><strong>' + escapeHtml(candidate.formula) + '</strong><span>' + escapeHtml(candidate.recordIdLabel + ' · ' + (candidate.mpId || candidate.recordId || candidate.id)) + '</span></a></td><td>' + escapeHtml(candidate.spacegroup || '—') + '</td><td class="result-number">' + escapeHtml(formatEhull(candidate.eHull)) + '</td><td class="result-score">' + escapeHtml(candidate.score ?? '—') + '</td><td class="result-properties">' + escapeHtml(formatTags(candidate)) + '</td><td class="result-detail"><a href="../material-detail/index.html?id=' + encodeURIComponent(candidate.recordId || candidate.id) + '">查看 <span aria-hidden="true">↗</span></a></td></tr>').join('');
     }
+    setCatalogState(catalogLoaded ? 'ready' : 'loading');
   };
   renderSelection();
   document.querySelector('#clear-elements')?.addEventListener('click', () => { selected.clear(); document.querySelectorAll('.element-cell.selected').forEach((button) => { button.classList.remove('selected'); button.setAttribute('aria-pressed', 'false'); }); updateUrl('elements', ''); renderSelection(); });
@@ -162,6 +190,7 @@
   });
 
   const loadDataset = async () => {
+    setCatalogState('loading');
     try {
       let records;
       try {
@@ -172,11 +201,23 @@
         records = null;
       }
       if (!records) {
-        const response = await fetch(DATA_URL);
-        if (!response.ok) throw new Error('数据文件读取失败');
-        records = await response.json();
+        let lastError = null;
+        for (const dataUrl of DATA_URLS) {
+          try {
+            const response = await fetch(dataUrl, { cache: 'no-store' });
+            if (!response.ok) { lastError = new Error('数据文件读取失败（' + response.status + '）'); continue; }
+            const payload = await response.json();
+            if (Array.isArray(payload) && payload.length) { records = payload; break; }
+            lastError = new Error('数据文件为空');
+          } catch (error) {
+            lastError = error;
+          }
+        }
+        if (!records) throw (lastError || new Error('数据文件读取失败'));
       }
       candidates = records.map(normalizeCandidate);
+      catalogLoaded = true;
+      catalogError = null;
       const total = document.querySelector('#dataset-total');
       const scored = document.querySelector('#candidate-total');
       const tags = document.querySelector('#tag-total');
@@ -185,7 +226,10 @@
       if (tags) tags.textContent = new Set(records.flatMap((item) => item.propertyTags || [])).size;
       renderSelection();
     } catch (error) {
-      showToast('数据暂时无法读取，请通过静态服务器打开页面。');
+      catalogLoaded = false;
+      catalogError = error;
+      renderSelection();
+      showToast('完整材料目录暂时无法读取，当前保留默认示例记录。');
     }
   };
   loadDataset();

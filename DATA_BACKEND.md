@@ -40,6 +40,22 @@ python fuyao/catalog_server.py --host 127.0.0.1 --port 8766
 - `GET /api/materials?elements=La,Mn&limit=12&sort=score-desc`：按元素、关键词、性质、评分和 E_hull 筛选；`include=full` 返回完整记录。
 - `GET /api/materials/<id>`：单条材料记录，同时返回 `structureUrl` 和 `reportUrl`。
 
+### 记录编号与 MP ID
+
+源数据统一使用 `id` 作为记录主键。记录本身不额外伪造一个 MP 编号：
+
+- `id` 为 `mp-数字` 的 130 条记录会在 API 中同时返回 `recordId`、`mpId` 和 `recordIdType: "materials-project"`。
+- WBM 扩展记录会保留自己的 `id`，并标记为 `recordIdType: "wbm"`；其他批次标记为 `catalog`。
+- `mpId` 对非 MP 记录为 `null`，因此可以明确区分“有 MP ID”和“只有本地目录 ID”。
+
+例如 `/api/materials/mp-675623` 返回的记录中包含：
+
+```json
+{"id":"mp-675623","recordId":"mp-675623","mpId":"mp-675623","recordIdType":"materials-project"}
+```
+
+`/api/catalog/meta` 和 `/api/health` 还会报告 `mpRecords` 与 `recordIdTypes`，便于同步后核对来源覆盖。
+
 服务会按材料 JSON 的修改时间自动重新载入索引，因此更新数据后不必改前端代码。首页优先请求 API，API 不可用时回退到静态 JSON，便于在暂时只有静态服务器的部署环境中预览。
 
 本地服务的入口是 [http://localhost:8766/homepage/](http://localhost:8766/homepage/)，API 健康检查是 [http://localhost:8766/api/health](http://localhost:8766/api/health)。本轮没有把文件或服务部署回 fuyao、cmsg 远端主机。

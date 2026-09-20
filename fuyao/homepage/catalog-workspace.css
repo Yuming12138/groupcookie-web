@@ -50,20 +50,21 @@
 }
 
 .periodic-wrap {
-  width: 100%;
+  width: min(100%, 980px);
+  margin-inline: auto;
   overflow-x: auto;
-  padding: 20px 18px 22px;
+  padding: 16px 16px 18px;
   border: 1px solid var(--line);
   border-radius: 6px;
   background: var(--surface);
   box-shadow: var(--shadow);
 }
 
-.periodic-toolbar { min-width: 860px; }
-.periodic-table { min-width: 860px; }
-.series-row { min-width: 860px; }
+.periodic-toolbar { min-width: 760px; }
+.periodic-table { min-width: 760px; gap: 4px; padding-bottom: 11px; }
+.series-row { min-width: 760px; }
 
-.periodic-toolbar { margin-bottom: 16px; }
+.periodic-toolbar { margin-bottom: 12px; }
 .legend { gap: 16px; font-size: 11px; }
 .table-note { font-size: 11px; }
 
@@ -190,7 +191,7 @@
 @media (max-width: 700px) {
   .intro { padding: 16px; width: 100%; }
   .workspace-section { width: calc(100% - 32px); padding-top: 20px; }
-  .periodic-wrap { margin-right: -16px; margin-left: -16px; border-right: 0; border-left: 0; border-radius: 0; }
+  .periodic-wrap { width: auto; margin-right: -16px; margin-left: -16px; border-right: 0; border-left: 0; border-radius: 0; }
   .selection-tools { justify-content: space-between; }
   .element-results { padding: 15px 14px 17px; }
   .result-foot { align-items: flex-start; flex-direction: column; gap: 8px; }
