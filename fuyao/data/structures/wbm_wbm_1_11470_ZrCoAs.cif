@@ -1,0 +1,38 @@
+# generated using pymatgen
+data_ZrCoAs
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   6.54058752
+_cell_length_b   3.84906427
+_cell_length_c   7.31543951
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   ZrCoAs
+_chemical_formula_sum   'Zr4 Co4 As4'
+_cell_volume   184.16722647
+_cell_formula_units_Z   4
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Zr  Zr0  1  0.01845990  0.25000000  0.31334458  1.0
+  Zr  Zr0  1  0.98154010  0.75000000  0.68665542  1.0
+  Zr  Zr0  1  0.48154010  0.75000000  0.81334458  1.0
+  Zr  Zr0  1  0.51845990  0.25000000  0.18665542  1.0
+  Co  Co1  1  0.13804925  0.25000000  0.93740691  1.0
+  Co  Co1  1  0.86195075  0.75000000  0.06259309  1.0
+  Co  Co1  1  0.36195075  0.75000000  0.43740691  1.0
+  Co  Co1  1  0.63804925  0.25000000  0.56259309  1.0
+  As  As2  1  0.22922209  0.75000000  0.11448477  1.0
+  As  As2  1  0.77077791  0.25000000  0.88551523  1.0
+  As  As2  1  0.27077791  0.25000000  0.61448477  1.0
+  As  As2  1  0.72922209  0.75000000  0.38551523  1.0

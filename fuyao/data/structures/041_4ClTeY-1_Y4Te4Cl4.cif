@@ -1,0 +1,38 @@
+# generated using pymatgen
+data_YTeCl
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   7.31667892
+_cell_length_b   8.34271362
+_cell_length_c   18.86232782
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   89.99989012
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   YTeCl
+_chemical_formula_sum   'Y4 Te4 Cl4'
+_cell_volume   1151.37453780
+_cell_formula_units_Z   4
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Y  Y1  1  0.50035458  0.50516205  0.49979511  1.0
+  Y  Y2  1  0.49964542  0.00516255  0.50020518  1.0
+  Y  Y3  1  0.00035462  0.50516200  0.50020489  1.0
+  Y  Y4  1  0.99964541  0.00516254  0.49979482  1.0
+  Te  Te1  1  0.74999440  0.75517754  0.57545660  1.0
+  Te  Te2  1  0.25000609  0.25517828  0.42454424  1.0
+  Te  Te3  1  0.24999439  0.75517751  0.42454341  1.0
+  Te  Te4  1  0.75000609  0.25517828  0.57545575  1.0
+  Cl  Cl1  1  0.24924158  0.00519306  0.60186818  1.0
+  Cl  Cl2  1  0.75075791  0.50519641  0.39813198  1.0
+  Cl  Cl3  1  0.74924157  0.00519306  0.39813183  1.0
+  Cl  Cl4  1  0.25075791  0.50519647  0.60186801  1.0

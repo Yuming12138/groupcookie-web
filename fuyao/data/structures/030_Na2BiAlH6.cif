@@ -1,0 +1,36 @@
+# generated using pymatgen
+data_Na2AlBiH6
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   6.28139600
+_cell_length_b   6.75963300
+_cell_length_c   5.43876600
+_cell_angle_alpha   66.30827300
+_cell_angle_beta   58.69361100
+_cell_angle_gamma   50.33899700
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Na2AlBiH6
+_chemical_formula_sum   'Na2 Al1 Bi1 H6'
+_cell_volume   151.02631725
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Na  Na1  1  0.92300000  0.59300000  0.56000000  1.0
+  Na  Na2  1  0.38600000  0.15300000  0.96230000  1.0
+  Al  Al4  1  0.11500000  0.95130000  0.77500000  1.0
+  Bi  Bi3  1  0.71000000  0.24500000  0.24000000  1.0
+  H  H5  1  0.65500000  0.80500000  0.25100000  1.0
+  H  H6  1  0.09960000  0.15000000  0.47500000  1.0
+  H  H7  1  0.66300000  0.69300000  0.23200000  1.0
+  H  H8  1  0.42700000  0.83600000  0.79600000  1.0
+  H  H9  1  0.39600000  0.41900000  0.12000000  1.0
+  H  H10  1  0.09400000  0.72600000  0.75800000  1.0

@@ -1,0 +1,36 @@
+# generated using pymatgen
+data_Na2LiMoO6
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.42182800
+_cell_length_b   6.06419900
+_cell_length_c   6.87463800
+_cell_angle_alpha   49.43030500
+_cell_angle_beta   89.17164600
+_cell_angle_gamma   73.05660200
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Na2LiMoO6
+_chemical_formula_sum   'Na2 Li1 Mo1 O6'
+_cell_volume   159.40547128
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Na  Na1  1  0.70800000  0.64200000  0.77000000  1.0
+  Na  Na2  1  0.20900000  0.14600000  0.26400000  1.0
+  Li  Li3  1  0.53000000  0.40200000  0.44300000  1.0
+  Mo  Mo4  1  0.12400000  0.98080000  0.85000000  1.0
+  O  O5  1  0.69000000  0.04000000  0.29900000  1.0
+  O  O6  1  0.27800000  0.84300000  0.15600000  1.0
+  O  O7  1  0.72500000  0.28800000  0.25100000  1.0
+  O  O8  1  0.34100000  0.10200000  0.62900000  1.0
+  O  O9  1  0.81500000  0.29800000  0.70200000  1.0
+  O  O10  1  0.07700000  0.67200000  0.89900000  1.0

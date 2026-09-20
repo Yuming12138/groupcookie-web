@@ -1,0 +1,34 @@
+# generated using pymatgen
+data_K3MnS4
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   6.26250904
+_cell_length_b   6.26320408
+_cell_length_c   7.33276742
+_cell_angle_alpha   110.70168270
+_cell_angle_beta   110.69695979
+_cell_angle_gamma   99.78675816
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   K3MnS4
+_chemical_formula_sum   'K3 Mn1 S4'
+_cell_volume   236.95760613
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  K  K1  1  0.48228176  0.16866025  0.34317052  1.0
+  K  K2  1  0.35118023  0.53734014  0.84344533  1.0
+  K  K3  1  0.98246727  0.66844599  0.34314618  1.0
+  Mn  Mn1  1  0.84468036  0.03081644  0.84306052  1.0
+  S  S1  1  0.82642534  0.35797509  0.84298694  1.0
+  S  S2  1  0.17188761  0.01258344  0.84298910  1.0
+  S  S3  1  0.87118307  0.05733340  0.15112229  1.0
+  S  S4  1  0.56339616  0.74953847  0.53543213  1.0

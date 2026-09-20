@@ -1,0 +1,36 @@
+# generated using pymatgen
+data_Zr3RhO
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   3.38208277
+_cell_length_b   5.86883265
+_cell_length_c   8.99649754
+_cell_angle_alpha   90.00002512
+_cell_angle_beta   90.00000912
+_cell_angle_gamma   106.75271196
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Zr3RhO
+_chemical_formula_sum   'Zr6 Rh2 O2'
+_cell_volume   170.99144585
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Zr  Zr4  1  0.05693962  0.11525804  0.25000008  1.0
+  Zr  Zr5  1  0.94306112  0.88474103  0.75000017  1.0
+  Zr  Zr6  1  0.36515379  0.73092262  0.05741039  1.0
+  Zr  Zr7  1  0.63484708  0.26907670  0.94258975  1.0
+  Zr  Zr8  1  0.63484694  0.26907644  0.55741042  1.0
+  Zr  Zr9  1  0.36515375  0.73092255  0.44258983  1.0
+  Rh  Rh0  1  0.75271271  0.50492031  0.25000011  1.0
+  Rh  Rh1  1  0.24728810  0.49507891  0.75000003  1.0
+  O  O2  1  0.00000039  0.99999961  0.50000017  1.0
+  O  O3  1  0.00000050  0.99999979  0.00000006  1.0

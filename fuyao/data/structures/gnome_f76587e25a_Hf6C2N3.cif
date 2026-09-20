@@ -1,0 +1,37 @@
+# generated using pymatgen
+data_Hf6C2N3
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.62110064
+_cell_length_b   5.62110167
+_cell_length_c   5.59501900
+_cell_angle_alpha   99.65186484
+_cell_angle_beta   99.65186942
+_cell_angle_gamma   119.90388397
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Hf6C2N3
+_chemical_formula_sum   'Hf6 C2 N3'
+_cell_volume   144.40196597
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Hf  Hf0  1  0.43049500  0.08345200  0.25215400  1.0
+  Hf  Hf1  1  0.08345200  0.43049500  0.25215400  1.0
+  Hf  Hf2  1  0.73998000  0.73998000  0.26336700  1.0
+  Hf  Hf3  1  0.26002100  0.26002100  0.73663300  1.0
+  Hf  Hf4  1  0.91654800  0.56950500  0.74784400  1.0
+  Hf  Hf5  1  0.56950500  0.91654800  0.74784400  1.0
+  C  C6  1  0.83291700  0.16708200  0.50000000  1.0
+  C  C7  1  0.16708200  0.83291700  0.50000000  1.0
+  N  N8  1  0.66690000  0.33309900  0.00000000  1.0
+  N  N9  1  0.33309900  0.66690000  0.00000000  1.0
+  N  N10  1  0.49999900  0.49999900  0.50000000  1.0

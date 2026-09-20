@@ -1,0 +1,36 @@
+# generated using pymatgen
+data_NdWN3
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   3.84502385
+_cell_length_b   5.89646180
+_cell_length_c   8.11719282
+_cell_angle_alpha   111.30492982
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   NdWN3
+_chemical_formula_sum   'Nd2 W2 N6'
+_cell_volume   171.45644922
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Nd  Nd0  1  0.75000000  0.07196298  0.60916719  1.0
+  Nd  Nd1  1  0.25000000  0.46277840  0.39083215  1.0
+  W  W2  1  0.25000000  0.67834910  0.82012382  1.0
+  W  W3  1  0.75000000  0.85819934  0.17987715  1.0
+  N  N4  1  0.75000000  0.17676766  0.33918837  1.0
+  N  N5  1  0.75000000  0.71790543  0.89717937  1.0
+  N  N6  1  0.25000000  0.82062852  0.10282039  1.0
+  N  N7  1  0.25000000  0.35912940  0.66211290  1.0
+  N  N8  1  0.25000000  0.83761563  0.66083063  1.0
+  N  N9  1  0.75000000  0.69698355  0.33786805  1.0

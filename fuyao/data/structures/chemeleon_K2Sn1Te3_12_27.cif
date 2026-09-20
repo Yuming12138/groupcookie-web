@@ -1,0 +1,38 @@
+# generated using pymatgen
+data_K2SnTe3
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   7.33225962
+_cell_length_b   10.06413673
+_cell_length_c   7.98550381
+_cell_angle_alpha   103.10091771
+_cell_angle_beta   109.92546713
+_cell_angle_gamma   77.49120892
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   K2SnTe3
+_chemical_formula_sum   'K4 Sn2 Te6'
+_cell_volume   533.29393610
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  K  K1  1  0.97207977  0.38426703  0.71843111  1.0
+  K  K2  1  0.64783891  0.06142058  0.68412171  1.0
+  K  K3  1  0.47402083  0.79143068  0.01317117  1.0
+  K  K4  1  0.14592022  0.65425848  0.38938077  1.0
+  Sn  Sn1  1  0.95584435  0.04759796  0.25609302  1.0
+  Sn  Sn2  1  0.66409042  0.39809236  0.14646360  1.0
+  Te  Te1  1  0.55744380  0.16441165  0.22176749  1.0
+  Te  Te2  1  0.48191282  0.43501002  0.79650838  1.0
+  Te  Te3  1  0.06249166  0.28127952  0.18079139  1.0
+  Te  Te4  1  0.66210434  0.62181799  0.41451818  1.0
+  Te  Te5  1  0.13801275  0.01067720  0.60604886  1.0
+  Te  Te6  1  0.95783358  0.82387446  0.98803639  1.0

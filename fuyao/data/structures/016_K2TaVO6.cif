@@ -1,0 +1,36 @@
+# generated using pymatgen
+data_K2TaVO6
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   6.25283900
+_cell_length_b   6.24514100
+_cell_length_c   5.33067900
+_cell_angle_alpha   64.65491500
+_cell_angle_beta   64.51062000
+_cell_angle_gamma   50.53113600
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   K2TaVO6
+_chemical_formula_sum   'K2 Ta1 V1 O6'
+_cell_volume   141.44272010
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  K  K1  1  0.77900000  0.78200000  0.71800000  1.0
+  K  K2  1  0.27900000  0.28200000  0.21700000  1.0
+  Ta  Ta3  1  0.53000000  0.53000000  0.47000000  1.0
+  V  V4  1  0.03070000  0.02900000  0.97080000  1.0
+  O  O5  1  0.71100000  0.71100000  0.28800000  1.0
+  O  O6  1  0.22600000  0.74900000  0.25100000  1.0
+  O  O7  1  0.73800000  0.23700000  0.24900000  1.0
+  O  O8  1  0.19600000  0.19700000  0.80100000  1.0
+  O  O9  1  0.73700000  0.23600000  0.76600000  1.0
+  O  O10  1  0.22200000  0.75200000  0.76300000  1.0

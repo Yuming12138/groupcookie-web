@@ -1,0 +1,25 @@
+{
+  "syncedAt": "2026-07-21T10:10:09.971990+08:00",
+  "existingRecords": 1188,
+  "newRecords": 234,
+  "totalRecords": 1422,
+  "publicReports": 234,
+  "sourceBatchCounts": {
+    "7.20": 234
+  },
+  "sourcePaperCounts": {
+    "Data-Driven Crystal Structure Prediction for Ternary Metal Chalcogenides": 234
+  },
+  "scoreMinimum": 67.0,
+  "scoreMaximum": 93.0,
+  "scoreAverage": 81.20555555555555,
+  "siteJson": "/home/fuyao/my-website/data/mp300_materials.json",
+  "backupJson": "/home/fuyao/my-website/data/mp300_materials_1188_backup_20260721a.json",
+  "publicReportsDir": "/home/fuyao/my-website/data/unsynthesized_reports_20260721a",
+  "publicUrl": "http://groupcookie.com/",
+  "publicDeploymentVerified": true,
+  "publicTotalRecords": 1422,
+  "publicNewRecords": 234,
+  "publicBackup": "/var/www/steel-yield-explorer-backup-20260721101639-before-mp1422",
+  "verifiedAt": "2026-07-21T10:17:41+08:00"
+}

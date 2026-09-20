@@ -1,0 +1,40 @@
+# generated using pymatgen
+data_K3GaS3
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   7.63439416
+_cell_length_b   7.79643115
+_cell_length_c   7.80576844
+_cell_angle_alpha   113.84698002
+_cell_angle_beta   96.30863221
+_cell_angle_gamma   96.25611346
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   K3GaS3
+_chemical_formula_sum   'K6 Ga2 S6'
+_cell_volume   416.31341270
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  K  K1  1  0.45281751  0.69929846  0.32050666  1.0
+  K  K2  1  0.80576193  0.06404156  0.17525634  1.0
+  K  K3  1  0.30678001  0.49036953  0.74992851  1.0
+  K  K4  1  0.30579436  0.12845079  0.10954021  1.0
+  K  K5  1  0.16036719  0.91988287  0.53934148  1.0
+  K  K6  1  0.80714060  0.55525138  0.68415847  1.0
+  Ga  Ga1  1  0.65769528  0.14015729  0.76009232  1.0
+  Ga  Ga2  1  0.95472145  0.47888383  0.09944324  1.0
+  S  S1  1  0.97470370  0.20459131  0.82488073  1.0
+  S  S2  1  0.07862634  0.46033851  0.36795889  1.0
+  S  S3  1  0.53353023  0.15927400  0.49198569  1.0
+  S  S4  1  0.63768763  0.41432270  0.03462097  1.0
+  S  S5  1  0.53396544  0.87138939  0.77863571  1.0
+  S  S6  1  0.07895780  0.74733641  0.08065901  1.0

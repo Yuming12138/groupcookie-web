@@ -1,0 +1,29 @@
+# generated using pymatgen
+data_BiTeBr
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.37176527
+_cell_length_b   4.37591681
+_cell_length_c   7.44329697
+_cell_angle_alpha   72.76966419
+_cell_angle_beta   72.83734722
+_cell_angle_gamma   59.98698593
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   BiTeBr
+_chemical_formula_sum   'Bi1 Te1 Br1'
+_cell_volume   115.89390431
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Bi  Bi1  1  0.30478174  0.63918303  0.31927715  1.0
+  Te  Te1  1  0.05425224  0.38954060  0.07118965  1.0
+  Br  Br1  1  0.55027123  0.88493726  0.58045946  1.0

@@ -1,0 +1,36 @@
+# generated using pymatgen
+data_SrLaTeIrO6
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   6.91199600
+_cell_length_b   6.80029900
+_cell_length_c   6.67805000
+_cell_angle_alpha   41.42067300
+_cell_angle_beta   56.57505400
+_cell_angle_gamma   52.77258300
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   SrLaTeIrO6
+_chemical_formula_sum   'Sr1 La1 Te1 Ir1 O6'
+_cell_volume   162.51357150
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Sr  Sr1  1  0.83004900  0.03664700  0.16596300  1.0
+  La  La2  1  0.15450100  0.17266100  0.42849900  1.0
+  Te  Te4  1  0.27643800  0.39562200  0.69028200  1.0
+  Ir  Ir3  1  0.68845700  0.71258500  0.05832700  1.0
+  O  O5  1  0.00439500  0.45865400  0.58789800  1.0
+  O  O6  1  0.52735600  0.37734900  0.34132100  1.0
+  O  O7  1  0.97751800  0.32186700  0.10548400  1.0
+  O  O8  1  0.49557000  0.10791100  0.03955400  1.0
+  O  O9  1  0.36390100  0.94099200  0.91341200  1.0
+  O  O10  1  0.97851600  0.80173400  0.92754900  1.0

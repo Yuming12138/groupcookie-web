@@ -1,0 +1,36 @@
+# generated using pymatgen
+data_Sr2LuReO6
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.84821500
+_cell_length_b   5.81061600
+_cell_length_c   5.80766200
+_cell_angle_alpha   59.62648800
+_cell_angle_beta   59.32902100
+_cell_angle_gamma   59.12303900
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Sr2LuReO6
+_chemical_formula_sum   'Sr2 Lu1 Re1 O6'
+_cell_volume   137.51070092
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Sr  Sr1  1  0.75100000  0.76000000  0.74100000  1.0
+  Sr  Sr2  1  0.26500000  0.26400000  0.24700000  1.0
+  Lu  Lu3  1  0.50800000  0.51200000  0.49400000  1.0
+  Re  Re4  1  0.00819000  0.01220000  0.99400000  1.0
+  O  O5  1  0.73500000  0.81000000  0.27400000  1.0
+  O  O6  1  0.29000000  0.73200000  0.18700000  1.0
+  O  O7  1  0.84800000  0.24300000  0.23400000  1.0
+  O  O8  1  0.28100000  0.21500000  0.71400000  1.0
+  O  O9  1  0.72700000  0.29200000  0.80100000  1.0
+  O  O10  1  0.16900000  0.78200000  0.75400000  1.0

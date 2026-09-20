@@ -1,0 +1,38 @@
+# generated using pymatgen
+data_NaInAu
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.58291449
+_cell_length_b   7.46081312
+_cell_length_c   8.43405959
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   NaInAu
+_chemical_formula_sum   'Na4 In4 Au4'
+_cell_volume   288.37963051
+_cell_formula_units_Z   4
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Na  Na0  1  0.50000000  0.02115092  0.17465876  1.0
+  Na  Na1  1  0.50000000  0.52115092  0.32534124  1.0
+  Na  Na2  1  0.00000000  0.47884908  0.67465876  1.0
+  Na  Na3  1  0.00000000  0.97884908  0.82534124  1.0
+  In  In8  1  0.50000000  0.65485392  0.93701412  1.0
+  In  In9  1  0.50000000  0.15485392  0.56298588  1.0
+  In  In10  1  0.00000000  0.84514608  0.43701412  1.0
+  In  In11  1  0.00000000  0.34514608  0.06298588  1.0
+  Au  Au4  1  0.00000000  0.72378612  0.12391866  1.0
+  Au  Au5  1  0.50000000  0.27621388  0.87608134  1.0
+  Au  Au6  1  0.50000000  0.77621388  0.62391866  1.0
+  Au  Au7  1  0.00000000  0.22378612  0.37608134  1.0

@@ -74,19 +74,28 @@
   });
   renderSeries('#lanthanides', lanthanides); renderSeries('#actinides', actinides);
 
-  const resultList = document.querySelector('#element-result-list');
+  const resultBody = document.querySelector('#element-result-body');
+  const resultMode = document.querySelector('#element-result-mode');
+  const resultNote = document.querySelector('#element-result-note');
+  const formatEhull = (value) => Number.isFinite(Number(value)) ? (Number(value) * 1000).toFixed(0) + ' meV/atom' : '—';
+  const formatTags = (candidate) => {
+    const tags = Array.isArray(candidate.propertyTags) ? candidate.propertyTags.filter(Boolean).slice(0, 3) : [];
+    return tags.length ? tags.join(' · ') : '未标注';
+  };
   const renderSelection = () => {
     const symbols = [...selected];
     const selectionSummary = document.querySelector('#selection-summary');
     if (selectionSummary) selectionSummary.textContent = symbols.length ? symbols.join(' + ') : '未选择元素';
-    const matches = symbols.length ? candidates.filter((candidate) => symbols.every((symbol) => (candidate.elements || []).includes(symbol))).sort((a, b) => Number(b.score || 0) - Number(a.score || 0)) : [];
+    const matches = candidates.filter((candidate) => !symbols.length || symbols.every((symbol) => (candidate.elements || []).includes(symbol))).sort((a, b) => Number(b.score || 0) - Number(a.score || 0));
     const resultCount = document.querySelector('#element-result-count');
     if (resultCount) resultCount.textContent = matches.length;
-    if (!resultList) return;
+    if (resultMode) resultMode.textContent = symbols.length ? '包含 ' + symbols.join(' · ') : '评分靠前记录';
+    if (resultNote) resultNote.textContent = symbols.length ? '结果需同时包含所选元素；当前展示前 6 条。' : '默认展示评分靠前的记录；选择元素后更新结果。';
+    if (!resultBody) return;
     if (!matches.length) {
-      resultList.innerHTML = '<p class="empty-result">' + (symbols.length ? '当前数据中没有同时包含所选元素的候选相。' : '选择一个或多个元素，显示数据库中的候选相。') + '</p>';
+      resultBody.innerHTML = '<tr><td colspan="6"><p class="empty-result">' + (symbols.length ? '当前数据中没有同时包含所选元素的候选相。' : '材料记录暂时无法读取。') + '</p></td></tr>';
     } else {
-      resultList.innerHTML = matches.slice(0, 3).map((candidate) => '<a class="result-item" href="../material-detail/index.html?id=' + encodeURIComponent(candidate.id) + '"><strong>' + escapeHtml(candidate.formula) + '</strong><span class="result-score">' + escapeHtml(candidate.score ?? '—') + '</span><small>' + escapeHtml(candidate.name) + '</small></a>').join('');
+      resultBody.innerHTML = matches.slice(0, 6).map((candidate) => '<tr><td><a class="result-material" href="../material-detail/index.html?id=' + encodeURIComponent(candidate.id) + '"><strong>' + escapeHtml(candidate.formula) + '</strong><span>' + escapeHtml(candidate.id) + '</span></a></td><td>' + escapeHtml(candidate.spacegroup || '—') + '</td><td class="result-number">' + escapeHtml(formatEhull(candidate.eHull)) + '</td><td class="result-score">' + escapeHtml(candidate.score ?? '—') + '</td><td class="result-properties">' + escapeHtml(formatTags(candidate)) + '</td><td class="result-detail"><a href="../material-detail/index.html?id=' + encodeURIComponent(candidate.id) + '">查看 <span aria-hidden="true">↗</span></a></td></tr>').join('');
     }
   };
   renderSelection();
@@ -154,9 +163,19 @@
 
   const loadDataset = async () => {
     try {
-      const response = await fetch(DATA_URL);
-      if (!response.ok) throw new Error('数据文件读取失败');
-      const records = await response.json();
+      let records;
+      try {
+        const apiResponse = await fetch('/api/materials?limit=5000&include=full', { cache: 'no-store' });
+        const apiPayload = apiResponse.ok ? await apiResponse.json() : null;
+        records = Array.isArray(apiPayload?.data) && apiPayload.data.length ? apiPayload.data : null;
+      } catch (_apiError) {
+        records = null;
+      }
+      if (!records) {
+        const response = await fetch(DATA_URL);
+        if (!response.ok) throw new Error('数据文件读取失败');
+        records = await response.json();
+      }
       candidates = records.map(normalizeCandidate);
       const total = document.querySelector('#dataset-total');
       const scored = document.querySelector('#candidate-total');

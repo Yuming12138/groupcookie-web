@@ -1,0 +1,36 @@
+# generated using pymatgen
+data_NaMgTaTeO6
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   7.03129400
+_cell_length_b   7.50985500
+_cell_length_c   7.00406000
+_cell_angle_alpha   46.86945000
+_cell_angle_beta   47.20047800
+_cell_angle_gamma   46.23996000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   NaMgTaTeO6
+_chemical_formula_sum   'Na1 Mg1 Ta1 Te1 O6'
+_cell_volume   179.34383570
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Na  Na1  1  0.17607400  0.42572600  0.14192400  1.0
+  Mg  Mg3  1  0.75244600  0.00223200  0.80145100  1.0
+  Ta  Ta2  1  0.50566700  0.44676000  0.37155000  1.0
+  Te  Te4  1  0.01917100  0.02041200  0.07429900  1.0
+  O  O5  1  0.01442100  0.90727300  0.90191900  1.0
+  O  O6  1  0.60972700  0.72587500  0.10574600  1.0
+  O  O7  1  0.88929600  0.14116900  0.38160600  1.0
+  O  O8  1  0.40119800  0.35626000  0.74390200  1.0
+  O  O9  1  0.59855300  0.23765300  0.20460500  1.0
+  O  O10  1  0.11601900  0.64694600  0.36795500  1.0

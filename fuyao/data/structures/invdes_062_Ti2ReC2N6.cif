@@ -1,0 +1,37 @@
+# generated using pymatgen
+data_Ti2Re(CN3)2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.85993000
+_cell_length_b   7.13071000
+_cell_length_c   9.19715000
+_cell_angle_alpha   99.35110000
+_cell_angle_beta   74.75780000
+_cell_angle_gamma   47.99130000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Ti2Re(CN3)2
+_chemical_formula_sum   'Ti2 Re1 C2 N6'
+_cell_volume   242.88082208
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Ti  Ti1  1  0.21175000  0.73819000  0.14693000  1.0
+  Ti  Ti2  1  0.66061000  0.79298000  0.17695000  1.0
+  Re  Re1  1  0.97313000  0.24008000  0.05018000  1.0
+  C  C1  1  0.45397000  0.31382000  0.95181000  1.0
+  C  C2  1  0.17230000  0.37699000  0.98316000  1.0
+  N  N1  1  0.27087000  0.98712000  0.11716000  1.0
+  N  N2  1  0.00412000  0.60433000  0.57065000  1.0
+  N  N3  1  0.77057000  0.93199000  0.29027000  1.0
+  N  N4  1  0.94605000  0.50771000  0.63097000  1.0
+  N  N5  1  0.70560000  0.26954000  0.93316000  1.0
+  N  N6  1  0.54622000  0.59792000  0.23850000  1.0

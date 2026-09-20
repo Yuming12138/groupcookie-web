@@ -75,9 +75,123 @@
   box-shadow: none;
 }
 
+.result-table-wrap {
+  overflow-x: auto;
+}
+
+.result-table {
+  width: 100%;
+  min-width: 760px;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 12px;
+}
+
+.result-table th,
+.result-table td {
+  padding: 12px 10px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: middle;
+}
+
+.result-table th {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .02em;
+  white-space: nowrap;
+}
+
+.result-table th:nth-child(1) { width: 24%; }
+.result-table th:nth-child(2) { width: 15%; }
+.result-table th:nth-child(3) { width: 15%; }
+.result-table th:nth-child(4) { width: 9%; }
+.result-table th:nth-child(5) { width: 27%; }
+.result-table th:nth-child(6) { width: 10%; }
+
+.result-table tbody tr {
+  transition: background-color 130ms ease-out;
+}
+
+.result-table tbody tr:hover {
+  background: #f6f8fa;
+}
+
+.result-material {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.result-material strong {
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.result-material span,
+.result-properties {
+  overflow: hidden;
+  color: var(--muted);
+  font-size: 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.result-material:hover strong,
+.result-detail a:hover {
+  color: var(--teal);
+}
+
+.result-number,
+.result-score {
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.result-score {
+  color: var(--teal);
+  font-size: 14px;
+}
+
+.result-detail a {
+  color: var(--teal);
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.result-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 13px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.result-foot a {
+  flex: 0 0 auto;
+  color: var(--teal);
+  font-weight: 700;
+}
+
+.result-foot a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+.result-table .empty-result {
+  min-height: 92px;
+  margin: 0;
+  padding: 28px 3px;
+}
+
 @media (max-width: 700px) {
   .intro { padding: 16px; width: 100%; }
   .workspace-section { width: calc(100% - 32px); padding-top: 20px; }
   .periodic-wrap { margin-right: -16px; margin-left: -16px; border-right: 0; border-left: 0; border-radius: 0; }
   .selection-tools { justify-content: space-between; }
+  .element-results { padding: 15px 14px 17px; }
+  .result-foot { align-items: flex-start; flex-direction: column; gap: 8px; }
 }

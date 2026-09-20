@@ -1,0 +1,36 @@
+# generated using pymatgen
+data_K2TaInO6
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   6.48329400
+_cell_length_b   6.08973400
+_cell_length_c   5.78160300
+_cell_angle_alpha   62.70769500
+_cell_angle_beta   59.22942700
+_cell_angle_gamma   54.57739300
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   K2TaInO6
+_chemical_formula_sum   'K2 Ta1 In1 O6'
+_cell_volume   155.49066499
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  K  K1  1  0.73800000  0.75000000  0.76500000  1.0
+  K  K2  1  0.25500000  0.23600000  0.24500000  1.0
+  Ta  Ta3  1  0.56100000  0.50800000  0.49100000  1.0
+  In  In4  1  0.95990000  0.97270000  0.02700000  1.0
+  O  O5  1  0.75300000  0.72900000  0.27200000  1.0
+  O  O6  1  0.26000000  0.68900000  0.31300000  1.0
+  O  O7  1  0.81200000  0.27600000  0.21400000  1.0
+  O  O8  1  0.25700000  0.44100000  0.55600000  1.0
+  O  O9  1  0.70800000  0.22700000  0.76800000  1.0
+  O  O10  1  0.30300000  0.77900000  0.72900000  1.0

@@ -1,0 +1,36 @@
+# generated using pymatgen
+data_NaLaBiTeO6
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.76962900
+_cell_length_b   6.70252700
+_cell_length_c   6.36947000
+_cell_angle_alpha   73.38765000
+_cell_angle_beta   68.09906800
+_cell_angle_gamma   70.13110400
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   NaLaBiTeO6
+_chemical_formula_sum   'Na1 La1 Bi1 Te1 O6'
+_cell_volume   174.70186058
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Na  Na1  1  0.91183000  0.63857500  0.45549300  1.0
+  La  La2  1  0.18656700  0.01683900  0.51798400  1.0
+  Bi  Bi3  1  0.57664500  0.71685700  0.00594800  1.0
+  Te  Te4  1  0.37448000  0.33628500  0.75673600  1.0
+  O  O5  1  0.21222300  0.65481100  0.75825700  1.0
+  O  O6  1  0.14427100  0.90245300  0.20841300  1.0
+  O  O7  1  0.60459500  0.95866000  0.69886600  1.0
+  O  O8  1  0.80074100  0.33028100  0.69415800  1.0
+  O  O9  1  0.65123200  0.88743700  0.21036400  1.0
+  O  O10  1  0.38678400  0.35957100  0.44630700  1.0

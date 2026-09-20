@@ -1,0 +1,42 @@
+# generated using pymatgen
+data_AlSe2Cl
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.89992300
+_cell_length_b   6.11024200
+_cell_length_c   10.51036200
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   AlSe2Cl
+_chemical_formula_sum   'Al4 Se8 Cl4'
+_cell_volume   378.89810143
+_cell_formula_units_Z   4
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Al  Al0  1  0.24150717  0.52140225  0.29414082  1.0
+  Al  Al0  1  0.25849283  0.47859775  0.79414082  1.0
+  Al  Al0  1  0.74150717  0.97859775  0.70585918  1.0
+  Al  Al0  1  0.75849283  0.02140225  0.20585918  1.0
+  Se  Se1  1  0.13187037  0.10259938  0.31534257  1.0
+  Se  Se1  1  0.36812963  0.89740062  0.81534257  1.0
+  Se  Se1  1  0.63187037  0.39740062  0.68465743  1.0
+  Se  Se1  1  0.86812963  0.60259938  0.18465743  1.0
+  Se  Se2  1  0.14572539  0.11788446  0.68185958  1.0
+  Se  Se2  1  0.35427461  0.88211554  0.18185958  1.0
+  Se  Se2  1  0.64572539  0.38211554  0.31814042  1.0
+  Se  Se2  1  0.85427461  0.61788446  0.81814042  1.0
+  Cl  Cl3  1  0.16228089  0.59613390  0.49044781  1.0
+  Cl  Cl3  1  0.33771911  0.40386610  0.99044781  1.0
+  Cl  Cl3  1  0.66228089  0.90386610  0.50955219  1.0
+  Cl  Cl3  1  0.83771911  0.09613390  0.00955219  1.0

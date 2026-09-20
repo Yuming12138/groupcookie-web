@@ -1,0 +1,22 @@
+{
+  "syncedAt": "2026-07-27T11:02:18.737826+08:00",
+  "existingRecords": 1662,
+  "newRecords": 132,
+  "totalRecords": 1794,
+  "publicReports": 132,
+  "knownEhullRecords": 132,
+  "sourceBatchCounts": {
+    "7.26-2": 132
+  },
+  "sourcePaperCounts": {
+    "Accelerating Discovery of Ternary Chiral Materials via Large-Scale Random Crystal Structure Prediction": 132
+  },
+  "ehullMinimum": 0.0,
+  "ehullMaximum": 0.199,
+  "scoreMinimum": 57.0,
+  "scoreMaximum": 89.0,
+  "scoreAverage": 72.26515151515152,
+  "siteJson": "/home/fuyao/my-website/data/mp300_materials.json",
+  "backupJson": "/home/fuyao/my-website/data/mp300_materials_1662_backup_20260727a.json",
+  "publicReportsDir": "/home/fuyao/my-website/data/unsynthesized_reports_20260727a"
+}

@@ -1,0 +1,40 @@
+# generated using pymatgen
+data_Cu2B2Rh3
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.05179079
+_cell_length_b   4.79540113
+_cell_length_c   6.67906923
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   95.75176720
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Cu2B2Rh3
+_chemical_formula_sum   'Cu4 B4 Rh6'
+_cell_volume   160.98827005
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Cu  Cu0  1  0.14292537  0.93076184  0.04536651  1.0
+  Cu  Cu0  1  0.85707463  0.43076184  0.95463349  1.0
+  Cu  Cu1  1  0.17152460  0.21448709  0.75215776  1.0
+  Cu  Cu1  1  0.82847540  0.71448709  0.24784224  1.0
+  B  B2  1  0.22537208  0.60451401  0.37851032  1.0
+  B  B2  1  0.77462792  0.10451401  0.62148968  1.0
+  B  B3  1  0.32490665  0.61921023  0.84484091  1.0
+  B  B3  1  0.67509335  0.11921023  0.15515909  1.0
+  Rh  Rh4  1  0.02583060  0.72909146  0.62827957  1.0
+  Rh  Rh4  1  0.97416940  0.22909146  0.37172043  1.0
+  Rh  Rh5  1  0.38713683  0.44307469  0.12617845  1.0
+  Rh  Rh5  1  0.61286317  0.94307469  0.87382155  1.0
+  Rh  Rh6  1  0.46319590  0.97708885  0.39755087  1.0
+  Rh  Rh6  1  0.53680410  0.47708885  0.60244913  1.0

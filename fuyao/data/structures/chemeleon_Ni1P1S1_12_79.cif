@@ -1,0 +1,38 @@
+# generated using pymatgen
+data_NiPS
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.54885961
+_cell_length_b   5.57585540
+_cell_length_c   5.57225762
+_cell_angle_alpha   89.96066435
+_cell_angle_beta   90.00877891
+_cell_angle_gamma   89.98954302
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   NiPS
+_chemical_formula_sum   'Ni4 P4 S4'
+_cell_volume   172.40359252
+_cell_formula_units_Z   4
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Ni  Ni1  1  0.95432678  0.47804815  0.83036621  1.0
+  Ni  Ni2  1  0.95427667  0.96346900  0.33030363  1.0
+  Ni  Ni3  1  0.45430928  0.96340920  0.81281660  1.0
+  Ni  Ni4  1  0.45429371  0.47800282  0.31293619  1.0
+  P  P1  1  0.56914119  0.58668224  0.93158377  1.0
+  P  P2  1  0.56915239  0.85470720  0.43158402  1.0
+  P  P3  1  0.06911601  0.58675021  0.21163287  1.0
+  P  P4  1  0.06917330  0.85479613  0.71164692  1.0
+  S  S1  1  0.84702238  0.08059264  0.93327476  1.0
+  S  S2  1  0.34704122  0.08067918  0.20985256  1.0
+  S  S3  1  0.84705377  0.36079246  0.43332492  1.0
+  S  S4  1  0.34704483  0.36085162  0.70991349  1.0

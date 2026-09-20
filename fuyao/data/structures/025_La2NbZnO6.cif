@@ -1,0 +1,36 @@
+# generated using pymatgen
+data_La2NbZnO6
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.35196600
+_cell_length_b   5.37065200
+_cell_length_c   4.99190600
+_cell_angle_alpha   90.30579400
+_cell_angle_beta   90.36637900
+_cell_angle_gamma   85.06195100
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   La2NbZnO6
+_chemical_formula_sum   'La2 Nb1 Zn1 O6'
+_cell_volume   142.94794564
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  La  La1  1  0.90000000  0.58300000  0.54000000  1.0
+  La  La2  1  0.39000000  0.09440000  0.54100000  1.0
+  Nb  Nb3  1  0.39900000  0.59300000  0.00493000  1.0
+  Zn  Zn4  1  0.89900000  0.09250000  0.03810000  1.0
+  O  O5  1  0.64700000  0.84100000  0.16900000  1.0
+  O  O6  1  0.16000000  0.35400000  0.89500000  1.0
+  O  O7  1  0.35400000  0.54600000  0.39000000  1.0
+  O  O8  1  0.65200000  0.35300000  0.85000000  1.0
+  O  O9  1  0.96900000  0.16300000  0.41400000  1.0
+  O  O10  1  0.15900000  0.84500000  0.84900000  1.0

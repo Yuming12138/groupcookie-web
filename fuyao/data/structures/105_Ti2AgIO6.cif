@@ -1,0 +1,36 @@
+# generated using pymatgen
+data_Ti2AgIO6
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.97972000
+_cell_length_b   5.55253200
+_cell_length_c   5.76554900
+_cell_angle_alpha   83.46374500
+_cell_angle_beta   91.95599400
+_cell_angle_gamma   85.16579400
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Ti2AgIO6
+_chemical_formula_sum   'Ti2 Ag1 I1 O6'
+_cell_volume   189.32535597
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Ti  Ti1  1  0.57300000  0.73300000  0.04000000  1.0
+  Ti  Ti2  1  0.50500000  0.19300000  0.40900000  1.0
+  Ag  Ag3  1  0.03210000  0.40100000  0.21100000  1.0
+  I  I4  1  0.03710000  0.90420000  0.72400000  1.0
+  O  O5  1  0.86600000  0.65500000  0.94350000  1.0
+  O  O6  1  0.55600000  0.02000000  0.15800000  1.0
+  O  O7  1  0.55000000  0.51000000  0.29700000  1.0
+  O  O8  1  0.21000000  0.16800000  0.48500000  1.0
+  O  O9  1  0.70100000  0.06960000  0.64100000  1.0
+  O  O10  1  0.34000000  0.71200000  0.83900000  1.0

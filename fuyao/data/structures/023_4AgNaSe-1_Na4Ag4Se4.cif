@@ -1,0 +1,38 @@
+# generated using pymatgen
+data_NaAgSe
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.93194750
+_cell_length_b   5.92990965
+_cell_length_c   19.90604804
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000708
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   NaAgSe
+_chemical_formula_sum   'Na4 Ag4 Se4'
+_cell_volume   700.21340945
+_cell_formula_units_Z   4
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Na  Na1  1  0.50012394  0.84407363  0.62321936  1.0
+  Na  Na2  1  0.49987611  0.34407347  0.37678061  1.0
+  Na  Na3  1  0.00012392  0.84407364  0.37678065  1.0
+  Na  Na4  1  0.99987611  0.34407347  0.62321939  1.0
+  Ag  Ag1  1  0.25194603  0.59365674  0.50003622  1.0
+  Ag  Ag2  1  0.74805409  0.09365649  0.49996380  1.0
+  Ag  Ag3  1  0.75194604  0.59365673  0.49996377  1.0
+  Ag  Ag4  1  0.24805408  0.09365648  0.50003620  1.0
+  Se  Se1  1  0.99996341  0.84376983  0.59600925  1.0
+  Se  Se2  1  0.00003642  0.34376984  0.40399085  1.0
+  Se  Se3  1  0.49996342  0.84376984  0.40399076  1.0
+  Se  Se4  1  0.50003642  0.34376984  0.59600915  1.0

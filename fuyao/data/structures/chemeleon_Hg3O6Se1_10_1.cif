@@ -1,0 +1,36 @@
+# generated using pymatgen
+data_Hg3SeO6
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   7.01876498
+_cell_length_b   7.01976169
+_cell_length_c   6.64383375
+_cell_angle_alpha   131.23734926
+_cell_angle_beta   82.40688585
+_cell_angle_gamma   120.08745049
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Hg3SeO6
+_chemical_formula_sum   'Hg3 Se1 O6'
+_cell_volume   202.85468785
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Hg  Hg1  1  0.88037191  0.25645424  0.37960846  1.0
+  Hg  Hg2  1  0.86810225  0.73409971  0.34892824  1.0
+  Hg  Hg3  1  0.37205076  0.23802706  0.34891448  1.0
+  Se  Se1  1  0.44815767  0.98782359  0.67874428  1.0
+  O  O1  1  0.45185130  0.28688382  0.98141008  1.0
+  O  O2  1  0.00631273  0.98813900  0.23726806  1.0
+  O  O3  1  0.72308831  0.10018977  0.67171723  1.0
+  O  O4  1  0.32881601  0.70595513  0.67175815  1.0
+  O  O5  1  0.29186647  0.86673513  0.40148691  1.0
+  O  O6  1  0.74007027  0.49701802  0.47982647  1.0

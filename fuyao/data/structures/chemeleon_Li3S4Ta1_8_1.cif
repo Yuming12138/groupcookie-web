@@ -1,0 +1,34 @@
+# generated using pymatgen
+data_Li3TaS4
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.65110735
+_cell_length_b   5.65037474
+_cell_length_c   6.86873758
+_cell_angle_alpha   65.71912556
+_cell_angle_beta   65.71685401
+_cell_angle_gamma   90.00175533
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Li3TaS4
+_chemical_formula_sum   'Li3 Ta1 S4'
+_cell_volume   178.41939551
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Li  Li1  1  0.14331227  0.85860383  0.65599870  1.0
+  Li  Li2  1  0.39309306  0.60874933  0.15608710  1.0
+  Li  Li3  1  0.64310694  0.35858499  0.65607540  1.0
+  Ta  Ta1  1  0.89322915  0.10862177  0.15609358  1.0
+  S  S1  1  0.00797107  0.75609018  0.39376038  1.0
+  S  S2  1  0.77836044  0.99374953  0.91846738  1.0
+  S  S3  1  0.24568743  0.46108947  0.91852189  1.0
+  S  S4  1  0.54066477  0.22359976  0.39364984  1.0

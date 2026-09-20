@@ -1,0 +1,38 @@
+# generated using pymatgen
+data_MnNbSi
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   3.55437440
+_cell_length_b   6.37978214
+_cell_length_c   7.49646679
+_cell_angle_alpha   90.00000744
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   MnNbSi
+_chemical_formula_sum   'Mn4 Nb4 Si4'
+_cell_volume   169.99088783
+_cell_formula_units_Z   4
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Mn  Mn4  1  0.25000000  0.86264514  0.06191544  1.0
+  Mn  Mn5  1  0.25000000  0.36264557  0.43808501  1.0
+  Mn  Mn6  1  0.75000000  0.63735436  0.56191535  1.0
+  Mn  Mn7  1  0.75000000  0.13735454  0.93808435  1.0
+  Nb  Nb0  1  0.75000000  0.53343699  0.17327578  1.0
+  Nb  Nb1  1  0.25000000  0.96656288  0.67327568  1.0
+  Nb  Nb2  1  0.75000000  0.03343772  0.32672426  1.0
+  Nb  Nb3  1  0.25000000  0.46656352  0.82672420  1.0
+  Si  Si8  1  0.25000000  0.23480920  0.12946193  1.0
+  Si  Si9  1  0.25000000  0.73480851  0.37053819  1.0
+  Si  Si10  1  0.75000000  0.76519094  0.87053823  1.0
+  Si  Si11  1  0.75000000  0.26519163  0.62946157  1.0

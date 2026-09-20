@@ -1,0 +1,33 @@
+# generated using pymatgen
+data_Mn2SnTe4
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   6.94814733
+_cell_length_b   4.04989216
+_cell_length_c   8.39784299
+_cell_angle_alpha   103.91895046
+_cell_angle_beta   115.83869137
+_cell_angle_gamma   90.03196672
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Mn2SnTe4
+_chemical_formula_sum   'Mn2 Sn1 Te4'
+_cell_volume   204.93087960
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Mn  Mn1  1  0.48200286  0.04190970  0.15849915  1.0
+  Mn  Mn2  1  0.01429219  0.53493520  0.14400949  1.0
+  Sn  Sn1  1  0.24759286  0.78850104  0.65099567  1.0
+  Te  Te1  1  0.93573234  0.13803803  0.34996370  1.0
+  Te  Te2  1  0.45118099  0.64943332  0.37443402  1.0
+  Te  Te3  1  0.56064770  0.43911036  0.95235211  1.0
+  Te  Te4  1  0.04514023  0.92664979  0.92794722  1.0

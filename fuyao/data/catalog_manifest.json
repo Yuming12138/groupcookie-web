@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-20T14:24:07+00:00",
+  "source": "cmsg/data",
+  "sourcePath": "cmsg/data (同步源)",
+  "catalog": {
+    "file": "mp300_materials.json",
+    "sha256": "c63517bf094cd535974bd07f7c88de401a1d90ee22b4475169bf19e2dd5a8a44",
+    "records": 2144,
+    "requiredFields": [
+      "id",
+      "formula",
+      "elements",
+      "spacegroup",
+      "eHull",
+      "score"
+    ]
+  },
+  "assets": {
+    "records": 2144,
+    "structures": 2144,
+    "reportsReferenced": 2144,
+    "reportsPresent": 2144,
+    "missingStructureIds": [],
+    "missingReportPaths": [],
+    "structureBytes": 3091375,
+    "reportBytes": 59001697
+  },
+  "syncManifests": [
+    {
+      "file": "unsynth_132_sync_manifest_20260727a.json",
+      "syncedAt": "2026-07-27T11:02:18.737826+08:00",
+      "newRecords": 132,
+      "totalRecords": 1794,
+      "sourceBatch": {
+        "7.26-2": 132
+      },
+      "sourcePaper": {
+        "Accelerating Discovery of Ternary Chiral Materials via Large-Scale Random Crystal Structure Prediction": 132
+      }
+    },
+    {
+      "file": "unsynth_207_sync_manifest_20260722a.json",
+      "syncedAt": "2026-07-22T15:05:27.442347+08:00",
+      "newRecords": 207,
+      "totalRecords": 1629,
+      "sourceBatch": {
+        "7.21": 207
+      },
+      "sourcePaper": {
+        "Rapid discovery of stable materials by coordinate-free coarse graining": 207
+      }
+    },
+    {
+      "file": "unsynth_234_sync_manifest_20260721a.json",
+      "syncedAt": "2026-07-21T10:10:09.971990+08:00",
+      "newRecords": 234,
+      "totalRecords": 1422,
+      "sourceBatch": {
+        "7.20": 234
+      },
+      "sourcePaper": {
+        "Data-Driven Crystal Structure Prediction for Ternary Metal Chalcogenides": 234
+      }
+    },
+    {
+      "file": "unsynth_300_sync_manifest_20260718a.json",
+      "syncedAt": "2026-07-18T09:43:58.534928+08:00",
+      "newRecords": 300,
+      "totalRecords": 1188,
+      "sourceBatch": {
+        "7.16": 100,
+        "7.17": 200
+      },
+      "sourcePaper": {
+        "High-throughput discovery of novel cubic crystal materials using deep generative neural networks": 100,
+        "Predicting stable crystalline compounds using chemical similarity": 100,
+        "Scaling deep learning for materials discovery": 100
+      }
+    },
+    {
+      "file": "unsynth_350_wbm_sync_manifest_20260728a.json",
+      "syncedAt": "2026-07-28T14:53:39.546082+08:00",
+      "newRecords": 350,
+      "totalRecords": 2144,
+      "sourceBatch": "7.27",
+      "sourcePaper": "Predicting stable crystalline compounds using chemical similarity"
+    },
+    {
+      "file": "unsynth_75_sync_manifest_20260726a.json",
+      "syncedAt": "2026-07-26T19:55:58.239952+08:00",
+      "newRecords": 75,
+      "totalRecords": 1704,
+      "sourceBatch": {
+        "7.26": 75
+      },
+      "sourcePaper": {
+        "InvDesFlow - An AI-Driven Materials Inverse Design Workflow to Explore Possible High-Temperature Superconductors": 69,
+        "Superconductivity in atom-intercalated quaternary hydrides under ambient pressure": 5,
+        "High-temperature superconductivity in Li2AuH6 mediated by strong electron-phonon coupling under ambient pressure": 1
+      }
+    }
+  ],
+  "excludedLegacyFiles": [
+    "matbench_steels.json.gz",
+    "steels-data.js"
+  ]
+}

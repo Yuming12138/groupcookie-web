@@ -1,0 +1,40 @@
+# generated using pymatgen
+data_Rb2OsO4
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   7.26374658
+_cell_length_b   7.26374658
+_cell_length_c   7.98301511
+_cell_angle_alpha   66.57575081
+_cell_angle_beta   66.57575081
+_cell_angle_gamma   51.87881413
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Rb2OsO4
+_chemical_formula_sum   'Rb4 Os2 O8'
+_cell_volume   297.22395876
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Rb  Rb0  1  0.15671382  0.15671382  0.25062575  1.0
+  Rb  Rb1  1  0.48790213  0.48790213  0.23737198  1.0
+  Rb  Rb2  1  0.51209787  0.51209787  0.76262802  1.0
+  Rb  Rb3  1  0.84328618  0.84328618  0.74937425  1.0
+  Os  Os4  1  0.17569191  0.17569191  0.77224170  1.0
+  Os  Os5  1  0.82430809  0.82430809  0.22775830  1.0
+  O  O6  1  0.08974500  0.62392250  0.08051443  1.0
+  O  O7  1  0.09114658  0.09114658  0.64312400  1.0
+  O  O8  1  0.32946456  0.32946456  0.62667736  1.0
+  O  O9  1  0.37607750  0.91025500  0.91948557  1.0
+  O  O10  1  0.62392250  0.08974500  0.08051443  1.0
+  O  O11  1  0.67053544  0.67053544  0.37332264  1.0
+  O  O12  1  0.90885342  0.90885342  0.35687600  1.0
+  O  O13  1  0.91025500  0.37607750  0.91948557  1.0

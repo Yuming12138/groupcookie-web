@@ -1,0 +1,38 @@
+# generated using pymatgen
+data_BaReO4
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   7.60555168
+_cell_length_b   7.60555168
+_cell_length_c   7.60555168
+_cell_angle_alpha   134.97590699
+_cell_angle_beta   134.97590699
+_cell_angle_gamma   65.56763687
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   BaReO4
+_chemical_formula_sum   'Ba2 Re2 O8'
+_cell_volume   216.88193861
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Ba  Ba0  1  0.00000000  0.00000000  0.00000000  1.0
+  Ba  Ba1  1  0.75000000  0.25000000  0.50000000  1.0
+  Re  Re2  1  0.25000000  0.75000000  0.50000000  1.0
+  Re  Re3  1  0.50000000  0.50000000  0.00000000  1.0
+  O  O4  1  0.05578167  0.44080196  0.13948222  1.0
+  O  O5  1  0.08370054  0.94421833  0.38502029  1.0
+  O  O6  1  0.19080196  0.55131975  0.88502029  1.0
+  O  O7  1  0.30131975  0.91629946  0.86051778  1.0
+  O  O8  1  0.44868025  0.33370054  0.63948222  1.0
+  O  O9  1  0.55919804  0.69868025  0.61497971  1.0
+  O  O10  1  0.66629946  0.30578167  0.11497971  1.0
+  O  O11  1  0.69421833  0.80919804  0.36051778  1.0

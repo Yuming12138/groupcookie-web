@@ -1,0 +1,32 @@
+# generated using pymatgen
+data_MnHg2Te3
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.62790051
+_cell_length_b   4.62641593
+_cell_length_c   10.35731541
+_cell_angle_alpha   102.90953495
+_cell_angle_beta   102.91056824
+_cell_angle_gamma   89.99999791
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   MnHg2Te3
+_chemical_formula_sum   'Mn1 Hg2 Te3'
+_cell_volume   210.39586280
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Mn  Mn1  1  0.53562884  0.76463484  0.18028259  1.0
+  Hg  Hg1  1  0.87239336  0.10122853  0.85293912  1.0
+  Hg  Hg2  1  0.19900007  0.42890437  0.50746045  1.0
+  Te  Te1  1  0.61075908  0.33995617  0.33077377  1.0
+  Te  Te2  1  0.96026732  0.68956042  0.02953948  1.0
+  Te  Te3  1  0.28592414  0.01517475  0.68024305  1.0

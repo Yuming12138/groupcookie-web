@@ -1,0 +1,36 @@
+# generated using pymatgen
+data_Na2LiH6Ir
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.14511400
+_cell_length_b   5.14958800
+_cell_length_c   5.14664200
+_cell_angle_alpha   60.05362300
+_cell_angle_beta   59.97129100
+_cell_angle_gamma   59.82300900
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Na2LiH6Ir
+_chemical_formula_sum   'Na2 Li1 H6 Ir1'
+_cell_volume   96.31041197
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Na  Na1  1  0.84700000  0.65700000  0.71700000  1.0
+  Na  Na2  1  0.34700000  0.15800000  0.21700000  1.0
+  Li  Li3  1  0.59700000  0.40800000  0.46700000  1.0
+  H  H5  1  0.86600000  0.67800000  0.19700000  1.0
+  H  H6  1  0.86700000  0.14000000  0.19900000  1.0
+  H  H7  1  0.32900000  0.67600000  0.19700000  1.0
+  H  H8  1  0.32800000  0.13700000  0.73700000  1.0
+  H  H9  1  0.86500000  0.13900000  0.73700000  1.0
+  H  H10  1  0.32700000  0.67700000  0.73500000  1.0
+  Ir  Ir4  1  0.09700000  0.90730000  0.96680000  1.0

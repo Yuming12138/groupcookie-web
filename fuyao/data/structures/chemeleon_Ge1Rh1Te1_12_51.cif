@@ -1,0 +1,38 @@
+# generated using pymatgen
+data_GeTeRh
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   6.49365767
+_cell_length_b   6.42112183
+_cell_length_c   6.54402858
+_cell_angle_alpha   89.91895188
+_cell_angle_beta   64.58503256
+_cell_angle_gamma   90.19733348
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   GeTeRh
+_chemical_formula_sum   'Ge4 Te4 Rh4'
+_cell_volume   246.45394500
+_cell_formula_units_Z   4
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Ge  Ge1  1  0.70041474  0.00559312  0.05879925  1.0
+  Ge  Ge2  1  0.20380512  0.20397597  0.10401362  1.0
+  Ge  Ge3  1  0.69961949  0.19931887  0.55438575  1.0
+  Ge  Ge4  1  0.98937245  0.70048300  0.39233667  1.0
+  Te  Te1  1  0.18595747  0.97551321  0.58797474  1.0
+  Te  Te2  1  0.50605354  0.73116588  0.86280134  1.0
+  Te  Te3  1  0.50212472  0.47344668  0.35841903  1.0
+  Te  Te4  1  0.01069712  0.47488070  0.90922553  1.0
+  Rh  Rh1  1  0.62314119  0.85848614  0.43295601  1.0
+  Rh  Rh2  1  0.61613143  0.34151819  0.93608435  1.0
+  Rh  Rh3  1  0.06886927  0.85846742  0.02038308  1.0
+  Rh  Rh4  1  0.06800755  0.35495348  0.50633578  1.0

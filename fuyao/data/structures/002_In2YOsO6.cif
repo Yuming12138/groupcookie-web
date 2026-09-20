@@ -1,0 +1,36 @@
+# generated using pymatgen
+data_YIn2OsO6
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.62703700
+_cell_length_b   5.63027400
+_cell_length_c   5.87826700
+_cell_angle_alpha   61.44467900
+_cell_angle_beta   61.46768200
+_cell_angle_gamma   59.93322400
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   YIn2OsO6
+_chemical_formula_sum   'Y1 In2 Os1 O6'
+_cell_volume   134.44077343
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Y  Y3  1  0.50400000  0.50500000  0.41400000  1.0
+  In  In1  1  0.77000000  0.77100000  0.61500000  1.0
+  In  In2  1  0.28900000  0.29000000  0.05940000  1.0
+  Os  Os4  1  0.99296000  0.99384000  0.94720000  1.0
+  O  O5  1  0.11600000  0.73600000  0.73200000  1.0
+  O  O6  1  0.63200000  0.89300000  0.20000000  1.0
+  O  O7  1  0.89300000  0.20300000  0.20000000  1.0
+  O  O8  1  0.34200000  0.11800000  0.73200000  1.0
+  O  O9  1  0.73400000  0.34400000  0.73200000  1.0
+  O  O10  1  0.20200000  0.63300000  0.20000000  1.0

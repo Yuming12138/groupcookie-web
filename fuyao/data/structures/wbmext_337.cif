@@ -1,0 +1,32 @@
+# generated using pymatgen
+data_CeCoSn
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.81240268
+_cell_length_b   4.95834507
+_cell_length_c   6.07184106
+_cell_angle_alpha   102.25569120
+_cell_angle_beta   113.34772200
+_cell_angle_gamma   89.99535328
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   CeCoSn
+_chemical_formula_sum   'Ce2 Co2 Sn2'
+_cell_volume   129.41688302
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Ce  Ce4  1  0.87278813  0.18528805  0.73949896  1.0
+  Ce  Ce5  1  0.13490810  0.81017518  0.26370307  1.0
+  Co  Co0  1  0.17632375  0.25363398  0.34656842  1.0
+  Co  Co1  1  0.83138124  0.74179432  0.65665574  1.0
+  Sn  Sn2  1  0.60695988  0.34936507  0.20784842  1.0
+  Sn  Sn3  1  0.40078590  0.64628839  0.79542839  1.0

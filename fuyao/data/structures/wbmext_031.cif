@@ -1,0 +1,35 @@
+# generated using pymatgen
+data_Cs2Ti2O5
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   3.88947670
+_cell_length_b   6.06841085
+_cell_length_c   7.61964885
+_cell_angle_alpha   100.20328051
+_cell_angle_beta   89.99520750
+_cell_angle_gamma   108.68781524
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Cs2Ti2O5
+_chemical_formula_sum   'Cs2 Ti2 O5'
+_cell_volume   167.36003954
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Cs  Cs0  1  0.60221264  0.20532690  0.34638522  1.0
+  Cs  Cs1  1  0.39778736  0.79467310  0.65361478  1.0
+  Ti  Ti7  1  0.85283498  0.70582012  0.08156256  1.0
+  Ti  Ti8  1  0.14716502  0.29417988  0.91843744  1.0
+  O  O2  1  0.67850958  0.35700143  0.98087141  1.0
+  O  O3  1  0.32149042  0.64299857  0.01912859  1.0
+  O  O4  1  0.87947500  0.75900563  0.31329503  1.0
+  O  O5  1  0.12052500  0.24099437  0.68670497  1.0
+  O  O6  1  0.00000000  0.00000000  0.00000000  1.0

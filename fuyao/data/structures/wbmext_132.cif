@@ -1,0 +1,36 @@
+# generated using pymatgen
+data_CeMoN3
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   3.79920685
+_cell_length_b   5.62877143
+_cell_length_c   8.06449502
+_cell_angle_alpha   109.24101449
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   CeMoN3
+_chemical_formula_sum   'Ce2 Mo2 N6'
+_cell_volume   162.82476375
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Ce  Ce2  1  0.75000000  0.27739179  0.32116536  1.0
+  Ce  Ce3  1  0.25000000  0.72260821  0.67883464  1.0
+  Mo  Mo0  1  0.75000000  0.35497563  0.83291662  1.0
+  Mo  Mo1  1  0.25000000  0.64502437  0.16708338  1.0
+  N  N4  1  0.75000000  0.46273131  0.62398359  1.0
+  N  N5  1  0.75000000  0.01859035  0.75751508  1.0
+  N  N6  1  0.25000000  0.53726869  0.37601641  1.0
+  N  N7  1  0.75000000  0.50061004  0.11233335  1.0
+  N  N8  1  0.25000000  0.49938996  0.88766665  1.0
+  N  N9  1  0.25000000  0.98140965  0.24248492  1.0

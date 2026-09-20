@@ -1,0 +1,37 @@
+# generated using pymatgen
+data_K5BiO5
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.60137553
+_cell_length_b   6.59999239
+_cell_length_c   7.30630765
+_cell_angle_alpha   107.98432503
+_cell_angle_beta   89.99629158
+_cell_angle_gamma   115.10902808
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   K5BiO5
+_chemical_formula_sum   'K5 Bi1 O5'
+_cell_volume   229.92766587
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  K  K0  1  0.65063690  0.32564505  0.86045369  1.0
+  K  K1  1  0.66872431  0.36992546  0.32515157  1.0
+  K  K2  1  0.28616950  0.60474546  0.70695394  1.0
+  K  K3  1  0.31234744  0.64909313  0.17167633  1.0
+  K  K4  1  0.98535329  0.98735270  0.51610118  1.0
+  Bi  Bi5  1  0.93918016  0.98735980  0.01608341  1.0
+  O  O6  1  0.13018790  0.24834245  0.87819094  1.0
+  O  O7  1  0.56829560  0.98732814  0.01600957  1.0
+  O  O8  1  0.13253181  0.26703551  0.29812781  1.0
+  O  O9  1  0.85310666  0.70769227  0.73408788  1.0
+  O  O10  1  0.86919643  0.72638904  0.15397569  1.0

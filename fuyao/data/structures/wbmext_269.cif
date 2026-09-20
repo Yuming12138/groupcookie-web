@@ -1,0 +1,36 @@
+# generated using pymatgen
+data_Ba(SiRu)2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   6.14569616
+_cell_length_b   6.14569616
+_cell_length_c   6.91499714
+_cell_angle_alpha   104.33494414
+_cell_angle_beta   104.33494418
+_cell_angle_gamma   116.30911419
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Ba(SiRu)2
+_chemical_formula_sum   'Ba2 Si4 Ru4'
+_cell_volume   206.74581813
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Ba  Ba8  1  0.87501240  0.12498760  0.25000000  1.0
+  Ba  Ba9  1  0.12498760  0.87501240  0.75000000  1.0
+  Si  Si4  1  0.20026474  0.79973526  0.25000000  1.0
+  Si  Si5  1  0.54966493  0.45033507  0.25000000  1.0
+  Si  Si6  1  0.79973526  0.20026474  0.75000000  1.0
+  Si  Si7  1  0.45033507  0.54966493  0.75000000  1.0
+  Ru  Ru0  1  0.24941481  0.49945544  0.99872135  1.0
+  Ru  Ru1  1  0.50054456  0.75058519  0.50127865  1.0
+  Ru  Ru2  1  0.49945544  0.24941481  0.49872135  1.0
+  Ru  Ru3  1  0.75058519  0.50054456  0.00127865  1.0

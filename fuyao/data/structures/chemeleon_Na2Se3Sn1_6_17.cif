@@ -1,0 +1,32 @@
+# generated using pymatgen
+data_Na2SnSe3
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.11655381
+_cell_length_b   7.13725627
+_cell_length_c   8.19509933
+_cell_angle_alpha   115.93455256
+_cell_angle_beta   120.38573040
+_cell_angle_gamma   89.82332257
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Na2SnSe3
+_chemical_formula_sum   'Na2 Sn1 Se3'
+_cell_volume   179.25245917
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Na  Na1  1  0.64647533  0.99761335  0.30875963  1.0
+  Na  Na2  1  0.42395450  0.38655840  0.08698317  1.0
+  Sn  Sn1  1  0.53261345  0.67416681  0.69783112  1.0
+  Se  Se1  1  0.88601900  0.66708374  0.04944692  1.0
+  Se  Se2  1  0.03101918  0.91006630  0.69737247  1.0
+  Se  Se3  1  0.18327132  0.31522762  0.34610595  1.0

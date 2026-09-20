@@ -1,0 +1,42 @@
+# generated using pymatgen
+data_CsPtO2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.52342561
+_cell_length_b   12.24556140
+_cell_length_c   6.16797530
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   CsPtO2
+_chemical_formula_sum   'Cs4 Pt4 O8'
+_cell_volume   417.18610520
+_cell_formula_units_Z   4
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Cs  Cs0  1  0.00000000  0.31447105  0.25000000  1.0
+  Cs  Cs0  1  0.00000000  0.68552895  0.75000000  1.0
+  Cs  Cs0  1  0.50000000  0.81447105  0.25000000  1.0
+  Cs  Cs0  1  0.50000000  0.18552895  0.75000000  1.0
+  Pt  Pt1  1  0.00000000  0.00198043  0.25000000  1.0
+  Pt  Pt1  1  0.00000000  0.99801957  0.75000000  1.0
+  Pt  Pt1  1  0.50000000  0.50198043  0.25000000  1.0
+  Pt  Pt1  1  0.50000000  0.49801957  0.75000000  1.0
+  O  O2  1  0.00000000  0.10280812  0.50356707  1.0
+  O  O2  1  0.00000000  0.89719188  0.49643293  1.0
+  O  O2  1  0.00000000  0.89719188  0.00356707  1.0
+  O  O2  1  0.00000000  0.10280812  0.99643293  1.0
+  O  O2  1  0.50000000  0.60280812  0.50356707  1.0
+  O  O2  1  0.50000000  0.39719188  0.49643293  1.0
+  O  O2  1  0.50000000  0.39719188  0.00356707  1.0
+  O  O2  1  0.50000000  0.60280812  0.99643293  1.0

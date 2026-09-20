@@ -1,0 +1,40 @@
+# generated using pymatgen
+data_Sr(InAg)3
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.67726698
+_cell_length_b   8.01421297
+_cell_length_c   9.32381788
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Sr(InAg)3
+_chemical_formula_sum   'Sr2 In6 Ag6'
+_cell_volume   349.49971140
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Sr  Sr0  1  0.00000000  0.50000000  0.27036889  1.0
+  Sr  Sr1  1  0.50000000  0.00000000  0.72963111  1.0
+  In  In2  1  0.00000000  0.00000000  0.36614875  1.0
+  In  In3  1  0.00000000  0.30407877  0.88515332  1.0
+  In  In4  1  0.00000000  0.69592123  0.88515332  1.0
+  In  In5  1  0.50000000  0.19592123  0.11484668  1.0
+  In  In6  1  0.50000000  0.50000000  0.63385125  1.0
+  In  In7  1  0.50000000  0.80407877  0.11484668  1.0
+  Ag  Ag8  1  0.00000000  0.00000000  0.04391277  1.0
+  Ag  Ag9  1  0.00000000  0.27354929  0.58744605  1.0
+  Ag  Ag10  1  0.00000000  0.72645071  0.58744605  1.0
+  Ag  Ag11  1  0.50000000  0.22645071  0.41255395  1.0
+  Ag  Ag12  1  0.50000000  0.50000000  0.95608723  1.0
+  Ag  Ag13  1  0.50000000  0.77354929  0.41255395  1.0

@@ -1,0 +1,34 @@
+# generated using pymatgen
+data_KOsCl6
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   6.30971811
+_cell_length_b   6.30971811
+_cell_length_c   6.30971886
+_cell_angle_alpha   101.31564385
+_cell_angle_beta   101.31564389
+_cell_angle_gamma   101.31563736
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   KOsCl6
+_chemical_formula_sum   'K1 Os1 Cl6'
+_cell_volume   234.22742018
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  K  K0  1  0.50000000  0.50000000  0.50000000  1.0
+  Os  Os1  1  0.00000000  0.00000000  0.00000000  1.0
+  Cl  Cl2  1  0.06415480  0.76997007  0.69532897  1.0
+  Cl  Cl3  1  0.23002993  0.30467103  0.93584520  1.0
+  Cl  Cl4  1  0.30467103  0.93584520  0.23002993  1.0
+  Cl  Cl5  1  0.69532897  0.06415480  0.76997007  1.0
+  Cl  Cl6  1  0.76997007  0.69532897  0.06415480  1.0
+  Cl  Cl7  1  0.93584520  0.23002993  0.30467103  1.0

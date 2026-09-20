@@ -1,0 +1,40 @@
+# generated using pymatgen
+data_K2GeTe4
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   8.81076350
+_cell_length_b   7.45985391
+_cell_length_c   9.80260067
+_cell_angle_alpha   88.19986411
+_cell_angle_beta   108.72194443
+_cell_angle_gamma   112.03794075
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   K2GeTe4
+_chemical_formula_sum   'K4 Ge2 Te8'
+_cell_volume   562.70433310
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  K  K1  1  0.81225051  0.25143485  0.86186813  1.0
+  K  K2  1  0.80979749  0.27708763  0.39827066  1.0
+  K  K3  1  0.44534032  0.59359303  0.53758391  1.0
+  K  K4  1  0.44289030  0.61925160  0.07398698  1.0
+  Ge  Ge1  1  0.06089665  0.78086575  0.70001194  1.0
+  Ge  Ge2  1  0.19424345  0.08981859  0.23584243  1.0
+  Te  Te1  1  0.10338365  0.38134429  0.21083623  1.0
+  Te  Te2  1  0.85122451  0.78270373  0.84184427  1.0
+  Te  Te3  1  0.85122678  0.80095643  0.44085917  1.0
+  Te  Te4  1  0.34239493  0.12009175  0.77468570  1.0
+  Te  Te5  1  0.40391442  0.06973162  0.49499573  1.0
+  Te  Te6  1  0.15175611  0.48933978  0.72501802  1.0
+  Te  Te7  1  0.91274495  0.75059301  0.16116989  1.0
+  Te  Te8  1  0.40391482  0.08797839  0.09400982  1.0

@@ -1,0 +1,38 @@
+# generated using pymatgen
+data_TlCuS
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.70404222
+_cell_length_b   5.76657255
+_cell_length_c   20.82074774
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00007235
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   TlCuS
+_chemical_formula_sum   'Tl4 Cu4 S4'
+_cell_volume   684.85213484
+_cell_formula_units_Z   4
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Tl  Tl1  1  0.49990915  0.00530263  0.63958553  1.0
+  Tl  Tl2  1  0.50008923  0.50530286  0.36041545  1.0
+  Tl  Tl3  1  0.99989246  0.00526288  0.36043515  1.0
+  Tl  Tl4  1  0.00010654  0.50526148  0.63956356  1.0
+  Cu  Cu1  1  0.75036489  0.48623177  0.50005094  1.0
+  Cu  Cu2  1  0.24963117  0.98624013  0.49994903  1.0
+  Cu  Cu3  1  0.25011406  0.48633659  0.50000222  1.0
+  Cu  Cu4  1  0.74988684  0.98634647  0.49999736  1.0
+  S  S1  1  0.99985702  0.99843757  0.57997536  1.0
+  S  S2  1  0.00014137  0.49843605  0.42002530  1.0
+  S  S3  1  0.49985149  0.99843422  0.42004066  1.0
+  S  S4  1  0.50014579  0.49843251  0.57995943  1.0

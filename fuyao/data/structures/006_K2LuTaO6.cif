@@ -1,0 +1,36 @@
+# generated using pymatgen
+data_K2LuTaO6
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.78387100
+_cell_length_b   6.22139200
+_cell_length_c   6.50428300
+_cell_angle_alpha   53.54097700
+_cell_angle_beta   60.17057400
+_cell_angle_gamma   63.54884300
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   K2LuTaO6
+_chemical_formula_sum   'K2 Lu1 Ta1 O6'
+_cell_volume   159.49048455
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  K  K1  1  0.77800000  0.74900000  0.73700000  1.0
+  K  K2  1  0.26300000  0.22200000  0.24900000  1.0
+  Lu  Lu3  1  0.49700000  0.51600000  0.55400000  1.0
+  Ta  Ta4  1  0.03870000  0.97690000  0.95070000  1.0
+  O  O5  1  0.77100000  0.81800000  0.28300000  1.0
+  O  O6  1  0.32700000  0.73400000  0.21200000  1.0
+  O  O7  1  0.53000000  0.46300000  0.24200000  1.0
+  O  O8  1  0.17700000  0.26000000  0.85500000  1.0
+  O  O9  1  0.80900000  0.19900000  0.73000000  1.0
+  O  O10  1  0.26000000  0.75600000  0.78000000  1.0

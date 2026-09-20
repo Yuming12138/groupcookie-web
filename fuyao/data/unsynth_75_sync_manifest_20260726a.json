@@ -1,0 +1,22 @@
+{
+  "syncedAt": "2026-07-26T19:55:58.239952+08:00",
+  "existingRecords": 1629,
+  "newRecords": 75,
+  "totalRecords": 1704,
+  "publicReports": 75,
+  "unknownEhullRecords": 75,
+  "sourceBatchCounts": {
+    "7.26": 75
+  },
+  "sourcePaperCounts": {
+    "InvDesFlow - An AI-Driven Materials Inverse Design Workflow to Explore Possible High-Temperature Superconductors": 69,
+    "Superconductivity in atom-intercalated quaternary hydrides under ambient pressure": 5,
+    "High-temperature superconductivity in Li2AuH6 mediated by strong electron-phonon coupling under ambient pressure": 1
+  },
+  "scoreMinimum": 55.0,
+  "scoreMaximum": 75.0,
+  "scoreAverage": 64.45333333333333,
+  "siteJson": "/home/fuyao/my-website/data/mp300_materials.json",
+  "backupJson": "/home/fuyao/my-website/data/mp300_materials_1629_backup_20260726a.json",
+  "publicReportsDir": "/home/fuyao/my-website/data/unsynthesized_reports_20260726a"
+}

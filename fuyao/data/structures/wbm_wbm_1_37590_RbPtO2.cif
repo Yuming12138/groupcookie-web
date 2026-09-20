@@ -1,0 +1,42 @@
+# generated using pymatgen
+data_RbPtO2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.09388005
+_cell_length_b   11.89782551
+_cell_length_c   6.14766234
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   RbPtO2
+_chemical_formula_sum   'Rb4 Pt4 O8'
+_cell_volume   372.58581398
+_cell_formula_units_Z   4
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Rb  Rb0  1  0.00000000  0.30847475  0.25000000  1.0
+  Rb  Rb0  1  0.00000000  0.69152525  0.75000000  1.0
+  Rb  Rb0  1  0.50000000  0.80847475  0.25000000  1.0
+  Rb  Rb0  1  0.50000000  0.19152525  0.75000000  1.0
+  Pt  Pt1  1  0.00000000  0.00210405  0.25000000  1.0
+  Pt  Pt1  1  0.00000000  0.99789595  0.75000000  1.0
+  Pt  Pt1  1  0.50000000  0.50210405  0.25000000  1.0
+  Pt  Pt1  1  0.50000000  0.49789595  0.75000000  1.0
+  O  O2  1  0.00000000  0.10642856  0.50377637  1.0
+  O  O2  1  0.00000000  0.89357144  0.49622363  1.0
+  O  O2  1  0.00000000  0.89357144  0.00377637  1.0
+  O  O2  1  0.00000000  0.10642856  0.99622363  1.0
+  O  O2  1  0.50000000  0.60642856  0.50377637  1.0
+  O  O2  1  0.50000000  0.39357144  0.49622363  1.0
+  O  O2  1  0.50000000  0.39357144  0.00377637  1.0
+  O  O2  1  0.50000000  0.60642856  0.99622363  1.0

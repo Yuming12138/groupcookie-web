@@ -1,0 +1,39 @@
+# generated using pymatgen
+data_Np4C5N4
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   3.74072000
+_cell_length_b   6.55773000
+_cell_length_c   7.96097000
+_cell_angle_alpha   65.30690000
+_cell_angle_beta   74.88010000
+_cell_angle_gamma   88.80000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Np4C5N4
+_chemical_formula_sum   'Np4 C5 N4'
+_cell_volume   170.42318453
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Np  Np1  1  0.83989000  0.35139000  0.14742000  1.0
+  Np  Np2  1  0.77866000  0.83197000  0.27474000  1.0
+  Np  Np3  1  0.11564000  0.84027000  0.67848000  1.0
+  Np  Np4  1  0.58997000  0.34827000  0.72076000  1.0
+  C  C1  1  0.48267000  0.43547000  0.43280000  1.0
+  C  C2  1  0.25866000  0.05855000  0.31205000  1.0
+  C  C3  1  0.36714000  0.13213000  0.11322000  1.0
+  C  C4  1  0.33212000  0.54080000  0.28677000  1.0
+  C  C5  1  0.22230000  0.64220000  0.13000000  1.0
+  N  N1  1  0.66316000  0.70933000  0.58217000  1.0
+  N  N2  1  0.63854000  0.04389000  0.72171000  1.0
+  N  N3  1  0.03070000  0.73174000  0.00844000  1.0
+  N  N4  1  0.02358000  0.44107000  0.83304000  1.0

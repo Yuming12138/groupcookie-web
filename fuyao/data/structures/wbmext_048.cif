@@ -1,0 +1,35 @@
+# generated using pymatgen
+data_V2HgO6
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   3.70612397
+_cell_length_b   5.46275464
+_cell_length_c   7.04599490
+_cell_angle_alpha   99.28344485
+_cell_angle_beta   89.98119936
+_cell_angle_gamma   109.85140040
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   V2HgO6
+_chemical_formula_sum   'V2 Hg1 O6'
+_cell_volume   132.18852476
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  V  V7  1  0.21748571  0.43550429  0.66585792  1.0
+  V  V8  1  0.78251698  0.56450326  0.33413711  1.0
+  Hg  Hg0  1  0.99999672  0.99999182  0.00001533  1.0
+  O  O1  1  0.06374003  0.12812179  0.73219826  1.0
+  O  O2  1  0.27657065  0.55290749  0.40934287  1.0
+  O  O3  1  0.72342666  0.44708818  0.59066208  1.0
+  O  O4  1  0.33365583  0.66768223  0.86217196  1.0
+  O  O5  1  0.66634136  0.33231070  0.13782629  1.0
+  O  O6  1  0.93626206  0.87188025  0.26778318  1.0

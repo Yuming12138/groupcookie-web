@@ -1,0 +1,30 @@
+# generated using pymatgen
+data_TaPbS2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   3.37396995
+_cell_length_b   3.37407321
+_cell_length_c   9.64651075
+_cell_angle_alpha   80.03383675
+_cell_angle_beta   100.12952263
+_cell_angle_gamma   59.99709062
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   TaPbS2
+_chemical_formula_sum   'Ta1 Pb1 S2'
+_cell_volume   89.12248666
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Ta  Ta1  1  0.06280523  0.37139955  0.17678029  1.0
+  Pb  Pb1  1  0.88444840  0.21178927  0.67663610  1.0
+  S  S1  1  0.56707875  0.53465840  0.34780212  1.0
+  S  S2  1  0.22500701  0.87490773  0.00576101  1.0

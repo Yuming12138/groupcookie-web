@@ -1,0 +1,50 @@
+# generated using pymatgen
+data_TiSe3Br2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   7.43238900
+_cell_length_b   7.43238900
+_cell_length_c   12.34482800
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   TiSe3Br2
+_chemical_formula_sum   'Ti4 Se12 Br8'
+_cell_volume   681.93331377
+_cell_formula_units_Z   4
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Ti  Ti0  1  0.10596471  0.99716193  0.53686464  1.0
+  Ti  Ti0  1  0.89403529  0.49716193  0.46313536  1.0
+  Ti  Ti1  1  0.34318986  0.13564204  0.98757137  1.0
+  Ti  Ti1  1  0.65681014  0.63564204  0.01242863  1.0
+  Se  Se2  1  0.10973982  0.74835547  0.37794106  1.0
+  Se  Se2  1  0.89026018  0.24835547  0.62205894  1.0
+  Se  Se3  1  0.11118723  0.25177863  0.37603031  1.0
+  Se  Se3  1  0.88881277  0.75177863  0.62396969  1.0
+  Se  Se4  1  0.11785651  0.01439748  0.12500593  1.0
+  Se  Se4  1  0.88214349  0.51439748  0.87499407  1.0
+  Se  Se5  1  0.16273028  0.47488113  0.97878157  1.0
+  Se  Se5  1  0.83726972  0.97488113  0.02121843  1.0
+  Se  Se6  1  0.23692092  0.49831644  0.48182644  1.0
+  Se  Se6  1  0.76307908  0.99831644  0.51817356  1.0
+  Se  Se7  1  0.43812826  0.43049823  0.87464953  1.0
+  Se  Se7  1  0.56187174  0.93049823  0.12535047  1.0
+  Br  Br8  1  0.12169342  0.05112144  0.84877390  1.0
+  Br  Br8  1  0.87830658  0.55112144  0.15122610  1.0
+  Br  Br9  1  0.33810511  0.78087300  0.62226556  1.0
+  Br  Br9  1  0.66189489  0.28087300  0.37773444  1.0
+  Br  Br10  1  0.35122555  0.20912103  0.61300101  1.0
+  Br  Br10  1  0.64877445  0.70912103  0.38699899  1.0
+  Br  Br11  1  0.45979864  0.40720865  0.13452073  1.0
+  Br  Br11  1  0.54020136  0.90720865  0.86547927  1.0

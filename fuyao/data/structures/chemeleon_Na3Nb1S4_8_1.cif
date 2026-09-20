@@ -1,0 +1,34 @@
+# generated using pymatgen
+data_Na3NbS4
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   6.30135994
+_cell_length_b   6.28115405
+_cell_length_c   6.30857952
+_cell_angle_alpha   109.34437181
+_cell_angle_beta   109.38859602
+_cell_angle_gamma   109.59262264
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Na3NbS4
+_chemical_formula_sum   'Na3 Nb1 S4'
+_cell_volume   192.42116025
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Na  Na1  1  0.85554856  0.90261311  0.38582962  1.0
+  Na  Na2  1  0.35608373  0.40695920  0.39010048  1.0
+  Na  Na3  1  0.86101317  0.40819667  0.88622000  1.0
+  Nb  Nb1  1  0.36051240  0.91188741  0.88933075  1.0
+  S  S1  1  0.35901582  0.54526551  0.88864942  1.0
+  S  S2  1  0.72540926  0.27681145  0.25356872  1.0
+  S  S3  1  0.36100464  0.91189641  0.52485473  1.0
+  S  S4  1  0.99518924  0.91070660  0.88929420  1.0

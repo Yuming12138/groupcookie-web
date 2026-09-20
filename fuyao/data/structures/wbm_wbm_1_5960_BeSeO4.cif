@@ -1,0 +1,38 @@
+# generated using pymatgen
+data_BeSeO4
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.76330950
+_cell_length_b   4.76330950
+_cell_length_c   7.17039584
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   BeSeO4
+_chemical_formula_sum   'Be2 Se2 O8'
+_cell_volume   162.68995297
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Be  Be0  1  0.00000000  0.50000000  0.75000000  1.0
+  Be  Be0  1  0.50000000  0.00000000  0.25000000  1.0
+  Se  Se1  1  0.00000000  0.00000000  0.00000000  1.0
+  Se  Se1  1  0.50000000  0.50000000  0.50000000  1.0
+  O  O2  1  0.15070196  0.25125665  0.87200366  1.0
+  O  O2  1  0.25125665  0.84929804  0.12799634  1.0
+  O  O2  1  0.84929804  0.74874335  0.87200366  1.0
+  O  O2  1  0.74874335  0.15070196  0.12799634  1.0
+  O  O2  1  0.65070196  0.75125665  0.37200366  1.0
+  O  O2  1  0.75125665  0.34929804  0.62799634  1.0
+  O  O2  1  0.34929804  0.24874335  0.37200366  1.0
+  O  O2  1  0.24874335  0.65070196  0.62799634  1.0

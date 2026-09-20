@@ -1,0 +1,36 @@
+# generated using pymatgen
+data_SrTbMgTeO6
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.83237300
+_cell_length_b   5.82927700
+_cell_length_c   6.18853600
+_cell_angle_alpha   60.55439400
+_cell_angle_beta   60.49053200
+_cell_angle_gamma   59.91059100
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   SrTbMgTeO6
+_chemical_formula_sum   'Sr1 Tb1 Mg1 Te1 O6'
+_cell_volume   149.83685896
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Sr  Sr1  1  0.68158600  0.69289300  0.60873300  1.0
+  Tb  Tb2  1  0.46569100  0.47533500  0.31577600  1.0
+  Mg  Mg3  1  0.91989400  0.92970200  0.86590600  1.0
+  Te  Te4  1  0.19978500  0.20950200  0.91490900  1.0
+  O  O5  1  0.24841100  0.78163900  0.03373200  1.0
+  O  O6  1  0.18759300  0.19372900  0.60121100  1.0
+  O  O7  1  0.77212900  0.26059500  0.03087200  1.0
+  O  O8  1  0.62340700  0.14718500  0.67143500  1.0
+  O  O9  1  0.69563000  0.70607900  0.20542600  1.0
+  O  O10  1  0.13808000  0.63219100  0.67168000  1.0

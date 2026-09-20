@@ -1,0 +1,30 @@
+# generated using pymatgen
+data_RbNO2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.41976745
+_cell_length_b   4.84784638
+_cell_length_c   4.84782178
+_cell_angle_alpha   77.05053340
+_cell_angle_beta   67.80992125
+_cell_angle_gamma   67.81099382
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   RbNO2
+_chemical_formula_sum   'Rb1 N1 O2'
+_cell_volume   88.65254811
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Rb  Rb2  1  0.02784480  0.97817017  0.97817038  1.0
+  N  N3  1  0.45838418  0.50681229  0.50681319  1.0
+  O  O0  1  0.59088699  0.58873560  0.23227843  1.0
+  O  O1  1  0.59088303  0.23228194  0.58873800  1.0

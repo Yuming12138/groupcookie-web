@@ -1,0 +1,35 @@
+# generated using pymatgen
+data_Sr2As2S5
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.80629861
+_cell_length_b   5.91468877
+_cell_length_c   8.83442365
+_cell_angle_alpha   104.16078153
+_cell_angle_beta   120.63066495
+_cell_angle_gamma   96.13253113
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Sr2As2S5
+_chemical_formula_sum   'Sr2 As2 S5'
+_cell_volume   243.19267965
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Sr  Sr1  1  0.49357550  0.64926469  0.78694129  1.0
+  Sr  Sr2  1  0.57526449  0.35802941  0.26103164  1.0
+  As  As1  1  0.94436627  0.11301729  0.69402824  1.0
+  As  As2  1  0.20187105  0.92361640  0.38688118  1.0
+  S  S1  1  0.07762183  0.92716746  0.10501315  1.0
+  S  S2  1  0.90447222  0.48558232  0.68569797  1.0
+  S  S3  1  0.18097238  0.53000511  0.36929903  1.0
+  S  S4  1  0.41298466  0.17276195  0.85058169  1.0
+  S  S5  1  0.78048674  0.92445378  0.37295133  1.0

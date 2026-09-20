@@ -1,0 +1,36 @@
+# generated using pymatgen
+data_NaScTeIrO6
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   6.16009500
+_cell_length_b   6.15261700
+_cell_length_c   5.19688900
+_cell_angle_alpha   62.38383500
+_cell_angle_beta   62.77985400
+_cell_angle_gamma   52.14222000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   NaScTeIrO6
+_chemical_formula_sum   'Na1 Sc1 Te1 Ir1 O6'
+_cell_volume   133.51848510
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Na  Na1  1  0.03795500  0.84377500  0.35096600  1.0
+  Sc  Sc2  1  0.26735300  0.07130500  0.56478200  1.0
+  Te  Te4  1  0.58963000  0.39183000  0.88473600  1.0
+  Ir  Ir3  1  0.84190300  0.64331600  0.03874300  1.0
+  O  O5  1  0.52181500  0.79890100  0.89603500  1.0
+  O  O6  1  0.15880400  0.45844900  0.21294700  1.0
+  O  O7  1  0.99736100  0.32146100  0.90024200  1.0
+  O  O8  1  0.86961600  0.16365600  0.59912500  1.0
+  O  O9  1  0.65292000  0.96010300  0.21245500  1.0
+  O  O10  1  0.35934700  0.67322800  0.59826200  1.0

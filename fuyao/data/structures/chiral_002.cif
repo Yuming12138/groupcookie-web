@@ -1,0 +1,50 @@
+# generated using pymatgen
+data_BeS3Cl2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.84961900
+_cell_length_b   8.78462700
+_cell_length_c   10.58545800
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   BeS3Cl2
+_chemical_formula_sum   'Be4 S12 Cl8'
+_cell_volume   543.95197698
+_cell_formula_units_Z   4
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Be  Be0  1  0.07696477  0.67416764  0.43000771  1.0
+  Be  Be0  1  0.42303523  0.32583236  0.93000771  1.0
+  Be  Be0  1  0.57696477  0.82583236  0.56999229  1.0
+  Be  Be0  1  0.92303523  0.17416764  0.06999229  1.0
+  S  S1  1  0.03253915  0.10458080  0.57292916  1.0
+  S  S1  1  0.46746085  0.89541920  0.07292916  1.0
+  S  S1  1  0.53253915  0.39541920  0.42707084  1.0
+  S  S1  1  0.96746085  0.60458080  0.92707084  1.0
+  S  S2  1  0.07587990  0.33248776  0.61015838  1.0
+  S  S2  1  0.42412010  0.66751224  0.11015838  1.0
+  S  S2  1  0.57587990  0.16751224  0.38984162  1.0
+  S  S2  1  0.92412010  0.83248776  0.88984162  1.0
+  S  S3  1  0.18212085  0.43259664  0.44349327  1.0
+  S  S3  1  0.31787915  0.56740336  0.94349327  1.0
+  S  S3  1  0.68212085  0.06740336  0.55650673  1.0
+  S  S3  1  0.81787915  0.93259664  0.05650673  1.0
+  Cl  Cl4  1  0.09267577  0.17286609  0.22199936  1.0
+  Cl  Cl4  1  0.40732423  0.82713391  0.72199936  1.0
+  Cl  Cl4  1  0.59267577  0.32713391  0.77800064  1.0
+  Cl  Cl4  1  0.90732423  0.67286609  0.27800064  1.0
+  Cl  Cl5  1  0.12069958  0.20882525  0.91490723  1.0
+  Cl  Cl5  1  0.37930042  0.79117475  0.41490723  1.0
+  Cl  Cl5  1  0.62069958  0.29117475  0.08509277  1.0
+  Cl  Cl5  1  0.87930042  0.70882525  0.58509277  1.0

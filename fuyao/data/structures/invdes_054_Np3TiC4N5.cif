@@ -1,0 +1,39 @@
+# generated using pymatgen
+data_Np3TiC4N5
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   3.74307000
+_cell_length_b   7.62239000
+_cell_length_c   7.23386000
+_cell_angle_alpha   61.13170000
+_cell_angle_beta   73.67240000
+_cell_angle_gamma   100.97100000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Np3TiC4N5
+_chemical_formula_sum   'Np3 Ti1 C4 N5'
+_cell_volume   159.86819469
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Np  Np1  1  0.86627000  0.30252000  0.88429000  1.0
+  Np  Np2  1  0.01723000  0.80321000  0.35816000  1.0
+  Np  Np3  1  0.09846000  0.30327000  0.32534000  1.0
+  Ti  Ti1  1  0.38781000  0.79249000  0.76715000  1.0
+  C  C1  1  0.03489000  0.96045000  0.58589000  1.0
+  C  C2  1  0.84244000  0.49016000  0.06055000  1.0
+  C  C3  1  0.71024000  0.64374000  0.05205000  1.0
+  C  C4  1  0.55585000  0.78897000  0.05766000  1.0
+  N  N1  1  0.42907000  0.07944000  0.48005000  1.0
+  N  N2  1  0.21408000  0.19264000  0.09924000  1.0
+  N  N3  1  0.89960000  0.42262000  0.52715000  1.0
+  N  N4  1  0.66782000  0.93155000  0.10916000  1.0
+  N  N5  1  0.37103000  0.64880000  0.61210000  1.0

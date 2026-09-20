@@ -1,0 +1,25 @@
+{
+  "syncedAt": "2026-07-22T15:05:27.442347+08:00",
+  "existingRecords": 1422,
+  "newRecords": 207,
+  "totalRecords": 1629,
+  "publicReports": 207,
+  "sourceBatchCounts": {
+    "7.21": 207
+  },
+  "sourcePaperCounts": {
+    "Rapid discovery of stable materials by coordinate-free coarse graining": 207
+  },
+  "scoreMinimum": 67.0,
+  "scoreMaximum": 93.0,
+  "scoreAverage": 78.90096618357488,
+  "siteJson": "/home/fuyao/my-website/data/mp300_materials.json",
+  "backupJson": "/home/fuyao/my-website/data/mp300_materials_1422_backup_20260722a.json",
+  "publicReportsDir": "/home/fuyao/my-website/data/unsynthesized_reports_20260722a",
+  "publicUrl": "http://groupcookie.com/",
+  "publicDeploymentVerified": true,
+  "publicTotalRecords": 1629,
+  "publicNewRecords": 207,
+  "publicBackup": "/var/www/steel-yield-explorer-backup-20260722151117-before-mp1629",
+  "verifiedAt": "2026-07-22T15:14:24+08:00"
+}

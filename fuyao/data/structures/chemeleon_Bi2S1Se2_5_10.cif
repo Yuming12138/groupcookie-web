@@ -1,0 +1,31 @@
+# generated using pymatgen
+data_Bi2Se2S
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.14487153
+_cell_length_b   4.14534485
+_cell_length_c   11.11714745
+_cell_angle_alpha   68.15824253
+_cell_angle_beta   68.14605567
+_cell_angle_gamma   60.04374472
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Bi2Se2S
+_chemical_formula_sum   'Bi2 Se2 S1'
+_cell_volume   149.42947478
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Bi  Bi1  1  0.00597298  0.02084903  0.14039365  1.0
+  Bi  Bi2  1  0.58165913  0.59666854  0.77806434  1.0
+  Se  Se1  1  0.23400738  0.24927087  0.29886033  1.0
+  Se  Se2  1  0.35361430  0.36829351  0.61958965  1.0
+  S  S1  1  0.79379850  0.80880171  0.95923162  1.0

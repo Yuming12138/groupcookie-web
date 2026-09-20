@@ -1,0 +1,34 @@
+# generated using pymatgen
+data_Hf3O
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.58804547
+_cell_length_b   5.58804548
+_cell_length_c   6.05104240
+_cell_angle_alpha   62.50040240
+_cell_angle_beta   62.50040240
+_cell_angle_gamma   59.99999998
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Hf3O
+_chemical_formula_sum   'Hf6 O2'
+_cell_volume   138.43754026
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Hf  Hf0  1  0.25000000  0.91254529  0.25000000  1.0
+  Hf  Hf1  1  0.91254529  0.58745471  0.25000000  1.0
+  Hf  Hf2  1  0.58745471  0.25000000  0.25000000  1.0
+  Hf  Hf3  1  0.75000000  0.08745471  0.75000000  1.0
+  Hf  Hf4  1  0.08745471  0.41254529  0.75000000  1.0
+  Hf  Hf5  1  0.41254529  0.75000000  0.75000000  1.0
+  O  O6  1  0.00000000  0.00000000  0.00000000  1.0
+  O  O7  1  0.50000000  0.50000000  0.50000000  1.0

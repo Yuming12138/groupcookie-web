@@ -1,0 +1,36 @@
+# generated using pymatgen
+data_Na2LiAlH6
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.42829800
+_cell_length_b   5.49424300
+_cell_length_c   5.43286600
+_cell_angle_alpha   56.28493100
+_cell_angle_beta   58.74103900
+_cell_angle_gamma   58.22905000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Na2LiAlH6
+_chemical_formula_sum   'Na2 Li1 Al1 H6'
+_cell_volume   108.53934992
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Na  Na1  1  0.84400000  0.67700000  0.64300000  1.0
+  Na  Na2  1  0.35700000  0.14600000  0.10500000  1.0
+  Li  Li3  1  0.56100000  0.39800000  0.36800000  1.0
+  Al  Al4  1  0.08340000  0.90900000  0.86300000  1.0
+  H  H5  1  0.87300000  0.51700000  0.30800000  1.0
+  H  H6  1  0.90810000  0.17000000  0.10100000  1.0
+  H  H7  1  0.87800000  0.35200000  0.46900000  1.0
+  H  H8  1  0.33500000  0.11300000  0.59700000  1.0
+  H  H9  1  0.31600000  0.64500000  0.09000000  1.0
+  H  H10  1  0.31400000  0.64900000  0.62300000  1.0

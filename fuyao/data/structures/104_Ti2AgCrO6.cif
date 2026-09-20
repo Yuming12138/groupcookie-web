@@ -1,0 +1,36 @@
+# generated using pymatgen
+data_Ti2CrAgO6
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.39260500
+_cell_length_b   5.93435200
+_cell_length_c   5.92110100
+_cell_angle_alpha   99.43066400
+_cell_angle_beta   92.99026500
+_cell_angle_gamma   69.43095400
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Ti2CrAgO6
+_chemical_formula_sum   'Ti2 Cr1 Ag1 O6'
+_cell_volume   175.00435639
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Ti  Ti1  1  0.55500000  0.87700000  0.86700000  1.0
+  Ti  Ti2  1  0.46300000  0.13500000  0.47000000  1.0
+  Cr  Cr4  1  0.06650000  0.77200000  0.67400000  1.0
+  Ag  Ag3  1  0.27700000  0.57500000  0.18900000  1.0
+  O  O5  1  0.84900000  0.62700000  0.80000000  1.0
+  O  O6  1  0.57100000  0.02000000  0.17200000  1.0
+  O  O7  1  0.27500000  0.46200000  0.50500000  1.0
+  O  O8  1  0.29300000  0.96180000  0.59000000  1.0
+  O  O9  1  0.73200000  0.05060000  0.68400000  1.0
+  O  O10  1  0.29400000  0.74800000  0.92100000  1.0

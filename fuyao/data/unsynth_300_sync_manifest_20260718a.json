@@ -1,0 +1,22 @@
+{
+  "syncedAt": "2026-07-18T09:43:58.534928+08:00",
+  "existingRecords": 888,
+  "newRecords": 300,
+  "totalRecords": 1188,
+  "publicReports": 300,
+  "sourceBatchCounts": {
+    "7.16": 100,
+    "7.17": 200
+  },
+  "sourcePaperCounts": {
+    "High-throughput discovery of novel cubic crystal materials using deep generative neural networks": 100,
+    "Predicting stable crystalline compounds using chemical similarity": 100,
+    "Scaling deep learning for materials discovery": 100
+  },
+  "scoreMinimum": 60.0,
+  "scoreMaximum": 91.0,
+  "scoreAverage": 76.765,
+  "siteJson": "/home/fuyao/my-website/data/mp300_materials.json",
+  "backupJson": "/home/fuyao/my-website/data/mp300_materials_888_backup_20260718a.json",
+  "publicReportsDir": "/home/fuyao/my-website/data/unsynthesized_reports_20260718a"
+}

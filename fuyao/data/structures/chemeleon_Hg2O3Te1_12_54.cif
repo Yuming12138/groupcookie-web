@@ -1,0 +1,38 @@
+# generated using pymatgen
+data_Hg2TeO3
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.62893143
+_cell_length_b   4.79439202
+_cell_length_c   12.98545310
+_cell_angle_alpha   89.65487437
+_cell_angle_beta   71.59944510
+_cell_angle_gamma   82.26057166
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Hg2TeO3
+_chemical_formula_sum   'Hg4 Te2 O6'
+_cell_volume   270.75595247
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Hg  Hg1  1  0.73763241  0.38757275  0.52428021  1.0
+  Hg  Hg2  1  0.10055915  0.55241112  0.14373553  1.0
+  Hg  Hg3  1  0.91858276  0.59821869  0.97314041  1.0
+  Hg  Hg4  1  0.25248314  0.76744058  0.59481894  1.0
+  Te  Te1  1  0.65502018  0.09819611  0.82768777  1.0
+  Te  Te2  1  0.35441614  0.05846717  0.29222356  1.0
+  O  O1  1  0.83605218  0.05627045  0.67215639  1.0
+  O  O2  1  0.15318293  0.09802698  0.44696587  1.0
+  O  O3  1  0.00384452  0.12983110  0.86987079  1.0
+  O  O4  1  0.02041851  0.02598845  0.24178328  1.0
+  O  O5  1  0.66063114  0.70607811  0.85653282  1.0
+  O  O6  1  0.35085657  0.45039855  0.26348823  1.0

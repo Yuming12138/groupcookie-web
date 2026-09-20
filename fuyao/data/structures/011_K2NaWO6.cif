@@ -1,0 +1,36 @@
+# generated using pymatgen
+data_K2NaWO6
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   6.29566300
+_cell_length_b   6.15488700
+_cell_length_c   6.11806600
+_cell_angle_alpha   67.89072400
+_cell_angle_beta   59.34867500
+_cell_angle_gamma   58.59726700
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   K2NaWO6
+_chemical_formula_sum   'K2 Na1 W1 O6'
+_cell_volume   172.08355429
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  K  K1  1  0.89900000  0.70600000  0.69900000  1.0
+  K  K2  1  0.38600000  0.22200000  0.21000000  1.0
+  Na  Na3  1  0.61600000  0.36100000  0.55900000  1.0
+  W  W4  1  0.12700000  0.98800000  0.93280000  1.0
+  O  O5  1  0.61700000  0.69500000  0.22000000  1.0
+  O  O6  1  0.88100000  0.04000000  0.25500000  1.0
+  O  O7  1  0.40200000  0.67200000  0.24800000  1.0
+  O  O8  1  0.38100000  0.10500000  0.81900000  1.0
+  O  O9  1  0.93900000  0.19200000  0.73100000  1.0
+  O  O10  1  0.26400000  0.66700000  0.87100000  1.0

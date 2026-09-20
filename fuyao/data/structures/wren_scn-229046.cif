@@ -1,0 +1,38 @@
+# generated using pymatgen
+data_LiCaPt
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.18102076
+_cell_length_b   7.13940049
+_cell_length_c   8.25373205
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   LiCaPt
+_chemical_formula_sum   'Li4 Ca4 Pt4'
+_cell_volume   246.37375034
+_cell_formula_units_Z   4
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Li  Li0  1  0.25000000  0.13967276  0.93680399  1.0
+  Li  Li1  1  0.25000000  0.63967176  0.56319601  1.0
+  Li  Li2  1  0.75000000  0.36032824  0.43680399  1.0
+  Li  Li3  1  0.75000000  0.86032724  0.06319601  1.0
+  Ca  Ca4  1  0.25000000  0.02944278  0.31760554  1.0
+  Ca  Ca5  1  0.25000000  0.52944278  0.18239446  1.0
+  Ca  Ca6  1  0.75000000  0.47055722  0.81760554  1.0
+  Ca  Ca7  1  0.75000000  0.97055722  0.68239446  1.0
+  Pt  Pt8  1  0.25000000  0.26534289  0.62152720  1.0
+  Pt  Pt9  1  0.25000000  0.76534289  0.87847280  1.0
+  Pt  Pt10  1  0.75000000  0.23465711  0.12152720  1.0
+  Pt  Pt11  1  0.75000000  0.73465711  0.37847380  1.0

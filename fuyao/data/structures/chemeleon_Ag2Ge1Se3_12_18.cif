@@ -1,0 +1,38 @@
+# generated using pymatgen
+data_Ag2GeSe3
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   7.30790079
+_cell_length_b   7.37031313
+_cell_length_c   7.25147335
+_cell_angle_alpha   81.02416320
+_cell_angle_beta   71.71045053
+_cell_angle_gamma   60.32658072
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Ag2GeSe3
+_chemical_formula_sum   'Ag4 Ge2 Se6'
+_cell_volume   322.21237097
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Ag  Ag1  1  0.01365837  0.73696109  0.60689168  1.0
+  Ag  Ag2  1  0.68081036  0.42071154  0.60470313  1.0
+  Ag  Ag3  1  0.18972345  0.40372567  0.10394129  1.0
+  Ag  Ag4  1  0.83886759  0.08666912  0.10806743  1.0
+  Ge  Ge1  1  0.52959863  0.74674353  0.09082968  1.0
+  Ge  Ge2  1  0.36369071  0.07740029  0.59094002  1.0
+  Se  Se1  1  0.87157809  0.74537197  0.99196640  1.0
+  Se  Se2  1  0.70411413  0.07906858  0.49283172  1.0
+  Se  Se3  1  0.39276335  0.76588790  0.45846197  1.0
+  Se  Se4  1  0.08358278  0.37990887  0.48792226  1.0
+  Se  Se5  1  0.55217097  0.44382198  0.98857369  1.0
+  Se  Se6  1  0.24665828  0.05798240  0.95853139  1.0

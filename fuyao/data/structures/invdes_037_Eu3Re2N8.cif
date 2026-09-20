@@ -1,0 +1,39 @@
+# generated using pymatgen
+data_Eu3(ReN4)2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   6.17911000
+_cell_length_b   3.77375000
+_cell_length_c   9.24785000
+_cell_angle_alpha   103.17900000
+_cell_angle_beta   92.82930000
+_cell_angle_gamma   86.99310000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Eu3(ReN4)2
+_chemical_formula_sum   'Eu3 Re2 N8'
+_cell_volume   209.52141691
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Eu  Eu1  1  0.13088000  0.29773000  0.71871000  1.0
+  Eu  Eu2  1  0.28442000  0.50382000  0.37916000  1.0
+  Eu  Eu3  1  0.78186000  0.47461000  0.09687000  1.0
+  Re  Re1  1  0.82553000  0.02628000  0.44301000  1.0
+  Re  Re2  1  0.65990000  0.77190000  0.72458000  1.0
+  N  N1  1  0.72713000  0.86564000  0.91863000  1.0
+  N  N2  1  0.36002000  0.43873000  0.09625000  1.0
+  N  N3  1  0.90440000  0.63490000  0.53052000  1.0
+  N  N4  1  0.37257000  0.74463000  0.67313000  1.0
+  N  N5  1  0.73915000  0.22666000  0.67439000  1.0
+  N  N6  1  0.58082000  0.89747000  0.33983000  1.0
+  N  N7  1  0.31337000  0.38487000  0.97015000  1.0
+  N  N8  1  0.02318000  0.97912000  0.30152000  1.0
