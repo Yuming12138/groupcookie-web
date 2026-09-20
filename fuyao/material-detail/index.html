@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="description" content="材料可合成性数据库中的材料记录详情。" />
+    <title>材料记录 | Synthesis Atlas</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">跳至主要内容</a>
+    <header class="detail-header">
+      <a class="back-link" href="../homepage/index.html"><i data-lucide="arrow-left" aria-hidden="true"></i><span>返回元素检索</span></a>
+      <div class="detail-brand"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>Synthesis Atlas</span></div>
+      <div class="header-tools"><span class="record-id" id="record-id">读取中…</span><button class="icon-button" id="theme-toggle" type="button" title="切换阅读背景" aria-label="切换阅读背景"><i data-lucide="sun-medium" aria-hidden="true"></i></button></div>
+    </header>
+
+    <main id="main-content">
+      <section class="record-hero" aria-labelledby="material-formula">
+        <div class="record-hero-copy"><p class="kicker">材料记录 <span id="record-source">本地数据集</span></p><h1 id="material-formula">—</h1><p class="formula-note" id="material-meta">正在读取记录…</p><div class="tag-row" id="tag-row"></div></div>
+        <div class="hero-score"><span class="score-caption">可合成性评分</span><strong id="hero-score">—<span>/100</span></strong><p id="hero-score-note">—</p></div>
+      </section>
+
+      <div class="record-layout">
+        <aside class="record-sidebar" aria-label="材料目录">
+          <div class="sidebar-block"><p class="sidebar-label">记录内容</p><nav class="record-nav"><a class="active" href="#overview">概览</a><a href="#evidence">证据与评分</a><a href="#synthesis">合成路径</a><a href="#references">文献参考</a><a href="#properties">性质与来源</a></nav></div>
+          <div class="sidebar-block provenance"><p class="sidebar-label">数据来源</p><p id="source-summary">—</p><span id="updated-at">数据随批次更新</span></div>
+          <button class="export-button" type="button" id="export-button"><i data-lucide="download" aria-hidden="true"></i>导出记录摘要</button>
+        </aside>
+
+        <div class="record-content">
+          <section class="overview-section" id="overview" aria-labelledby="overview-title">
+            <div class="section-title"><p class="kicker">01 · 概览</p><h2 id="overview-title">材料数据</h2></div>
+            <div class="overview-grid">
+              <article class="structure-card" aria-labelledby="structure-title"><div class="card-topline"><h3 id="structure-title">晶体结构 <span class="placeholder-label">预览待接入</span></h3><span class="structure-format">结构数据</span></div><div class="structure-stage" role="img" aria-label="当前记录没有可供网页预览的晶体结构"><div class="structure-empty"><span class="empty-icon"><i data-lucide="box" aria-hidden="true"></i></span><strong id="structure-empty-title">结构预览待接入</strong><span id="structure-empty-note">当前页面先展示结构以外的记录信息。</span></div></div><div class="structure-legend"><span><i class="legend-dot pending"></i><span id="structure-source-note">暂无结构数据</span></span><span class="structure-note">结构数据上传后可接入三维预览</span></div></article>
+              <article class="data-card" aria-labelledby="facts-title"><div class="card-topline"><h3 id="facts-title">关键字段</h3><span class="data-state" id="data-state">—</span></div><dl class="key-facts" id="key-facts"><div><dt>记录编号</dt><dd>—</dd></div><div><dt>化学式</dt><dd>—</dd></div><div><dt>空间群</dt><dd>—</dd></div><div><dt>原子位点</dt><dd>—</dd></div><div><dt>E<sub>hull</sub></dt><dd>—</dd></div><div><dt>最低原子间距</dt><dd>—</dd></div></dl></article>
+            </div>
+          </section>
+
+          <section class="evidence-section" id="evidence" aria-labelledby="evidence-title"><div class="section-title inline"><div><p class="kicker">02 · 证据与评分</p><h2 id="evidence-title">数据支撑</h2></div><span id="evidence-source">来自当前记录字段</span></div><div class="metric-grid" id="metric-grid"></div><div class="record-summary" id="record-summary"></div></section>
+
+          <section class="synthesis-section" id="synthesis" aria-labelledby="synthesis-title"><div class="section-title inline"><div><p class="kicker">03 · 合成路径</p><h2 id="synthesis-title">可参考路线</h2></div><span id="route-count">读取报告…</span></div><div class="route-list" id="route-list"><div class="loading-row">正在读取该记录的合成报告…</div></div></section>
+
+          <section class="references-section" id="references" aria-labelledby="references-title"><div class="section-title inline"><div><p class="kicker">04 · 文献参考</p><h2 id="references-title">证据来源</h2></div><span id="reference-count">待补充</span></div><ol class="reference-list" id="reference-list"><li class="reference-empty">文献条目待补充。</li></ol></section>
+
+          <section class="properties-section" id="properties" aria-labelledby="properties-title"><div class="section-title inline"><div><p class="kicker">05 · 性质与来源</p><h2 id="properties-title">可用字段</h2></div><span id="property-count">—</span></div><div class="property-layout"><dl class="property-list" id="property-list"></dl><div class="source-panel" id="source-panel"></div></div></section>
+        </div>
+      </div>
+    </main>
+    <footer class="detail-footer"><span>Synthesis Atlas · 材料可合成性数据库</span><span>记录详情 · 数据字段随批次更新</span></footer><div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script><script src="script.js"></script>
+  </body>
+</html>

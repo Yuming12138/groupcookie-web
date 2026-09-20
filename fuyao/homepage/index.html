@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="description" content="材料可合成性数据库元素检索入口。" />
+    <title>元素检索 | Synthesis Atlas</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="cmsg-periodic-theme.css" />
+  </head>
+  <body data-view="elements">
+    <a class="skip-link" href="#main-content">跳至主要内容</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Synthesis Atlas 首页"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>Synthesis Atlas</span></a>
+      <nav class="site-nav" aria-label="主导航">
+        <a class="active" data-nav="elements" href="index.html" aria-current="page">元素检索</a>
+        <a data-nav="properties" href="../properties/index.html">性质检索</a>
+        <a data-nav="predict" href="../predict/index.html">上传预测</a>
+        <a data-nav="members" href="../members/index.html">成员介绍</a>
+      </nav>
+      <div class="header-actions"><span class="dataset-pill"><i aria-hidden="true"></i> 本地材料记录</span><a class="detail-link" href="../material-detail/index.html?id=wbmext_001">样例档案 <i data-lucide="arrow-up-right" aria-hidden="true"></i></a><button class="mobile-menu-button" id="mobile-menu-toggle" type="button" aria-label="打开导航" aria-expanded="false"><i data-lucide="menu" aria-hidden="true"></i></button></div>
+    </header>
+
+    <main id="main-content">
+      <section class="intro" id="top" aria-labelledby="page-title">
+        <div><p class="eyebrow">材料数据库 · 可合成性</p><h1 id="page-title">从元素开始检索材料</h1><p class="intro-copy">组合元素，查看数据库中的候选相，再进入性质和可合成性档案。</p></div>
+        <form class="quick-search" id="quick-search" role="search"><label class="sr-only" for="quick-query">输入化学式或元素</label><i data-lucide="search" aria-hidden="true"></i><input id="quick-query" name="query" type="search" placeholder="例如 BaTiO3、Li Fe P O…" autocomplete="off" /><button type="submit">检索 <i data-lucide="arrow-right" aria-hidden="true"></i></button></form>
+        <div class="quick-links" aria-label="示例检索"><span>示例：</span><button type="button" data-query="La2MnRhO6">La2MnRhO6</button><button type="button" data-query="RbSbO3">RbSbO3</button><a href="../properties/index.html?q=磁性候选">磁性候选</a></div>
+        <dl class="dataset-stats" aria-label="数据集统计"><div><dt>材料记录</dt><dd id="dataset-total">2,144</dd></div><div><dt>高评分候选</dt><dd id="candidate-total">—</dd></div><div><dt>性质标签</dt><dd id="tag-total">12</dd></div></dl>
+      </section>
+
+      <section class="workspace-section" id="elements" aria-labelledby="elements-title">
+        <div class="section-bar"><div><p class="section-index">元素入口</p><h2 id="elements-title">元素周期表</h2><p class="section-help">点击一个或多个元素，右侧会列出示例候选相。</p></div><div class="selection-tools"><span class="selection-status" role="status" aria-live="polite"><i></i><span id="selection-summary">未选择元素</span></span><button class="outline-button" id="clear-elements" type="button"><i data-lucide="rotate-ccw" aria-hidden="true"></i>清除选择</button></div></div>
+        <div class="element-workspace">
+          <div class="periodic-wrap"><div class="periodic-toolbar"><div class="legend" aria-label="元素类别"><span><i class="legend-swatch s-metal"></i>金属</span><span><i class="legend-swatch s-transition"></i>过渡金属</span><span><i class="legend-swatch s-nonmetal"></i>非金属</span><span><i class="legend-swatch s-noble"></i>稀有气体</span></div><span class="table-note">共 118 个元素</span></div><div class="periodic-table" id="periodic-table" role="grid" aria-label="元素周期表"></div><div class="series-row"><span class="series-label">镧系</span><div id="lanthanides" class="series-elements" role="group" aria-label="镧系元素"></div></div><div class="series-row"><span class="series-label">锕系</span><div id="actinides" class="series-elements" role="group" aria-label="锕系元素"></div></div></div>
+          <aside class="element-results" aria-labelledby="element-results-title"><div class="results-heading"><div><p class="panel-label">筛选结果</p><h3 id="element-results-title"><span id="element-result-count">0</span> 个候选相</h3></div><span class="result-mode">包含全部元素</span></div><div class="result-list" id="element-result-list"></div></aside>
+        </div>
+      </section>
+
+    </main>
+    <footer class="site-footer"><span>Synthesis Atlas · 材料可合成性数据库原型</span><span>页面之间通过导航切换，示例数据来自当前本地数据集</span></footer>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

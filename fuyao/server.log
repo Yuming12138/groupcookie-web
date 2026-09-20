@@ -1,0 +1,10 @@
+127.0.0.1 - - [27/Aug/2026 12:49:08] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [27/Aug/2026 12:49:08] "GET /homepage/index.html HTTP/1.1" 200 -
+127.0.0.1 - - [27/Aug/2026 12:49:08] "GET /properties/index.html HTTP/1.1" 200 -
+127.0.0.1 - - [27/Aug/2026 12:49:08] "GET /predict/index.html HTTP/1.1" 200 -
+127.0.0.1 - - [27/Aug/2026 12:49:08] "GET /members/index.html HTTP/1.1" 200 -
+127.0.0.1 - - [27/Aug/2026 12:49:08] "GET /material-detail/index.html HTTP/1.1" 200 -
+127.0.0.1 - - [27/Aug/2026 12:49:08] "GET /data/mp300_materials.json HTTP/1.1" 200 -
+127.0.0.1 - - [27/Aug/2026 12:49:08] "GET /assets/members/zhouke.png HTTP/1.1" 200 -
+127.0.0.1 - - [27/Aug/2026 12:49:08] "HEAD / HTTP/1.1" 200 -
+127.0.0.1 - - [27/Aug/2026 12:49:08] "GET /data/mp300_materials.json HTTP/1.1" 200 -

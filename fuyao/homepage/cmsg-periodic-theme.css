@@ -1,0 +1,71 @@
+/* CMSG / PIRAG category palette applied to the fuyao periodic table only. */
+#periodic-table .element-cell,
+#lanthanides .element-cell,
+#actinides .element-cell {
+  border-color: #e2e6ed;
+  border-radius: 4px;
+  color: #293241;
+  box-shadow: none;
+}
+
+#periodic-table .element-cell[data-symbol="Li"],
+#periodic-table .element-cell[data-symbol="Na"],
+#periodic-table .element-cell[data-symbol="K"],
+#periodic-table .element-cell[data-symbol="Rb"],
+#periodic-table .element-cell[data-symbol="Cs"],
+#periodic-table .element-cell[data-symbol="Fr"] { background: #f8cbd0; }
+
+#periodic-table .element-cell[data-symbol="Be"],
+#periodic-table .element-cell[data-symbol="Mg"],
+#periodic-table .element-cell[data-symbol="Ca"],
+#periodic-table .element-cell[data-symbol="Sr"],
+#periodic-table .element-cell[data-symbol="Ba"],
+#periodic-table .element-cell[data-symbol="Ra"] { background: #f4db9a; }
+
+#periodic-table .element-cell.transition { background: #bfd7fa; }
+
+#periodic-table .element-cell[data-symbol="Al"],
+#periodic-table .element-cell[data-symbol="Ga"],
+#periodic-table .element-cell[data-symbol="In"],
+#periodic-table .element-cell[data-symbol="Sn"],
+#periodic-table .element-cell[data-symbol="Tl"],
+#periodic-table .element-cell[data-symbol="Pb"],
+#periodic-table .element-cell[data-symbol="Bi"],
+#periodic-table .element-cell[data-symbol="Nh"],
+#periodic-table .element-cell[data-symbol="Fl"],
+#periodic-table .element-cell[data-symbol="Mc"],
+#periodic-table .element-cell[data-symbol="Lv"] { background: #b8e3d8; }
+
+#periodic-table .element-cell.metalloid { background: #cce5b8; }
+#periodic-table .element-cell.nonmetal { background: #f7eab2; }
+
+#periodic-table .element-cell[data-symbol="F"],
+#periodic-table .element-cell[data-symbol="Cl"],
+#periodic-table .element-cell[data-symbol="Br"],
+#periodic-table .element-cell[data-symbol="I"],
+#periodic-table .element-cell[data-symbol="At"],
+#periodic-table .element-cell[data-symbol="Ts"] { background: #dbcdf7; }
+
+#periodic-table .element-cell.noble { background: #c0e8ee; }
+#lanthanides .element-cell { background: #ebcce5; }
+#actinides .element-cell { background: #ecd1bb; }
+
+#periodic-table .element-cell:hover,
+#lanthanides .element-cell:hover,
+#actinides .element-cell:hover,
+#periodic-table .element-cell:focus-visible,
+#lanthanides .element-cell:focus-visible,
+#actinides .element-cell:focus-visible {
+  border-color: #006b61;
+  box-shadow: 0 0 0 2px rgba(0, 107, 97, .14);
+  transform: translateY(-1px);
+}
+
+#periodic-table .element-cell.selected,
+#lanthanides .element-cell.selected,
+#actinides .element-cell.selected {
+  border: 2px solid #006b61;
+  background: inherit;
+  color: #293241;
+  box-shadow: none;
+}
