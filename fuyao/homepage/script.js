@@ -86,8 +86,7 @@
 
   const resultBody = document.querySelector('#element-result-body');
   const resultPanel = document.querySelector('.element-results');
-  const resultMode = document.querySelector('#element-result-mode');
-  const resultNote = document.querySelector('#element-result-note');
+  const resultScroller = document.querySelector('.element-results .result-table-wrap');
   const previewRowCount = resultBody ? resultBody.querySelectorAll('[data-preview-row="true"]').length : 0;
   const previewMarkup = resultBody ? resultBody.innerHTML : '';
   const setCatalogState = (state) => {
@@ -108,21 +107,21 @@
       if (resultBody && !resultBody.querySelector('[data-preview-row="true"]')) resultBody.innerHTML = previewMarkup;
       const resultCount = document.querySelector('#element-result-count');
       if (resultCount) resultCount.textContent = previewRowCount;
-      if (resultMode) resultMode.textContent = '默认示例';
-      if (resultNote) resultNote.textContent = catalogError ? '完整目录暂时无法读取；当前保留默认示例记录。' : '默认示例记录；正在读取完整材料目录。';
       setCatalogState(catalogError ? 'partial' : 'loading');
       return;
     }
     const matches = candidates.filter((candidate) => !symbols.length || symbols.every((symbol) => (candidate.elements || []).includes(symbol))).sort((a, b) => Number(b.score || 0) - Number(a.score || 0));
     const resultCount = document.querySelector('#element-result-count');
     if (resultCount) resultCount.textContent = matches.length;
-    if (resultMode) resultMode.textContent = symbols.length ? '包含 ' + symbols.join(' · ') : '评分靠前记录';
-    if (resultNote) resultNote.textContent = symbols.length ? '结果需同时包含所选元素；当前展示前 6 条。' : '默认展示评分靠前的记录；选择元素后更新结果。';
     if (!resultBody) return;
     if (!matches.length) {
-      resultBody.innerHTML = '<tr><td colspan="6"><p class="empty-result">' + (symbols.length ? '当前数据中没有同时包含所选元素的候选相。' : (catalogLoaded ? '材料目录当前没有记录。' : '材料记录暂时无法读取。')) + '</p></td></tr>';
+      resultBody.innerHTML = '<tr><td colspan="5"><p class="empty-result">' + (symbols.length ? '当前数据中没有同时包含所选元素的候选相。' : (catalogLoaded ? '材料目录当前没有记录。' : '材料记录暂时无法读取。')) + '</p></td></tr>';
     } else {
-      resultBody.innerHTML = matches.slice(0, 6).map((candidate) => '<tr><td><a class="result-material" href="../material-detail/index.html?id=' + encodeURIComponent(candidate.recordId || candidate.id) + '"><strong>' + escapeHtml(candidate.formula) + '</strong><span>' + escapeHtml(candidate.recordIdLabel + ' · ' + (candidate.mpId || candidate.recordId || candidate.id)) + '</span></a></td><td>' + escapeHtml(candidate.spacegroup || '—') + '</td><td class="result-number">' + escapeHtml(formatEhull(candidate.eHull)) + '</td><td class="result-score">' + escapeHtml(candidate.score ?? '—') + '</td><td class="result-properties">' + escapeHtml(formatTags(candidate)) + '</td><td class="result-detail"><a href="../material-detail/index.html?id=' + encodeURIComponent(candidate.recordId || candidate.id) + '">查看 <span aria-hidden="true">↗</span></a></td></tr>').join('');
+      resultBody.innerHTML = matches.map((candidate) => '<tr><td><a class="result-material" href="../material-detail/index.html?id=' + encodeURIComponent(candidate.recordId || candidate.id) + '"><strong>' + escapeHtml(candidate.formula) + '</strong><span>' + escapeHtml(candidate.recordIdLabel + ' · ' + (candidate.mpId || candidate.recordId || candidate.id)) + '</span></a></td><td>' + escapeHtml(candidate.spacegroup || '—') + '</td><td class="result-number">' + escapeHtml(formatEhull(candidate.eHull)) + '</td><td class="result-score">' + escapeHtml(candidate.score ?? '—') + '</td><td class="result-properties">' + escapeHtml(formatTags(candidate)) + '</td></tr>').join('');
+    }
+    if (resultScroller) {
+      resultScroller.scrollTop = 0;
+      resultScroller.scrollLeft = 0;
     }
     setCatalogState(catalogLoaded ? 'ready' : 'loading');
   };
@@ -142,7 +141,7 @@
     const results = document.querySelector('#property-results');
     const formatProperty = (candidate) => Number.isFinite(candidate[property]) ? candidate[property].toFixed(config.decimals) : '—';
     const formatHull = (candidate) => Number.isFinite(candidate.ehull) ? candidate.ehull.toFixed(3) : '—';
-    results.innerHTML = '<div class="property-result-head"><span>材料</span><span>' + config.label + ' · ' + config.unit + '</span><span>E_hull · eV/atom</span><span>可合成性</span><span></span></div>' + (filtered.length ? filtered.slice(0, 30).map((candidate) => '<div class="property-result-row"><strong>' + escapeHtml(candidate.formula) + '</strong><span>' + formatProperty(candidate) + '</span><span>' + formatHull(candidate) + '</span><span class="' + (Number(candidate.score) >= 75 ? 'score-high' : 'score-mid') + '">' + escapeHtml(candidate.score ?? '—') + '</span><a href="../material-detail/index.html?id=' + encodeURIComponent(candidate.id) + '">查看 <i data-lucide="arrow-up-right" aria-hidden="true"></i></a></div>').join('') : '<p class="empty-result">没有符合范围的示例记录。</p>');
+    results.innerHTML = '<div class="property-result-head"><span>材料</span><span>' + config.label + ' · ' + config.unit + '</span><span>E_hull · eV/atom</span><span>可合成性</span><span></span></div>' + (filtered.length ? filtered.slice(0, 30).map((candidate) => '<div class="property-result-row"><strong>' + escapeHtml(candidate.formula) + '</strong><span>' + formatProperty(candidate) + '</span><span>' + formatHull(candidate) + '</span><span class="' + (Number(candidate.score) >= 75 ? 'score-high' : 'score-mid') + '">' + escapeHtml(candidate.score ?? '—') + '</span></div>').join('') : '<p class="empty-result">没有符合范围的示例记录。</p>');
     icons();
     updateUrl('property', property);
   };
