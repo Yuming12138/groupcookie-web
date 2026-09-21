@@ -28,3 +28,7 @@ html,body{height:100%}body{overflow:hidden}.detail-header{position:relative;z-in
 
 /* Keep the embedded structure canvas visually quiet and non-scrollable. */
 .structure-stage{background:#fff;background-image:none;border-color:var(--line)}.structure-viewer{background:#fff}.structure-loading{background:rgba(255,255,255,.96)}
+
+/* Use one square viewer frame; the structure itself carries the visual weight. */
+.structure-card{display:block;min-height:0;padding:0;overflow:hidden;border-radius:10px}
+.structure-stage{width:100%;height:auto;min-height:0;aspect-ratio:1 / 1;margin:0;border:0;border-radius:inherit}

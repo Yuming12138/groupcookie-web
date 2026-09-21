@@ -143,7 +143,7 @@
     const score = Number(item.score);
     setHtml('#hero-score', Number.isFinite(score) ? String(score) + '<span>/100</span>' : '—<span>/100</span>');
     setText('#hero-score-note', Number.isFinite(score) ? (score >= 75 ? '进入优先验证区间' : '作为候选记录保留') : '评分未报告');
-    const facts = [['记录编号', item.id], ['化学式', item.formula], ['空间群', item.spacegroup || '未报告'], ['原子位点', item.numSites || '未报告'], ['E_hull', hull(item.eHull)], ['最低原子间距', item.minimumDistanceAngstrom ? Number(item.minimumDistanceAngstrom).toFixed(3) + ' Å' : '未报告']];
+    const facts = [['记录编号', item.id], ['化学式', item.formula], ['空间群', item.spacegroup || '未报告'], ['原子位点', item.numSites || '未报告'], ['E_hull', hull(item.eHull)]];
     setHtml('#key-facts', facts.map((pair) => '<div><dt>' + pair[0] + '</dt><dd>' + esc(pair[1]) + '</dd></div>').join(''));
     const structureDescription = text(item.target || item.summary || '', 340);
     setText('#facts-description-text', structureDescription);
@@ -224,25 +224,31 @@
     };
 
     const updateActiveSection = () => {
-      const contentTop = content.getBoundingClientRect().top + 84;
+      const paneScroll = getComputedStyle(content).overflowY === 'auto' && content.scrollHeight > content.clientHeight + 1;
+      const contentTop = paneScroll ? content.getBoundingClientRect().top + 84 : 120;
       let current = sections[0];
       sections.forEach((section) => {
         if (section.getBoundingClientRect().top <= contentTop) current = section;
       });
-      if (content.scrollTop + content.clientHeight >= content.scrollHeight - 8) current = sections[sections.length - 1];
+      const atBottom = paneScroll
+        ? content.scrollTop + content.clientHeight >= content.scrollHeight - 8
+        : window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 8;
+      if (atBottom) current = sections[sections.length - 1];
       setActive(current.id);
     };
 
     content.addEventListener('scroll', updateActiveSection, { passive: true });
+    window.addEventListener('scroll', updateActiveSection, { passive: true });
+    window.addEventListener('resize', updateActiveSection, { passive: true });
     links.forEach((link) => link.addEventListener('click', () => setActive(link.getAttribute('href')?.slice(1))));
     updateActiveSection();
   }
 
   async function init() {
     icons();
-    observeDetailSections();
     try { const response = await fetch(DATA_URL); if (!response.ok) throw new Error('数据文件读取失败'); const materials = await response.json(); const requested = new URL(window.location.href).searchParams.get('id'); const item = materials.find((entry) => entry.id === requested || entry.formula === requested) || materials[0]; const referenceContext = renderReferences(item); renderFacts(item); renderStructure(item); renderEvidence(item, referenceContext); renderProperties(item); await renderRoutes(item, referenceContext); icons(); $('#export-button')?.addEventListener('click', () => exportRecord(item)); }
     catch (error) { setText('#record-id', '读取失败'); setText('#material-formula', '—'); setText('#material-meta', error.message); setText('#route-count', '读取失败'); }
+    observeDetailSections();
     $('#theme-toggle')?.addEventListener('click', () => { document.body.classList.toggle('soft-mode'); show(document.body.classList.contains('soft-mode') ? '已切换为柔和阅读背景。' : '已恢复标准阅读背景。'); });
   }
   init();

@@ -82,7 +82,9 @@ def create_app() -> Dash:
         show_image_button=True,
         show_export_button=True,
         show_position_button=True,
-        scene_settings={"zoomToFit2D": True},
+        # Keep the initial crystal view comfortably inset, matching the
+        # compact Materials Project style while leaving zoom controls active.
+        scene_settings={"zoomToFit2D": True, "defaultZoom": 0.39},
     )
 
     layout = html.Div(
@@ -120,6 +122,7 @@ def create_app() -> Dash:
             .ctk-structure-frame { box-sizing: border-box; width: 100%; height: 100%; min-height: 100%; min-width: 0; overflow: hidden !important; border: 0; border-radius: 0; background: #fff; }
             .ctk-structure-frame > div, .ctk-structure-frame #CTmaterial-structure_scene { width: 100% !important; height: 100% !important; min-height: 0 !important; min-width: 0 !important; margin: 0 !important; padding: 0 !important; overflow: hidden !important; background: #fff !important; }
             .ctk-structure-frame .mpc-scene { width: 100% !important; height: 100% !important; max-height: 100% !important; overflow: hidden !important; }
+            .ctk-structure-frame .mpc-scene-square-wrapper { max-width: min(100%, calc(100vh - 16px)) !important; }
         </style>
     </head>
     <body>
