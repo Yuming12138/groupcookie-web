@@ -172,6 +172,76 @@
     return rows;
   }
 
+  function parseMarkdownTables(markdown) {
+    const tables = []; let block = [];
+    const flush = () => { if (block.length) tables.push(parseMarkdownTable(block.join('\n'))); block = []; };
+    String(markdown || '').split(/\r?\n/).forEach((line) => {
+      if (/^\s*\|/.test(line)) block.push(line); else flush();
+    });
+    flush();
+    return tables.filter((table) => table.length > 1);
+  }
+
+  const SOURCE_META = {
+    CS: { name: '化学相似', kind: '组成先例', fallback: '化学组成和反应先例' },
+    SS: { name: '结构相似', kind: '结构先例', fallback: '结构类型和晶体生长先例' },
+    TS: { name: '热力学相似', kind: '外部热力学先例', fallback: '能量和稳定性先例' }
+  };
+  const SOURCE_ORDER = ['CS', 'SS', 'TS'];
+
+  function sourceCodes(markdown, source) {
+    const codes = new Set();
+    const pattern = new RegExp('\\b' + source + '\\s*[-#]?\\s*(\\d+)\\b', 'gi'); let match;
+    while ((match = pattern.exec(String(markdown || '')))) codes.add(source + match[1]);
+    return [...codes].sort((a, b) => Number(a.slice(2)) - Number(b.slice(2)));
+  }
+
+  function sourceTableEvidence(markdown) {
+    const sections = [reportSection(markdown, 3), reportSection(markdown, 6), reportSection(markdown, 1)];
+    for (const section of sections) {
+      for (const rows of parseMarkdownTables(section)) {
+        const header = rows[0].map((cell) => cell.toLowerCase());
+        const sourceIndex = header.findIndex((cell) => /^source(?:\s|$)/i.test(cell));
+        const signalIndex = header.findIndex((cell) => /signal|evidence|support|used|handling|rationale/i.test(cell) && !/score/i.test(cell));
+        const scoreIndex = header.findIndex((cell) => /score/i.test(cell));
+        if (sourceIndex < 0 || signalIndex < 0) continue;
+        const found = {};
+        rows.slice(1).forEach((row) => {
+          const source = String(row[sourceIndex] || '').match(/\b(CS|SS|TS)\b/i)?.[1]?.toUpperCase();
+          if (!source || found[source]) return;
+          const signalParts = row.filter((value, index) => index !== sourceIndex && index !== scoreIndex && present(value));
+          const rawScore = scoreIndex >= 0 ? String(row[scoreIndex] || '').match(/-?\d+(?:\.\d+)?/)?.[0] : null;
+          found[source] = { signal: signalParts.join(' '), score: rawScore == null ? null : Number(rawScore) };
+        });
+        if (Object.keys(found).length) return found;
+      }
+    }
+    return {};
+  }
+
+  function sourceFallback(markdown, source) {
+    const sections = [reportSection(markdown, 1), reportSection(markdown, 6), reportSection(markdown, 5)].filter(Boolean).join('\n');
+    const pattern = new RegExp('\\b' + source + '(?:\\s*[-#]?\\s*\\d+)?\\b', 'i');
+    const chunks = sections.split(/\n+|(?<=[.!?。！？])\s+/).map((chunk) => text(chunk.replace(/^\|.*?\|\s*/, ''), 260)).filter((chunk) => chunk && pattern.test(chunk));
+    return chunks[0] || '';
+  }
+
+  function parseSourceEvidence(markdown) {
+    const tableEvidence = sourceTableEvidence(markdown); const result = {};
+    SOURCE_ORDER.forEach((source) => {
+      const evidence = tableEvidence[source] || {};
+      const codes = sourceCodes(markdown, source);
+      result[source] = {
+        name: SOURCE_META[source].name,
+        kind: SOURCE_META[source].kind,
+        signal: text(evidence.signal || sourceFallback(markdown, source) || SOURCE_META[source].fallback, 300),
+        score: Number.isFinite(evidence.score) ? evidence.score : null,
+        codes: codes
+      };
+    });
+    return result;
+  }
+
   function reportSection(markdown, number) {
     const matches = [...String(markdown || '').matchAll(new RegExp('^#{1,3}\\s+SECTION\\s+' + number + '\\b[^\\n]*\\n', 'gim'))];
     if (!matches.length) return '';
@@ -224,7 +294,7 @@
     const f1 = source.match(/\*\*F1 Score:\s*([\d.]+)\s*\/\s*100\*\*/i)?.[1];
     const f4 = source.match(/\*\*F4 Score:\s*([\d.]+)\s*\/\s*100\*\*/i)?.[1];
     const interpretation = reportSection(source, 6).replace(/^#+\s*/gm, '').trim();
-    return { routes, scoreByRoute, bestRoute, conditions, challenges, channels, f1: f1 ? Number(f1) : null, f4: f4 ? Number(f4) : null, interpretation };
+    return { routes, scoreByRoute, bestRoute, conditions, challenges, channels, sourceEvidence: parseSourceEvidence(source), f1: f1 ? Number(f1) : null, f4: f4 ? Number(f4) : null, interpretation };
   }
 
   async function loadReport(item) {
@@ -238,30 +308,22 @@
     }
   }
 
-  function evidenceChannels(report) {
-    return report?.channels?.length ? report.channels : [];
-  }
-
-  function stabilityReading(ehull) {
-    if (!Number.isFinite(ehull)) return '未报告';
-    if (ehull <= 0.05) return '处于较有利的稳定性区间';
-    if (ehull <= 0.2) return '接近低能亚稳区';
-    return '需要结合路线证据判断';
-  }
-
   function renderEvidence(item, context, report) {
-    const score = Number(item.score); const ehull = Number(item.eHull); const channels = evidenceChannels(report);
+    const score = Number(item.score); const ehull = Number(item.eHull); const sourceEvidence = report?.sourceEvidence || parseSourceEvidence('');
     const bestRoute = report?.bestRoute || item.bestRoute || '未报告';
     const routeName = bestRoute.replace(/^Route\s*\d+\s*[:,]?\s*/i, '');
     const metrics = [
-      { label: '可合成性评分', value: Number.isFinite(score) ? String(score) : '—', unit: '/ 100', detail: '综合材料属性与路线证据' },
-      { label: 'E_hull', value: Number.isFinite(ehull) ? Number(ehull).toFixed(3) : '—', unit: ' eV/atom', detail: stabilityReading(ehull) },
-      { label: '证据通道', value: channels.length ? channels.join(' · ') : '—', unit: '', detail: '化学、结构与热力学先例' }
+      { key: 'aggregate', label: '可合成性评分', value: Number.isFinite(score) ? String(score) : '—', unit: '/ 100' },
+      { key: 'thermo', label: 'E_hull', value: Number.isFinite(ehull) ? Number(ehull).toFixed(3) : '—', unit: ' eV/atom' }
     ];
-    setHtml('#metric-grid', metrics.map((metric) => '<article class="metric-card"><div class="metric-head"><span>' + metric.label + '</span><span class="metric-value-text">' + esc(metric.value) + '<small>' + esc(metric.unit) + '</small></span></div><p>' + esc(metric.detail) + '</p></article>').join(''));
+    setHtml('#metric-grid', metrics.map((metric) => '<article class="metric-card' + (metric.key === 'thermo' ? ' thermo-metric' : '') + '"><div class="metric-head"><span>' + metric.label + '</span><span class="metric-value-text">' + esc(metric.value) + '<small>' + esc(metric.unit) + '</small></span></div></article>').join(''));
+    setHtml('#source-evidence-grid', SOURCE_ORDER.map((source) => {
+      const evidence = sourceEvidence[source] || { name: SOURCE_META[source].name, kind: SOURCE_META[source].kind, signal: SOURCE_META[source].fallback, score: null, codes: [] };
+      const codes = evidence.codes || []; const scoreMarkup = Number.isFinite(evidence.score) ? '<span class="source-score"><b>' + evidence.score + '</b><small>来源信号</small></span>' : (codes.length ? '<span class="source-score"><b>' + codes.length + '</b><small>关联条目</small></span>' : '<span class="source-score"><b>—</b><small>暂无明确记录</small></span>');
+      return '<article class="source-evidence-card' + (source === 'TS' ? ' thermo-source' : '') + '" aria-label="' + esc(source + ' ' + evidence.name) + '"><div class="source-evidence-head"><div><span class="source-code">' + source + '</span><strong>' + esc(evidence.name) + '</strong></div>' + scoreMarkup + '</div><p>' + citationText(evidence.signal, context, 300) + '</p>' + (codes.length ? '<div class="source-codes">' + esc(codes.join(' · ')) + '</div>' : '') + '</article>';
+    }).join(''));
     const interpretation = report?.interpretation || item.summary || item.stabilityNote || '该记录暂无文字摘要。';
     setHtml('#record-summary', '<strong>为什么推荐这条路线</strong><p>' + citationText(interpretation, context, 720) + '</p><span class="summary-route">' + esc(text(routeName)) + '</span>');
-    setText('#evidence-source', channels.length ? '报告证据 · ' + channels.join(' · ') : (item.stabilityLabel || '来自当前记录字段'));
   }
 
   function routeIcon(title) {
