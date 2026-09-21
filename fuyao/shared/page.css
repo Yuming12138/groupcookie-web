@@ -37,6 +37,7 @@
 .result-table .table-unit { color: var(--muted); font-size: 9px; font-weight: 400; letter-spacing: 0; }
 .result-table th:not(:first-child), .result-table td:not(:first-child) { text-align: right; }
 .result-table td { height: 64px; border-top: 1px solid var(--line); color: var(--ink); font-family: "SFMono-Regular", Consolas, monospace; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.result-table sub { font-size: .72em; line-height: 0; vertical-align: sub; }
 .result-table td:first-child { font-family: "IBM Plex Sans", "Segoe UI", "Microsoft YaHei", sans-serif; text-align: left; }
 .result-table tbody tr { transition: background-color 130ms ease-out; }
 .result-table tbody tr:hover { background: #f6faf7; }

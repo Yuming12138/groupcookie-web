@@ -4,6 +4,7 @@
   const $ = (selector) => document.querySelector(selector);
   const icons = () => { if (window.lucide) window.lucide.createIcons({ attrs: { 'stroke-width': 1.8 } }); };
   const escapeHtml = (value) => String(value ?? '').replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
+  const formatSpacegroup = (value) => escapeHtml(value || '—').replace(/_(\d+)/g, '<sub>$1</sub>');
   const params = new URLSearchParams(window.location.search);
   const queryInput = $('#property-query');
   const elementInput = $('#element-query');
@@ -50,7 +51,7 @@
       const scoreClass = Number(item.score) >= 75 ? '' : ' mid';
       const tags = (item.propertyTags || []).slice(0, 2).join(' · ') || '未标注';
       const hull = Number.isFinite(Number(item.eHull)) ? Number(item.eHull).toFixed(3) : '—';
-      return `<tr><td><a class="formula-link" href="../material-detail/index.html?id=${encodeURIComponent(item.id)}">${escapeHtml(item.formula)}</a><span class="formula-meta">${escapeHtml(item.id)} · ${escapeHtml((item.elements || []).join(' · '))}</span></td><td>${hull}</td><td class="score${scoreClass}">${escapeHtml(item.score ?? '—')}</td><td>${escapeHtml(item.spacegroup || '—')}</td><td>${escapeHtml(tags)}</td></tr>`;
+      return `<tr><td><a class="formula-link" href="../material-detail/index.html?id=${encodeURIComponent(item.id)}">${escapeHtml(item.formula)}</a><span class="formula-meta">${escapeHtml(item.id)} · ${escapeHtml((item.elements || []).join(' · '))}</span></td><td>${hull}</td><td class="score${scoreClass}">${escapeHtml(item.score ?? '—')}</td><td>${formatSpacegroup(item.spacegroup)}</td><td>${escapeHtml(tags)}</td></tr>`;
     }).join('');
     icons();
   }

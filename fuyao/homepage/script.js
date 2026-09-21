@@ -15,6 +15,7 @@
   let catalogError = null;
   const DATA_URLS = ['../../data/mp300_materials.json', '../data/mp300_materials.json', '/fuyao/data/mp300_materials.json'];
   const escapeHtml = (value) => String(value == null ? '' : value).replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
+  const formatSpacegroup = (value) => escapeHtml(value || '—').replace(/_(\d+)/g, '<sub>$1</sub>');
   const identifyRecord = (item) => {
     const recordId = String(item?.recordId || item?.id || '').trim();
     const explicitMpId = String(item?.mpId || item?.mp_id || item?.['mp-id'] || '').trim();
@@ -117,7 +118,7 @@
     if (!matches.length) {
       resultBody.innerHTML = '<tr><td colspan="5"><p class="empty-result">' + (symbols.length ? '当前数据中没有同时包含所选元素的候选相。' : (catalogLoaded ? '材料目录当前没有记录。' : '材料记录暂时无法读取。')) + '</p></td></tr>';
     } else {
-      resultBody.innerHTML = matches.map((candidate) => '<tr><td><a class="result-material" href="../material-detail/index.html?id=' + encodeURIComponent(candidate.recordId || candidate.id) + '"><strong>' + escapeHtml(candidate.formula) + '</strong><span>' + escapeHtml(candidate.recordIdLabel + ' · ' + (candidate.mpId || candidate.recordId || candidate.id)) + '</span></a></td><td>' + escapeHtml(candidate.spacegroup || '—') + '</td><td class="result-number">' + escapeHtml(formatEhull(candidate.eHull)) + '</td><td class="result-score">' + escapeHtml(candidate.score ?? '—') + '</td><td class="result-properties">' + escapeHtml(formatTags(candidate)) + '</td></tr>').join('');
+      resultBody.innerHTML = matches.map((candidate) => '<tr><td><a class="result-material" href="../material-detail/index.html?id=' + encodeURIComponent(candidate.recordId || candidate.id) + '"><strong>' + escapeHtml(candidate.formula) + '</strong><span>' + escapeHtml(candidate.recordIdLabel + ' · ' + (candidate.mpId || candidate.recordId || candidate.id)) + '</span></a></td><td>' + formatSpacegroup(candidate.spacegroup) + '</td><td class="result-number">' + escapeHtml(formatEhull(candidate.eHull)) + '</td><td class="result-score">' + escapeHtml(candidate.score ?? '—') + '</td><td class="result-properties">' + escapeHtml(formatTags(candidate)) + '</td></tr>').join('');
     }
     if (resultScroller) {
       resultScroller.scrollTop = 0;

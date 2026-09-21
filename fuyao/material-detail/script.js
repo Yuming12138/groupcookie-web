@@ -17,6 +17,7 @@
   };
   const present = (value) => value != null && String(value).trim() !== '';
   const formula = (value) => esc(value).replace(/(\d+(?:\.\d+)?|[₀-₉]+)/g, '<sub>$1</sub>');
+  const formatSpacegroup = (value, fallback = '未报告') => esc(value || fallback).replace(/_(\d+)/g, '<sub>$1</sub>');
   const hull = (value) => Number.isFinite(Number(value)) ? Number(value).toFixed(3) + ' eV/atom' : '未报告';
   const setText = (selector, value) => { const node = $(selector); if (node) node.textContent = value; };
   const setHtml = (selector, value) => { const node = $(selector); if (node) node.innerHTML = value; };
@@ -144,14 +145,14 @@
     setText('#hero-record-id', item.id);
     setText('#record-source', item.sourceCategory || item.sourceFamily || '本地数据集');
     setHtml('#material-formula', formula(item.formula || item.id));
-    setText('#material-meta', (item.spacegroup ? '空间群 ' + item.spacegroup : '空间群未报告') + ' · ' + (item.numSites ? item.numSites + ' 个原子位点' : '原子位点未报告'));
+    setHtml('#material-meta', (item.spacegroup ? '空间群 ' + formatSpacegroup(item.spacegroup) : '空间群未报告') + ' · ' + esc(item.numSites ? item.numSites + ' 个原子位点' : '原子位点未报告'));
     const tags = Array.isArray(item.propertyTags) ? item.propertyTags : [];
     setHtml('#tag-row', (tags.length ? tags : ['未标注性质标签']).map((tag) => '<span class="tag">' + esc(tag) + '</span>').join(''));
     const score = Number(item.score);
     setHtml('#hero-score', Number.isFinite(score) ? String(score) + '<span>/100</span>' : '—<span>/100</span>');
     setText('#hero-score-note', Number.isFinite(score) ? (score >= 75 ? '基于材料属性与推荐路线' : '作为候选记录保留') : '评分未报告');
-    const facts = [['记录编号', item.id], ['化学式', item.formula], ['空间群', item.spacegroup || '未报告'], ['原子位点', item.numSites || '未报告'], ['E_hull', hull(item.eHull)]];
-    setHtml('#key-facts', facts.map((pair) => '<div><dt>' + pair[0] + '</dt><dd>' + esc(pair[1]) + '</dd></div>').join(''));
+    const facts = [['记录编号', esc(item.id)], ['化学式', esc(item.formula)], ['空间群', formatSpacegroup(item.spacegroup)], ['原子位点', esc(item.numSites || '未报告')], ['E_hull', esc(hull(item.eHull))]];
+    setHtml('#key-facts', facts.map((pair) => '<div><dt>' + pair[0] + '</dt><dd>' + pair[1] + '</dd></div>').join(''));
     const structureDescription = text(item.target || item.summary || '', 340);
     setText('#facts-description-text', structureDescription);
     const descriptionBlock = $('#facts-description');
