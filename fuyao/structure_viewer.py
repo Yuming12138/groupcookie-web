@@ -121,8 +121,10 @@ def create_app() -> Dash:
             .ctk-status { position: absolute; z-index: 5; inset: 14px 16px auto; color: #68746f; font: 12px/1.4 ui-monospace, SFMono-Regular, Consolas, monospace; pointer-events: none; }
             .ctk-structure-frame { box-sizing: border-box; width: 100%; height: 100%; min-height: 100%; min-width: 0; overflow: hidden !important; border: 0; border-radius: 0; background: #fff; }
             .ctk-structure-frame > div, .ctk-structure-frame #CTmaterial-structure_scene { width: 100% !important; height: 100% !important; min-height: 0 !important; min-width: 0 !important; margin: 0 !important; padding: 0 !important; overflow: hidden !important; background: #fff !important; }
+            .ctk-structure-frame .mpc-expandable { width: 100% !important; height: 100% !important; max-height: 100% !important; border-radius: 0 !important; box-shadow: none !important; }
             .ctk-structure-frame .mpc-scene { width: 100% !important; height: 100% !important; max-height: 100% !important; overflow: hidden !important; }
-            .ctk-structure-frame .mpc-scene-square-wrapper { max-width: min(100%, calc(100vh - 16px)) !important; }
+            .ctk-structure-frame .mpc-scene-square-wrapper { width: 100% !important; max-width: 100% !important; height: 100% !important; max-height: 100% !important; }
+            .ctk-structure-frame .three-container { width: 100% !important; height: 100% !important; }
         </style>
     </head>
     <body>
