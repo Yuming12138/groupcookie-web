@@ -134,6 +134,7 @@
 
   function renderFacts(item) {
     setText('#record-id', item.id);
+    setText('#hero-record-id', item.id);
     setText('#record-source', item.sourceCategory || item.sourceFamily || '本地数据集');
     setHtml('#material-formula', formula(item.formula || item.id));
     setText('#material-meta', (item.spacegroup ? '空间群 ' + item.spacegroup : '空间群未报告') + ' · ' + (item.numSites ? item.numSites + ' 个原子位点' : '原子位点未报告'));
@@ -144,6 +145,10 @@
     setText('#hero-score-note', Number.isFinite(score) ? (score >= 75 ? '进入优先验证区间' : '作为候选记录保留') : '评分未报告');
     const facts = [['记录编号', item.id], ['化学式', item.formula], ['空间群', item.spacegroup || '未报告'], ['原子位点', item.numSites || '未报告'], ['E_hull', hull(item.eHull)], ['最低原子间距', item.minimumDistanceAngstrom ? Number(item.minimumDistanceAngstrom).toFixed(3) + ' Å' : '未报告']];
     setHtml('#key-facts', facts.map((pair) => '<div><dt>' + pair[0] + '</dt><dd>' + esc(pair[1]) + '</dd></div>').join(''));
+    const structureDescription = text(item.target || item.summary || '', 340);
+    setText('#facts-description-text', structureDescription);
+    const descriptionBlock = $('#facts-description');
+    if (descriptionBlock) descriptionBlock.hidden = !present(structureDescription);
     setText('#data-state', item.stabilityLabel || '字段已载入');
     setText('#source-summary', text(item.sourcePaper || item.sourceFamily || item.sourceCategory || '本地材料数据集', 120));
     setText('#updated-at', item.sourceBatch ? '数据批次 ' + item.sourceBatch : '数据随批次更新');
@@ -199,8 +204,43 @@
 
   function exportRecord(item) { const content = ['Synthesis Atlas 材料记录', '记录编号: ' + item.id, '化学式: ' + item.formula, '空间群: ' + (item.spacegroup || '未报告'), 'E_hull: ' + hull(item.eHull), '可合成性评分: ' + (item.score == null ? '未报告' : item.score), '最佳路线: ' + (item.bestRoute || '未报告'), '来源: ' + (item.sourcePaper || item.sourceFamily || item.sourceCategory || '本地数据集')].join('\n'); const link = document.createElement('a'); link.href = URL.createObjectURL(new Blob([content], { type: 'text/plain;charset=utf-8' })); link.download = (item.id || 'material') + '-summary.txt'; link.click(); setTimeout(() => URL.revokeObjectURL(link.href), 1000); show('记录摘要已下载。'); }
 
+  function observeDetailSections() {
+    const content = $('.record-content');
+    const links = [...document.querySelectorAll('.record-nav a')];
+    const sections = content ? [...content.querySelectorAll('section[id]')] : [];
+    if (!content || !links.length || !sections.length) return;
+
+    const linkById = new Map(links.map((link) => [link.getAttribute('href')?.slice(1), link]));
+    let activeId = '';
+    const setActive = (id) => {
+      if (!id || id === activeId) return;
+      activeId = id;
+      links.forEach((link) => {
+        const active = linkById.get(id) === link;
+        link.classList.toggle('active', active);
+        if (active) link.setAttribute('aria-current', 'location');
+        else link.removeAttribute('aria-current');
+      });
+    };
+
+    const updateActiveSection = () => {
+      const contentTop = content.getBoundingClientRect().top + 84;
+      let current = sections[0];
+      sections.forEach((section) => {
+        if (section.getBoundingClientRect().top <= contentTop) current = section;
+      });
+      if (content.scrollTop + content.clientHeight >= content.scrollHeight - 8) current = sections[sections.length - 1];
+      setActive(current.id);
+    };
+
+    content.addEventListener('scroll', updateActiveSection, { passive: true });
+    links.forEach((link) => link.addEventListener('click', () => setActive(link.getAttribute('href')?.slice(1))));
+    updateActiveSection();
+  }
+
   async function init() {
     icons();
+    observeDetailSections();
     try { const response = await fetch(DATA_URL); if (!response.ok) throw new Error('数据文件读取失败'); const materials = await response.json(); const requested = new URL(window.location.href).searchParams.get('id'); const item = materials.find((entry) => entry.id === requested || entry.formula === requested) || materials[0]; const referenceContext = renderReferences(item); renderFacts(item); renderStructure(item); renderEvidence(item, referenceContext); renderProperties(item); await renderRoutes(item, referenceContext); icons(); $('#export-button')?.addEventListener('click', () => exportRecord(item)); }
     catch (error) { setText('#record-id', '读取失败'); setText('#material-formula', '—'); setText('#material-meta', error.message); setText('#route-count', '读取失败'); }
     $('#theme-toggle')?.addEventListener('click', () => { document.body.classList.toggle('soft-mode'); show(document.body.classList.contains('soft-mode') ? '已切换为柔和阅读背景。' : '已恢复标准阅读背景。'); });

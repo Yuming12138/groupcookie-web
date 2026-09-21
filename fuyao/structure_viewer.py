@@ -113,12 +113,13 @@ def create_app() -> Dash:
         {%css%}
         <style>
             :root { color-scheme: light; font-family: Inter, "Segoe UI", sans-serif; }
-            html, body, #react-entry-point { width: 100%; height: 100%; margin: 0; background: #f4f8f5; color: #17211f; }
-            body { overflow: hidden; }
-            .ctk-page { position: relative; box-sizing: border-box; width: 100%; height: 100%; min-height: 100%; padding: 0; background: #f4f8f5; }
+            html, body, #react-entry-point, #_dash-app-content { width: 100%; height: 100%; margin: 0; background: #fff; color: #17211f; }
+            html, body { overflow: hidden !important; }
+            .ctk-page { position: relative; box-sizing: border-box; width: 100%; height: 100%; min-height: 100%; min-width: 0; padding: 0; overflow: hidden !important; background: #fff; }
             .ctk-status { position: absolute; z-index: 5; inset: 14px 16px auto; color: #68746f; font: 12px/1.4 ui-monospace, SFMono-Regular, Consolas, monospace; pointer-events: none; }
-            .ctk-structure-frame { box-sizing: border-box; width: 100%; height: 100%; min-height: 100%; overflow: hidden; border: 0; border-radius: 0; background: #f4f8f5; }
-            .ctk-structure-frame > div { width: 100% !important; height: 100% !important; }
+            .ctk-structure-frame { box-sizing: border-box; width: 100%; height: 100%; min-height: 100%; min-width: 0; overflow: hidden !important; border: 0; border-radius: 0; background: #fff; }
+            .ctk-structure-frame > div, .ctk-structure-frame #CTmaterial-structure_scene { width: 100% !important; height: 100% !important; min-height: 0 !important; min-width: 0 !important; margin: 0 !important; padding: 0 !important; overflow: hidden !important; background: #fff !important; }
+            .ctk-structure-frame .mpc-scene { width: 100% !important; height: 100% !important; max-height: 100% !important; overflow: hidden !important; }
         </style>
     </head>
     <body>
