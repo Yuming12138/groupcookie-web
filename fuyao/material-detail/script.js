@@ -5,11 +5,18 @@
   const $ = (selector) => document.querySelector(selector);
   const esc = (value) => String(value == null ? '' : value).replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
   const text = (value, limit) => {
-    const result = String(value == null ? '' : value).replace(/\s+/g, ' ').trim();
+    const result = String(value == null ? '' : value)
+      .replace(/\*\*([^*]+)\*\*/g, '$1')
+      .replace(/__([^_]+)__/g, '$1')
+      .replace(/`([^`]+)`/g, '$1')
+      .replace(/Reasonable Inference/gi, '合理推断')
+      .replace(/\[Target\]/g, '[目标材料]')
+      .replace(/\s+/g, ' ')
+      .trim();
     return limit && result.length > limit ? result.slice(0, limit - 1).replace(/[ ,;，；]+$/, '') + '…' : result;
   };
   const present = (value) => value != null && String(value).trim() !== '';
-  const formula = (value) => esc(value).replace(/([₀-₉]+)/g, '<sub>$1</sub>');
+  const formula = (value) => esc(value).replace(/(\d+(?:\.\d+)?|[₀-₉]+)/g, '<sub>$1</sub>');
   const hull = (value) => Number.isFinite(Number(value)) ? Number(value).toFixed(3) + ' eV/atom' : '未报告';
   const setText = (selector, value) => { const node = $(selector); if (node) node.textContent = value; };
   const setHtml = (selector, value) => { const node = $(selector); if (node) node.innerHTML = value; };
@@ -107,7 +114,7 @@
       const replaced = body.replace(/\b((?:CS|SS|TS)\d+)\b/gi, (code) => {
         found = true;
         const number = context?.byCode.get(code.toUpperCase());
-        return number ? esc(code) + '<sup class="citation"><a href="#reference-' + number + '">[' + number + ']</a></sup>' : esc(code) + '<sup class="citation pending" title="文献待补充">[?]</sup>';
+        return number ? esc(code) + '<sup class="citation"><a href="#reference-' + number + '">[' + number + ']</a></sup>' : '<sup class="citation pending" title="报告中的证据通道标记">' + esc(code) + '</sup>';
       });
       return found ? replaced : whole;
     });
@@ -142,7 +149,7 @@
     setHtml('#tag-row', (tags.length ? tags : ['未标注性质标签']).map((tag) => '<span class="tag">' + esc(tag) + '</span>').join(''));
     const score = Number(item.score);
     setHtml('#hero-score', Number.isFinite(score) ? String(score) + '<span>/100</span>' : '—<span>/100</span>');
-    setText('#hero-score-note', Number.isFinite(score) ? (score >= 75 ? '进入优先验证区间' : '作为候选记录保留') : '评分未报告');
+    setText('#hero-score-note', Number.isFinite(score) ? (score >= 75 ? '基于材料属性与推荐路线' : '作为候选记录保留') : '评分未报告');
     const facts = [['记录编号', item.id], ['化学式', item.formula], ['空间群', item.spacegroup || '未报告'], ['原子位点', item.numSites || '未报告'], ['E_hull', hull(item.eHull)]];
     setHtml('#key-facts', facts.map((pair) => '<div><dt>' + pair[0] + '</dt><dd>' + esc(pair[1]) + '</dd></div>').join(''));
     const structureDescription = text(item.target || item.summary || '', 340);
@@ -154,45 +161,149 @@
     setText('#updated-at', item.sourceBatch ? '数据批次 ' + item.sourceBatch : '数据随批次更新');
   }
 
-  function renderEvidence(item, context) {
-    const score = Number(item.score); const ehull = Number(item.eHull); const gap = Number(item.bandGapPbeEv);
+  function parseMarkdownTable(markdown) {
+    const rows = [];
+    String(markdown || '').split(/\r?\n/).forEach((line) => {
+      if (!/^\s*\|/.test(line)) return;
+      const cells = line.trim().replace(/^\|/, '').replace(/\|$/, '').split('|').map((value) => value.trim());
+      if (!cells.length || cells.every((cell) => /^:?-{2,}:?$/.test(cell))) return;
+      rows.push(cells);
+    });
+    return rows;
+  }
+
+  function reportSection(markdown, number) {
+    const matches = [...String(markdown || '').matchAll(new RegExp('^#{1,3}\\s+SECTION\\s+' + number + '\\b[^\\n]*\\n', 'gim'))];
+    if (!matches.length) return '';
+    const start = matches[0].index + matches[0][0].length;
+    const next = String(markdown || '').slice(start).search(/^#{1,3}\s+SECTION\s+\d+\b/im);
+    return String(markdown || '').slice(start, next < 0 ? undefined : start + next).trim();
+  }
+
+  function parseReport(markdown) {
+    const source = String(markdown || '').replace(/([^\n])(?=#{1,3}\s+SECTION\s+\d+\b)/gi, '$1\n');
+    const routeSection = reportSection(source, 1);
+    const routeMatches = [...routeSection.matchAll(/^(?:#{2,4}\s+|\*\*)Route\s+(\d+):\s*(.*?)(?:\*\*)?\s*$/gm)];
+    const routes = routeMatches.slice(0, 8).map((match, index) => {
+      const start = match.index + match[0].length;
+      const remaining = routeSection.slice(start);
+      const next = remaining.search(/^(?:#{2,4}\s+|\*\*)Route\s+\d+:/m);
+      const body = remaining.slice(0, next < 0 ? undefined : next);
+      const rows = parseMarkdownTable(body);
+      const fields = {};
+      rows.forEach((row) => { if (row.length >= 2 && row[0] !== 'Field') fields[row[0]] = row.slice(1).join(' | '); });
+      return { number: Number(match[1]) || index + 1, title: match[2].trim(), fields: fields, body: body };
+    }).filter((route) => route.title);
+
+    const scoreByRoute = {};
+    const scorePattern = /\*\*F([23])\s+Score\s+for\s+Route\s+(\d+):\s*([\d.]+)\s*\/\s*100\*\*/gi;
+    let scoreMatch;
+    while ((scoreMatch = scorePattern.exec(source))) {
+      const number = scoreMatch[2];
+      scoreByRoute[number] = scoreByRoute[number] || {};
+      scoreByRoute[number]['f' + scoreMatch[1]] = Number(scoreMatch[3]);
+    }
+    const finalSection = source.match(/Final Score Table[\s\S]*?(?=\n---|\n### SECTION|$)/i)?.[0] || '';
+    const finalRows = parseMarkdownTable(finalSection);
+    finalRows.forEach((row) => {
+      if (!/^\d+$/.test(row[0]) || row.length < 6) return;
+      const number = row[0];
+      scoreByRoute[number] = scoreByRoute[number] || {};
+      scoreByRoute[number].f2 = Number(row[1]);
+      scoreByRoute[number].f3 = Number(row[2]);
+      scoreByRoute[number].f1 = Number(row[3]);
+      scoreByRoute[number].f4 = Number(row[4]);
+      scoreByRoute[number].weighted = Number(row[5]);
+    });
+
+    const bestRoute = source.match(/\*\*Best Route\*\*\s*\|\s*([^\n|]+)/i)?.[1]?.trim() || '';
+    const conditions = {};
+    parseMarkdownTable(reportSection(source, 4)).forEach((row) => { if (row.length >= 2 && row[0] !== 'Parameter') conditions[row[0]] = row.slice(1).join(' | '); });
+    const challenges = parseMarkdownTable(reportSection(source, 7)).filter((row) => /^\d+$/.test(row[0])).map((row) => ({ route: row[1], challenge: row[2], severity: row[3], mitigation: row.slice(4).join(' | ') }));
+    const channels = [...new Set([...source.matchAll(/\b(CS|SS|TS)\s*[-_]?\s*\d+\b/gi)].map((match) => match[1].toUpperCase()))].sort((a, b) => ['CS', 'SS', 'TS'].indexOf(a) - ['CS', 'SS', 'TS'].indexOf(b));
+    const f1 = source.match(/\*\*F1 Score:\s*([\d.]+)\s*\/\s*100\*\*/i)?.[1];
+    const f4 = source.match(/\*\*F4 Score:\s*([\d.]+)\s*\/\s*100\*\*/i)?.[1];
+    const interpretation = reportSection(source, 6).replace(/^#+\s*/gm, '').trim();
+    return { routes, scoreByRoute, bestRoute, conditions, challenges, channels, f1: f1 ? Number(f1) : null, f4: f4 ? Number(f4) : null, interpretation };
+  }
+
+  async function loadReport(item) {
+    if (present(item.reportMarkdown)) return item.reportMarkdown;
+    if (!item.sourcePath) return '';
+    try {
+      const response = await fetch('../../' + item.sourcePath.replace(/\\/g, '/'), { cache: 'no-store' });
+      return response.ok ? await response.text() : '';
+    } catch (error) {
+      return '';
+    }
+  }
+
+  function evidenceChannels(report) {
+    return report?.channels?.length ? report.channels : [];
+  }
+
+  function stabilityReading(ehull) {
+    if (!Number.isFinite(ehull)) return '未报告';
+    if (ehull <= 0.05) return '处于较有利的稳定性区间';
+    if (ehull <= 0.2) return '接近低能亚稳区';
+    return '需要结合路线证据判断';
+  }
+
+  function renderEvidence(item, context, report) {
+    const score = Number(item.score); const ehull = Number(item.eHull); const channels = evidenceChannels(report);
+    const bestRoute = report?.bestRoute || item.bestRoute || '未报告';
+    const routeName = bestRoute.replace(/^Route\s*\d+\s*[:,]?\s*/i, '');
     const metrics = [
-      ['可合成性评分', Number.isFinite(score) ? score : null, '/ 100', Number.isFinite(score) ? score : 0, '数据集评分'],
-      ['热力学稳定性', Number.isFinite(ehull) ? Math.max(0, Math.round(100 - ehull * 1000)) : null, '/ 100', Number.isFinite(ehull) ? 100 - ehull * 1000 : 0, Number.isFinite(ehull) ? 'E_hull ' + hull(ehull) : '未报告'],
-      ['计算带隙', Number.isFinite(gap) ? gap : null, ' eV', Number.isFinite(gap) ? Math.min(100, gap / 6 * 100) : 0, item.bandGapOrMetal || '未报告']
+      { label: '可合成性评分', value: Number.isFinite(score) ? String(score) : '—', unit: '/ 100', detail: '综合材料属性与路线证据' },
+      { label: 'E_hull', value: Number.isFinite(ehull) ? Number(ehull).toFixed(3) : '—', unit: ' eV/atom', detail: stabilityReading(ehull) },
+      { label: '证据通道', value: channels.length ? channels.join(' · ') : '—', unit: '', detail: '化学、结构与热力学先例' }
     ];
-    setHtml('#metric-grid', metrics.map((metric) => '<article class="metric-card"><div class="metric-head"><span>' + metric[0] + '</span><span>' + (metric[1] == null ? '—' : esc(metric[1]) + '<small>' + metric[2] + '</small>') + '</span></div><div class="metric-bar"><i style="width:' + Math.max(0, Math.min(100, metric[3])) + '%"></i></div><p>' + esc(metric[4]) + '</p></article>').join(''));
-    setHtml('#record-summary', '<strong>记录摘要</strong><p>' + citationText(item.summary || item.stabilityNote || '该记录暂无文字摘要。', context, 560) + '</p>');
-    setText('#evidence-source', item.stabilityLabel || item.sourcePaper || '来自当前记录字段');
+    setHtml('#metric-grid', metrics.map((metric) => '<article class="metric-card"><div class="metric-head"><span>' + metric.label + '</span><span class="metric-value-text">' + esc(metric.value) + '<small>' + esc(metric.unit) + '</small></span></div><p>' + esc(metric.detail) + '</p></article>').join(''));
+    const interpretation = report?.interpretation || item.summary || item.stabilityNote || '该记录暂无文字摘要。';
+    setHtml('#record-summary', '<strong>为什么推荐这条路线</strong><p>' + citationText(interpretation, context, 720) + '</p><span class="summary-route">' + esc(text(routeName)) + '</span>');
+    setText('#evidence-source', channels.length ? '报告证据 · ' + channels.join(' · ') : (item.stabilityLabel || '来自当前记录字段'));
   }
 
-  function parseRoutes(markdown) {
-    const routes = []; const pattern = /#{3,4} Route \d+: ([^\n]+)/g; let match;
-    while ((match = pattern.exec(markdown)) && routes.length < 5) {
-      const start = match.index + match[0].length; const remainder = markdown.slice(start); const next = remainder.search(/\n#{3,4} Route \d+:/); const body = remainder.slice(0, next < 0 ? remainder.length : next); const fields = {};
-      body.split(/\n\|/).forEach((line) => { const pair = line.replace(/^\|/, '').split('|').map((value) => value.trim()); if (pair.length >= 2 && pair[0] && pair[1] && pair[0] !== 'Field') fields[pair[0]] = pair[1]; });
-      if (Object.keys(fields).length) routes.push({ title: match[1].trim(), fields: fields });
-    }
-    return routes;
+  function routeIcon(title) {
+    return /hydro|solv|aqueous|solution|evaporation|precipitation/i.test(title) ? 'flask-conical' : /flux|melt|salt/i.test(title) ? 'waves' : /pressure|ammon|sealed|sputter/i.test(title) ? 'gauge' : 'flame';
   }
 
-  async function renderRoutes(item, context) {
-    let routes = [];
-    if (present(item.reportMarkdown)) routes = parseRoutes(item.reportMarkdown);
-    if (!routes.length && item.sourcePath) {
-      try {
-        const response = await fetch('../../' + item.sourcePath.replace(/\\/g, '/'));
-        if (response.ok) routes = parseRoutes(await response.text());
-      } catch (error) { /* The route label below remains useful when the report is unavailable. */ }
-    }
+  function routeEvidenceCodes(route) {
+    const textValue = Object.values(route.fields || {}).join(' ') + ' ' + (route.body || '');
+    return [...new Set([...textValue.matchAll(/\b(CS|SS|TS)\s*[-_]?\s*\d+\b/gi)].map((match) => match[1].toUpperCase()))].sort((a, b) => ['CS', 'SS', 'TS'].indexOf(a) - ['CS', 'SS', 'TS'].indexOf(b));
+  }
+
+  function renderRouteOverview(report) {
+    const node = $('#route-overview');
+    if (!node || !report) return;
+    const items = ['Temperature range', 'Preferred atmosphere', 'Pressure', 'Estimated duration'].filter((key) => present(report.conditions?.[key]));
+    const risks = (report.challenges || []).filter((challenge) => /high|medium/i.test(challenge.severity || '')).slice(0, 2);
+    if (!items.length && !risks.length) { node.hidden = true; return; }
+    node.hidden = false;
+    const facts = items.map((key) => '<span><small>' + esc(key === 'Temperature range' ? '温度' : key === 'Preferred atmosphere' ? '气氛' : key === 'Pressure' ? '压力' : '时长') + '</small>' + esc(text(report.conditions[key], 170)) + '</span>').join('');
+    const riskText = risks.length ? '<p><b>主要风险</b> ' + risks.map((risk) => esc(text(risk.challenge, 150))).join('；') + '</p>' : '';
+    node.innerHTML = '<div class="route-overview-title"><strong>推荐路线条件</strong><span>来自该材料的合成报告</span></div>' + (facts ? '<div class="route-overview-facts">' + facts + '</div>' : '') + riskText;
+  }
+
+  function renderRoutes(item, context, report) {
+    let routes = report?.routes || [];
     const uniqueRoutes = [];
     const seenTitles = new Set();
     routes.forEach((route) => { const key = String(route.title || '').trim().toLowerCase(); if (key && !seenTitles.has(key)) { seenTitles.add(key); uniqueRoutes.push(route); } });
     routes = uniqueRoutes;
-    if (!routes.length && present(item.bestRoute)) routes = [{ title: item.bestRoute, fields: { 'Reference basis': item.conditions || item.routes || '已标注为该记录的最佳参考路线。' } }];
+    if (!routes.length && present(item.bestRoute)) routes = [{ number: 1, title: item.bestRoute, fields: { 'Reference basis': item.conditions || item.routes || '已标注为该记录的最佳参考路线。' }, body: '' }];
     setText('#route-count', routes.length ? routes.length + ' 条路线' : '暂无路线');
+    renderRouteOverview(report);
     if (!routes.length) { setHtml('#route-list', '<div class="empty-row">该记录暂无可展示的合成路线。</div>'); return; }
-    setHtml('#route-list', routes.map((route, index) => { const fields = route.fields || {}; const detail = fields['Precursors'] || fields['Temperature program'] || fields['Reference basis'] || '路线条件待补充。'; const conditions = [fields['Temperature program'], fields['Atmosphere'], fields['Pressure'], fields['Estimated difficulty']].filter(Boolean).map((value) => text(value, 150)).slice(0, 3); const icon = /hydro|solv|aqueous/i.test(route.title) ? 'flask-conical' : /flux|melt|salt/i.test(route.title) ? 'waves' : /pressure|ammon|sealed/i.test(route.title) ? 'gauge' : 'flame'; return '<article class="route-card"><div class="route-node"><i data-lucide="' + icon + '" aria-hidden="true"></i><span>' + String(index + 1).padStart(2, '0') + '</span></div><div><h3>' + esc(route.title) + '</h3><p>' + citationText(detail, context, 280) + '</p>' + (conditions.length ? '<div class="route-conditions">' + conditions.map((value) => '<span>' + citationText(value, context) + '</span>').join('') + '</div>' : '') + '</div></article>'; }).join('')); icons();
+    const bestNumber = report?.bestRoute?.match(/Route\s*(\d+)/i)?.[1];
+    setHtml('#route-list', routes.map((route, index) => {
+      const fields = route.fields || {}; const routeNumber = String(route.number || index + 1); const scores = report?.scoreByRoute?.[routeNumber] || {}; const detail = fields['Transferability to target'] || fields['Reference basis'] || fields['Precursors'] || '路线条件待补充。';
+      const conditions = [['温度', fields['Temperature program']], ['气氛', fields['Atmosphere']], ['压力', fields['Pressure']], ['难度', fields['Estimated difficulty']]].filter((pair) => present(pair[1])).slice(0, 4);
+      const channels = routeEvidenceCodes(route); const icon = routeIcon(route.title); const isBest = Boolean(bestNumber && bestNumber === routeNumber) || (!bestNumber && index === 0);
+      const scoreMarkup = Number.isFinite(scores.weighted) ? '<span class="route-score">' + scores.weighted.toFixed(1) + ' / 100</span>' : '';
+      const channelMarkup = channels.length ? '<span class="route-evidence">' + channels.join(' · ') + '</span>' : '';
+      return '<article class="route-card' + (isBest ? ' recommended' : '') + '"><div class="route-node"><i data-lucide="' + icon + '" aria-hidden="true"></i><span>' + routeNumber.padStart(2, '0') + '</span></div><div class="route-card-body"><div class="route-card-head"><h3>' + esc(text(route.title)) + '</h3><div>' + (isBest ? '<span class="route-badge">推荐</span>' : '') + scoreMarkup + '</div></div><p>' + citationText(text(detail, 340), context) + '</p>' + (conditions.length ? '<div class="route-conditions">' + conditions.map((pair) => '<span><b>' + esc(pair[0]) + '</b> ' + citationText(text(pair[1], 150), context) + '</span>').join('') + '</div>' : '') + (channelMarkup ? '<div class="route-meta">' + channelMarkup + '</div>' : '') + '</div></article>';
+    }).join('')); icons();
   }
 
   function renderProperties(item) {
@@ -246,7 +357,7 @@
 
   async function init() {
     icons();
-    try { const response = await fetch(DATA_URL); if (!response.ok) throw new Error('数据文件读取失败'); const materials = await response.json(); const requested = new URL(window.location.href).searchParams.get('id'); const item = materials.find((entry) => entry.id === requested || entry.formula === requested) || materials[0]; const referenceContext = renderReferences(item); renderFacts(item); renderStructure(item); renderEvidence(item, referenceContext); renderProperties(item); await renderRoutes(item, referenceContext); icons(); $('#export-button')?.addEventListener('click', () => exportRecord(item)); }
+    try { const response = await fetch(DATA_URL); if (!response.ok) throw new Error('数据文件读取失败'); const materials = await response.json(); const requested = new URL(window.location.href).searchParams.get('id'); const item = materials.find((entry) => entry.id === requested || entry.formula === requested) || materials[0]; const report = parseReport(await loadReport(item)); const referenceContext = renderReferences(item); renderFacts(item); renderStructure(item); renderEvidence(item, referenceContext, report); renderProperties(item); renderRoutes(item, referenceContext, report); icons(); $('#export-button')?.addEventListener('click', () => exportRecord(item)); }
     catch (error) { setText('#record-id', '读取失败'); setText('#material-formula', '—'); setText('#material-meta', error.message); setText('#route-count', '读取失败'); }
     observeDetailSections();
     $('#theme-toggle')?.addEventListener('click', () => { document.body.classList.toggle('soft-mode'); show(document.body.classList.contains('soft-mode') ? '已切换为柔和阅读背景。' : '已恢复标准阅读背景。'); });
