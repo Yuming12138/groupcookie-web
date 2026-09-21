@@ -1,5 +1,7 @@
 (() => {
   const DATA_URL = '../../data/mp300_materials.json';
+  const requestedViewerPort = new URL(window.location.href).searchParams.get('viewer_port');
+  const VIEWER_PORT = /^\d{1,5}$/.test(requestedViewerPort || '') ? requestedViewerPort : '8767';
   const $ = (selector) => document.querySelector(selector);
   const esc = (value) => String(value == null ? '' : value).replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
   const text = (value, limit) => {
@@ -14,6 +16,81 @@
   const toast = $('#toast'); let toastTimer;
   const show = (message) => { if (!toast) return; toast.textContent = message; toast.classList.add('visible'); clearTimeout(toastTimer); toastTimer = setTimeout(() => toast.classList.remove('visible'), 2800); };
   const icons = () => { if (window.lucide) window.lucide.createIcons({ attrs: { 'stroke-width': 1.8 } }); };
+
+  function structureUrl(item) {
+    return item.structureUrl || '../../data/structures/' + encodeURIComponent(item.id) + '.cif';
+  }
+
+  function viewerBaseUrl() {
+    const protocol = window.location.protocol === 'file:' ? 'http:' : window.location.protocol;
+    const hostname = window.location.hostname || '127.0.0.1';
+    return new URL(protocol + '//' + hostname + ':' + VIEWER_PORT + '/');
+  }
+
+  function viewerUrl(item) {
+    const url = viewerBaseUrl();
+    url.searchParams.set('record_id', item.id);
+    return url.toString();
+  }
+
+  function structureFailure(message) {
+    const stage = $('#structure-stage');
+    const frame = $('#structure-viewer');
+    const loading = $('#structure-loading');
+    const empty = $('#structure-empty');
+    if (frame) frame.hidden = true;
+    if (loading) loading.hidden = true;
+    if (empty) empty.hidden = false;
+    if (stage) stage.setAttribute('aria-busy', 'false');
+    setText('#structure-empty-note', message);
+    setText('#structure-source-note', 'CIF 暂不可用');
+    setText('#structure-interaction-note', '检查本地结构查看服务');
+    $('#structure-status-dot')?.classList.replace('ready', 'error');
+    icons();
+  }
+
+  async function renderStructure(item) {
+    const stage = $('#structure-stage');
+    const frame = $('#structure-viewer');
+    const loading = $('#structure-loading');
+    const empty = $('#structure-empty');
+    if (!stage || !frame || !present(item.id)) return;
+    stage.setAttribute('aria-busy', 'true');
+    if (empty) empty.hidden = true;
+    if (loading) loading.hidden = false;
+    setText('#structure-source-note', 'CIF · Crystal Toolkit');
+    setText('#structure-interaction-note', '拖动旋转 · 滚轮缩放');
+    try {
+      const [structureResponse, viewerResponse] = await Promise.all([
+        fetch(structureUrl(item), { method: 'HEAD', cache: 'no-store' }),
+        fetch(new URL('health', viewerBaseUrl()), { cache: 'no-store' })
+      ]);
+      if (!structureResponse.ok) throw new Error('未找到该记录的 CIF 文件');
+      if (!viewerResponse.ok) throw new Error('Crystal Toolkit 查看器未启动');
+    } catch (error) {
+      const message = error?.message === 'Failed to fetch' ? 'Crystal Toolkit 查看器未启动' : (error?.message || 'CIF 文件读取失败');
+      structureFailure(message);
+      return;
+    }
+
+    let settled = false;
+    const timeout = window.setTimeout(() => {
+      if (!settled) structureFailure('Crystal Toolkit 查看器未启动或载入超时');
+    }, 15000);
+    frame.onload = () => {
+      settled = true;
+      window.clearTimeout(timeout);
+      if (loading) loading.hidden = true;
+      stage.setAttribute('aria-busy', 'false');
+    };
+    frame.onerror = () => {
+      settled = true;
+      window.clearTimeout(timeout);
+      structureFailure('Crystal Toolkit 查看器连接失败');
+    };
+    frame.hidden = false;
+    frame.src = viewerUrl(item);
+  }
 
   function referenceRecords(item) {
     const raw = Array.isArray(item.references) ? item.references : (Array.isArray(item.literature) ? item.literature : []);
@@ -70,7 +147,6 @@
     setText('#data-state', item.stabilityLabel || '字段已载入');
     setText('#source-summary', text(item.sourcePaper || item.sourceFamily || item.sourceCategory || '本地材料数据集', 120));
     setText('#updated-at', item.sourceBatch ? '数据批次 ' + item.sourceBatch : '数据随批次更新');
-    setText('#structure-source-note', '暂无结构数据');
   }
 
   function renderEvidence(item, context) {
@@ -125,7 +201,7 @@
 
   async function init() {
     icons();
-    try { const response = await fetch(DATA_URL); if (!response.ok) throw new Error('数据文件读取失败'); const materials = await response.json(); const requested = new URL(window.location.href).searchParams.get('id'); const item = materials.find((entry) => entry.id === requested || entry.formula === requested) || materials[0]; const referenceContext = renderReferences(item); renderFacts(item); renderEvidence(item, referenceContext); renderProperties(item); await renderRoutes(item, referenceContext); icons(); $('#export-button')?.addEventListener('click', () => exportRecord(item)); }
+    try { const response = await fetch(DATA_URL); if (!response.ok) throw new Error('数据文件读取失败'); const materials = await response.json(); const requested = new URL(window.location.href).searchParams.get('id'); const item = materials.find((entry) => entry.id === requested || entry.formula === requested) || materials[0]; const referenceContext = renderReferences(item); renderFacts(item); renderStructure(item); renderEvidence(item, referenceContext); renderProperties(item); await renderRoutes(item, referenceContext); icons(); $('#export-button')?.addEventListener('click', () => exportRecord(item)); }
     catch (error) { setText('#record-id', '读取失败'); setText('#material-formula', '—'); setText('#material-meta', error.message); setText('#route-count', '读取失败'); }
     $('#theme-toggle')?.addEventListener('click', () => { document.body.classList.toggle('soft-mode'); show(document.body.classList.contains('soft-mode') ? '已切换为柔和阅读背景。' : '已恢复标准阅读背景。'); });
   }

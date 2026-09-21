@@ -61,3 +61,20 @@ python fuyao/catalog_server.py --host 127.0.0.1 --port 8766
 服务会按材料 JSON 的修改时间自动重新载入索引，因此更新数据后不必改前端代码。首页优先请求 API，API 不可用时回退到静态 JSON，便于在暂时只有静态服务器的部署环境中预览。
 
 本地服务的入口是 [http://localhost:8766/homepage/](http://localhost:8766/homepage/)，API 健康检查是 [http://localhost:8766/api/health](http://localhost:8766/api/health)。本轮没有把文件或服务部署回 fuyao、cmsg 远端主机。
+
+## Crystal Toolkit 结构预览
+
+材料详情页会把对应记录的真实 CIF 交给 `pymatgen`，再由 Crystal Toolkit 的 `StructureMoleculeComponent` 渲染交互式 WebGL 预览。查看器只接受记录编号，并且只会读取 `fuyao/data/structures/<记录编号>.cif`，不会按化学式猜测结构。
+
+本地预览需要同时启动目录服务和结构查看服务。目录服务仍使用 8766 端口；Crystal Toolkit 查看器使用 8767 端口：
+
+```powershell
+python fuyao/catalog_server.py --host 127.0.0.1 --port 8766
+& 'D:\1.Program\1.Anaconda\envs\mattersim\python.exe' fuyao/structure_viewer.py --host 127.0.0.1 --port 8767
+```
+
+启动后可以直接打开材料详情，例如：
+
+`http://localhost:8766/material-detail/index.html?id=209_2BiIO-1_Bi2O2I2`
+
+详情页会先检查同名 CIF 是否存在，再将记录编号传给 `http://localhost:8767/?record_id=...`。结构服务不可用时，详情页会显示简洁的错误状态，其他材料字段仍然可读。当前同步的 2,144 个 CIF 已逐个通过 `pymatgen` 解析检查。
