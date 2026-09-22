@@ -19,11 +19,11 @@
     </header>
 
     <main class="page-main" id="main-content">
-      <section class="page-intro" aria-labelledby="page-title"><div><p class="eyebrow">材料数据库 · 条件筛选</p><h1 id="page-title">性质检索</h1><p class="intro-copy">使用当前数据中的性质标签、元素组合和 E_hull 条件，定位下一批值得查看的候选相。</p></div><div class="page-intro-side"><div><strong id="dataset-count">—</strong><span>条本地记录</span></div><div><strong id="tag-count">—</strong><span>个性质标签</span></div></div></section>
+      <section class="page-intro page-intro--compact" aria-labelledby="page-title"><h1 id="page-title">性质检索</h1></section>
       <section class="page-section" aria-labelledby="filter-title">
         <div class="view-shell properties-layout">
           <aside class="filter-rail">
-            <p class="filter-kicker">筛选条件</p><h2 id="filter-title">组合查询</h2><p class="filter-help">标签可以多选；元素字段使用逗号分隔，表示结果必须同时包含这些元素。</p>
+            <p class="filter-kicker">筛选条件</p><h2 id="filter-title">组合查询</h2>
             <form id="property-form">
               <label class="filter-field"><span for="property-query">关键词</span><input id="property-query" name="q" type="search" placeholder="磁性、催化、La2MnRhO6…" autocomplete="off" /></label>
               <label class="filter-field"><span for="element-query">包含元素</span><input id="element-query" name="elements" type="text" placeholder="例如 La, Mn, O…" autocomplete="off" /></label>
@@ -33,7 +33,7 @@
               <div class="filter-actions"><span class="filter-count" id="filter-count" aria-live="polite">0 个条件</span><button id="clear-filters" type="button">清除条件</button><button type="submit">更新结果</button></div>
             </form>
           </aside>
-          <section class="results-pane" aria-labelledby="results-title"><div class="results-pane-head"><div><h2 id="results-title">候选材料</h2><p id="results-description">正在读取数据…</p></div><span class="results-state" id="results-state" role="status" aria-live="polite">准备中</span></div><div class="result-table-wrap"><table class="result-table"><thead><tr><th scope="col">材料</th><th scope="col">E<sub>hull</sub> <span class="table-unit">(eV/atom)</span></th><th scope="col">评分</th><th scope="col">空间群</th><th scope="col">性质</th></tr></thead><tbody id="result-body"><tr><td colspan="5"><div class="result-empty"><p>正在读取本地材料记录…</p></div></td></tr></tbody></table></div><div class="result-foot"><span id="result-foot-note">结果按评分从高到低展示，当前最多显示 30 条。</span><a href="../homepage/index.html">返回元素检索 <i data-lucide="arrow-up-right" aria-hidden="true"></i></a></div></section>
+          <section class="results-pane" aria-labelledby="results-title"><div class="results-pane-head"><div><h2 id="results-title">候选材料</h2></div><span class="results-state" id="results-state" role="status" aria-live="polite">准备中</span></div><div class="result-table-wrap"><table class="result-table"><thead><tr><th scope="col">材料</th><th scope="col">E<sub>hull</sub> <span class="table-unit">(eV/atom)</span></th><th scope="col">评分</th><th scope="col">空间群</th><th scope="col">性质</th></tr></thead><tbody id="result-body"><tr><td colspan="5"><div class="result-empty"><p>正在读取本地材料记录…</p></div></td></tr></tbody></table></div><div class="result-foot"><span id="result-foot-note">结果按评分从高到低展示，当前最多显示 30 条。</span><a href="../homepage/index.html">返回元素检索 <i data-lucide="arrow-up-right" aria-hidden="true"></i></a></div></section>
         </div>
       </section>
     </main>

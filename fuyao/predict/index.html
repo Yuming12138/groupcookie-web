@@ -19,16 +19,16 @@
     </header>
 
     <main class="page-main" id="main-content">
-      <section class="page-intro" aria-labelledby="page-title"><div><p class="eyebrow">材料数据库 · 预测任务</p><h1 id="page-title">上传结构，创建预测</h1><p class="intro-copy">上传 CIF、POSCAR 或 VASP 结构文件，填写可选的 E_hull，创建一条可跟踪的预测任务。</p></div><div class="page-intro-side"><div><strong>4</strong><span>支持格式</span></div><div><strong>2</strong><span>个演示模型</span></div></div></section>
+      <section class="page-intro page-intro--compact" aria-labelledby="page-title"><h1 id="page-title">上传结构，创建预测</h1></section>
       <section class="page-section" aria-labelledby="upload-title">
         <div class="view-shell predict-shell">
           <form class="predict-form-pane" id="upload-form">
-            <p class="filter-kicker">输入文件</p><h2 id="upload-title">上传预测文件</h2><p>当前原型只在浏览器读取文件名和大小，不会把文件发送到服务器。</p>
+            <p class="filter-kicker">输入文件</p><h2 id="upload-title">上传预测文件</h2>
             <label class="file-drop" id="dropzone" for="prediction-file"><input id="prediction-file" name="file" type="file" accept=".cif,.poscar,.vasp,.csv,.json,.txt" aria-describedby="format-help" /><span class="file-drop-icon"><i data-lucide="upload-cloud" aria-hidden="true"></i></span><strong>选择文件或拖到这里</strong><small id="format-help">结构文件：CIF / POSCAR / VASP　组成表：CSV / JSON</small><span class="selected-file" id="file-name">尚未选择文件</span></label>
             <div class="predict-fields"><label class="predict-field"><span>预测目标</span><select id="prediction-target" name="target"><option value="synthesizability">可合成性评分</option><option value="stability">稳定性筛选</option><option value="properties">性质批量预测</option></select></label><label class="predict-field"><span>E_hull（可选，eV/atom）</span><input id="ehull-input" name="ehull" type="number" min="0" step="0.001" placeholder="例如 0.025…" inputmode="decimal" /></label></div>
-            <button class="primary-button predict-submit" id="submit-button" type="submit">创建预测任务 <i data-lucide="arrow-right" aria-hidden="true"></i></button><p class="predict-status" id="upload-status" role="status" aria-live="polite">登录后可将任务保存到个人历史；此处先演示提交流程。</p>
+            <button class="primary-button predict-submit" id="submit-button" type="submit">创建预测任务 <i data-lucide="arrow-right" aria-hidden="true"></i></button><p class="predict-status" id="upload-status" role="status" aria-live="polite" hidden></p>
           </form>
-          <aside class="job-queue" aria-labelledby="job-title"><div class="job-state-line"><i aria-hidden="true"></i><span>预测服务 · 演示队列</span></div><h2 id="job-title">等待新的预测任务</h2><p>提交后，这里显示任务编号、文件信息和运行状态。真正的结构解析器接入后，再展示计算结果。</p><dl class="job-meta"><div><dt>任务编号</dt><dd id="job-id">—</dd></div><div><dt>文件</dt><dd id="job-file">—</dd></div><div><dt>目标</dt><dd id="job-target">—</dd></div><div><dt>状态</dt><dd id="job-state">未开始</dd></div></dl><div class="format-note"><strong>接入时的输入约定</strong>CIF / POSCAR 将用于结构解析；CSV / JSON 可用于批量组成或已有特征。当前数据集尚未附带晶体结构文件，上传入口先保留为可用的交互原型。</div></aside>
+          <aside class="job-queue" aria-labelledby="job-title"><div class="job-state-line"><i aria-hidden="true"></i><span>预测服务 · 演示队列</span></div><h2 id="job-title">等待新的预测任务</h2><dl class="job-meta"><div><dt>任务编号</dt><dd id="job-id">—</dd></div><div><dt>文件</dt><dd id="job-file">—</dd></div><div><dt>目标</dt><dd id="job-target">—</dd></div><div><dt>状态</dt><dd id="job-state">未开始</dd></div></dl></aside>
         </div>
       </section>
     </main>

@@ -24,7 +24,6 @@
       renderResults();
       syncUrl();
     }));
-    $('#tag-count').textContent = state.tags.size;
   }
 
   function matches(item) {
@@ -40,7 +39,6 @@
     const filtered = state.materials.filter(matches).sort((a, b) => Number(b.score || 0) - Number(a.score || 0) || Number(a.eHull || 0) - Number(b.eHull || 0));
     const body = $('#result-body');
     const visible = filtered.slice(0, 30);
-    $('#results-description').textContent = `${filtered.length.toLocaleString('zh-CN')} 条记录符合当前条件${filtered.length > visible.length ? `，展示前 ${visible.length} 条` : ''}`;
     $('#results-state').textContent = filtered.length ? '已更新' : '无匹配';
     $('#filter-count').textContent = `${state.selectedTags.size + [queryInput.value, elementInput.value, ehullInput.value, scoreInput.value].filter((value) => String(value || '').trim()).length} 个条件`;
     if (!visible.length) {
@@ -74,5 +72,5 @@
   [queryInput, elementInput, ehullInput, scoreInput].forEach((input) => input.addEventListener('input', renderResults));
   $('#clear-filters').addEventListener('click', () => { queryInput.value = ''; elementInput.value = ''; ehullInput.value = ''; scoreInput.value = ''; state.selectedTags.clear(); document.querySelectorAll('.property-tag.selected').forEach((button) => { button.classList.remove('selected'); button.setAttribute('aria-pressed', 'false'); }); renderResults(); syncUrl(); });
 
-  fetch(DATA_URL).then((response) => { if (!response.ok) throw new Error('数据文件读取失败'); return response.json(); }).then((materials) => { state.materials = materials; $('#dataset-count').textContent = materials.length.toLocaleString('zh-CN'); syncFromUrl(); buildTags(); if (state.selectedTags.size) state.selectedTags.forEach((tag) => { const button = document.querySelector(`[data-tag="${CSS.escape(tag)}"]`); if (button) { button.classList.add('selected'); button.setAttribute('aria-pressed', 'true'); } }); renderResults(); }).catch((error) => { $('#results-state').textContent = '读取失败'; $('#results-description').textContent = error.message; $('#result-body').innerHTML = '<tr><td colspan="5"><div class="result-empty"><p>本地数据文件暂时无法读取，请通过静态服务器打开原型。</p></div></td></tr>'; });
+  fetch(DATA_URL).then((response) => { if (!response.ok) throw new Error('数据文件读取失败'); return response.json(); }).then((materials) => { state.materials = materials; syncFromUrl(); buildTags(); if (state.selectedTags.size) state.selectedTags.forEach((tag) => { const button = document.querySelector(`[data-tag="${CSS.escape(tag)}"]`); if (button) { button.classList.add('selected'); button.setAttribute('aria-pressed', 'true'); } }); renderResults(); }).catch(() => { $('#results-state').textContent = '读取失败'; $('#result-body').innerHTML = '<tr><td colspan="5"><div class="result-empty"><p>本地数据文件暂时无法读取，请通过静态服务器打开原型。</p></div></td></tr>'; });
 })();
