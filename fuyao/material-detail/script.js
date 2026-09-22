@@ -1,6 +1,7 @@
 (() => {
   const DATA_URL = '../../data/mp300_materials.json';
-  const requestedViewerPort = new URL(window.location.href).searchParams.get('viewer_port');
+  const pageUrl = new URL(window.location.href);
+  const requestedViewerPort = pageUrl.searchParams.get('viewer_port');
   const VIEWER_PORT = /^\d{1,5}$/.test(requestedViewerPort || '') ? requestedViewerPort : '8767';
   const $ = (selector) => document.querySelector(selector);
   const esc = (value) => String(value == null ? '' : value).replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
@@ -32,6 +33,13 @@
   function viewerBaseUrl() {
     const protocol = window.location.protocol === 'file:' ? 'http:' : window.location.protocol;
     const hostname = window.location.hostname || '127.0.0.1';
+    // The local development site keeps the viewer on :8767.  A Cloudflare
+    // Quick Tunnel has one public origin, so its same-origin proxy is used for
+    // the iframe and Dash callbacks.  The hostname check keeps local fuyao
+    // development and file-based previews unchanged.
+    if (protocol !== 'file:' && hostname.endsWith('.trycloudflare.com')) {
+      return new URL('/__viewer/', window.location.origin);
+    }
     return new URL(protocol + '//' + hostname + ':' + VIEWER_PORT + '/');
   }
 
