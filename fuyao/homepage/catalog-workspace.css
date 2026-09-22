@@ -35,6 +35,7 @@
 }
 
 .section-bar {
+  position: relative;
   min-height: 34px;
   margin-bottom: 14px;
   justify-content: flex-end;
@@ -68,11 +69,10 @@
 .legend { gap: 16px; font-size: 11px; }
 .table-note { font-size: 11px; }
 
-.periodic-table { position: relative; }
 .element-filter {
   position: absolute;
   z-index: 3;
-  top: 23%;
+  top: 50%;
   left: 50%;
   display: inline-flex;
   transform: translate(-50%, -50%);
@@ -216,6 +216,7 @@
   .intro { padding: 16px; width: 100%; }
   .workspace-section { width: calc(100% - 32px); padding-top: 20px; }
   .periodic-wrap { width: auto; margin-right: -16px; margin-left: -16px; border-right: 0; border-left: 0; border-radius: 0; }
+  .element-filter { position: static; transform: none; margin: 12px auto 0; }
   .element-filter-option { padding: 0 14px; font-size: 11px; }
   .selection-tools { justify-content: space-between; }
   .element-results { padding: 15px 14px 17px; }
