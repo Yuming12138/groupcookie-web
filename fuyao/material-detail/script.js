@@ -336,16 +336,43 @@
     return [...new Set([...textValue.matchAll(/\b(CS|SS|TS)\s*[-_]?\s*\d+\b/gi)].map((match) => match[1].toUpperCase()))].sort((a, b) => ['CS', 'SS', 'TS'].indexOf(a) - ['CS', 'SS', 'TS'].indexOf(b));
   }
 
-  function renderRouteOverview(report) {
+  function recommendedRoute(report, fallbackBestRoute) {
+    const bestLabel = String(report?.bestRoute || fallbackBestRoute || '').trim();
+    const bestNumber = bestLabel.match(/\bRoute\s*(\d+)\b/i)?.[1] || '';
+    const routes = Array.isArray(report?.routes) ? report.routes : [];
+    const route = routes.find((candidate) => String(candidate.number) === bestNumber) || routes[0] || null;
+    return { number: bestNumber || (route ? String(route.number) : ''), route };
+  }
+
+  function compactCondition(value) {
+    const cleaned = text(value, 220);
+    return cleaned.split(/[;；]|[,，]\s*(?=(?:because|as|while|with|which|and|由于|因为|其中)\b)/i)[0].trim() || cleaned;
+  }
+
+  function challengeAppliesToRoute(challenge, routeNumber) {
+    const routeLabel = String(challenge?.route || '').trim();
+    if (!routeLabel || /^all$/i.test(routeLabel)) return true;
+    return routeNumber ? new RegExp('\\bRoute\\s*' + routeNumber + '\\b', 'i').test(routeLabel) : false;
+  }
+
+  function renderRouteOverview(item, report) {
     const node = $('#route-overview');
     if (!node || !report) return;
+    const recommendation = recommendedRoute(report, item?.bestRoute);
     const items = ['Temperature range', 'Preferred atmosphere', 'Pressure', 'Estimated duration'].filter((key) => present(report.conditions?.[key]));
-    const risks = (report.challenges || []).filter((challenge) => /high|medium/i.test(challenge.severity || '')).slice(0, 2);
+    const risks = (report.challenges || [])
+      .filter((challenge) => challengeAppliesToRoute(challenge, recommendation.number) && /high|medium/i.test(challenge.severity || ''))
+      .sort((a, b) => ({ high: 0, medium: 1 }[String(a.severity || '').toLowerCase()] ?? 2) - ({ high: 0, medium: 1 }[String(b.severity || '').toLowerCase()] ?? 2));
     if (!items.length && !risks.length) { node.hidden = true; return; }
     node.hidden = false;
-    const facts = items.map((key) => '<span><small>' + esc(key === 'Temperature range' ? '温度' : key === 'Preferred atmosphere' ? '气氛' : key === 'Pressure' ? '压力' : '时长') + '</small>' + esc(text(report.conditions[key], 170)) + '</span>').join('');
-    const riskText = risks.length ? '<p><b>主要风险</b> ' + risks.map((risk) => esc(text(risk.challenge, 150))).join('；') + '</p>' : '';
-    node.innerHTML = '<div class="route-overview-title"><strong>推荐路线条件</strong><span>来自该材料的合成报告</span></div>' + (facts ? '<div class="route-overview-facts">' + facts + '</div>' : '') + riskText;
+    const facts = items.map((key) => {
+      const label = key === 'Temperature range' ? '温度' : key === 'Preferred atmosphere' ? '气氛' : key === 'Pressure' ? '压力' : '时长';
+      const fullValue = text(report.conditions[key], 260);
+      return '<span title="' + esc(fullValue) + '"><small>' + esc(label) + '</small><b>' + esc(compactCondition(fullValue)) + '</b></span>';
+    }).join('');
+    const riskText = risks.length ? '<p><b>关键风险</b> ' + esc(text(risks[0].challenge, 170)) + '</p>' : '';
+    const routeContext = recommendation.number ? '基于 Route ' + recommendation.number : '基于推荐路线';
+    node.innerHTML = '<div class="route-overview-title"><strong>推荐路线速览</strong><span>' + esc(routeContext) + '</span></div>' + (facts ? '<div class="route-overview-facts">' + facts + '</div>' : '') + riskText;
   }
 
   function renderRoutes(item, context, report) {
@@ -354,18 +381,25 @@
     const seenTitles = new Set();
     routes.forEach((route) => { const key = String(route.title || '').trim().toLowerCase(); if (key && !seenTitles.has(key)) { seenTitles.add(key); uniqueRoutes.push(route); } });
     routes = uniqueRoutes;
-    if (!routes.length && present(item.bestRoute)) routes = [{ number: 1, title: item.bestRoute, fields: { 'Reference basis': item.conditions || item.routes || '已标注为该记录的最佳参考路线。' }, body: '' }];
+    if (!routes.length && present(item.bestRoute)) {
+      const fallbackNumber = recommendedRoute(report, item.bestRoute).number || '1';
+      routes = [{ number: Number(fallbackNumber), title: item.bestRoute, fields: { 'Reference basis': item.conditions || item.routes || '已标注为该记录的最佳参考路线。' }, body: '' }];
+    }
     setText('#route-count', routes.length ? routes.length + ' 条路线' : '暂无路线');
-    renderRouteOverview(report);
+    renderRouteOverview(item, report);
     if (!routes.length) { setHtml('#route-list', '<div class="empty-row">该记录暂无可展示的合成路线。</div>'); return; }
-    const bestNumber = report?.bestRoute?.match(/Route\s*(\d+)/i)?.[1];
+    const bestNumber = recommendedRoute(report, item.bestRoute).number;
     setHtml('#route-list', routes.map((route, index) => {
       const fields = route.fields || {}; const routeNumber = String(route.number || index + 1); const scores = report?.scoreByRoute?.[routeNumber] || {}; const detail = fields['Transferability to target'] || fields['Reference basis'] || fields['Precursors'] || '路线条件待补充。';
       const conditions = [['温度', fields['Temperature program']], ['气氛', fields['Atmosphere']], ['压力', fields['Pressure']], ['难度', fields['Estimated difficulty']]].filter((pair) => present(pair[1])).slice(0, 4);
       const channels = routeEvidenceCodes(route); const icon = routeIcon(route.title); const isBest = Boolean(bestNumber && bestNumber === routeNumber) || (!bestNumber && index === 0);
       const scoreMarkup = Number.isFinite(scores.weighted) ? '<span class="route-score">' + scores.weighted.toFixed(1) + ' / 100</span>' : '';
       const channelMarkup = channels.length ? '<span class="route-evidence">' + channels.join(' · ') + '</span>' : '';
-      return '<article class="route-card' + (isBest ? ' recommended' : '') + '"><div class="route-node"><i data-lucide="' + icon + '" aria-hidden="true"></i><span>' + routeNumber.padStart(2, '0') + '</span></div><div class="route-card-body"><div class="route-card-head"><h3>' + esc(text(route.title)) + '</h3><div>' + (isBest ? '<span class="route-badge">推荐</span>' : '') + scoreMarkup + '</div></div><p>' + citationText(text(detail, 340), context) + '</p>' + (conditions.length ? '<div class="route-conditions">' + conditions.map((pair) => '<span><b>' + esc(pair[0]) + '</b> ' + citationText(text(pair[1], 150), context) + '</span>').join('') + '</div>' : '') + (channelMarkup ? '<div class="route-meta">' + channelMarkup + '</div>' : '') + '</div></article>';
+      const repeatedConditionLabels = new Set(['温度', '气氛', '压力']);
+      const visibleConditions = isBest ? conditions.filter((pair) => !repeatedConditionLabels.has(pair[0])) : conditions;
+      const executionWindowMarkup = isBest && conditions.some((pair) => repeatedConditionLabels.has(pair[0])) ? '<span class="route-window-note">执行窗口见上方</span>' : '';
+      const conditionMarkup = visibleConditions.length || executionWindowMarkup ? '<div class="route-conditions">' + executionWindowMarkup + visibleConditions.map((pair) => '<span><b>' + esc(pair[0]) + '</b> ' + citationText(text(pair[1], 150), context) + '</span>').join('') + '</div>' : '';
+      return '<article class="route-card' + (isBest ? ' recommended' : '') + '"><div class="route-node"><i data-lucide="' + icon + '" aria-hidden="true"></i><span>' + routeNumber.padStart(2, '0') + '</span></div><div class="route-card-body"><div class="route-card-head"><h3>' + esc(text(route.title)) + '</h3><div>' + (isBest ? '<span class="route-badge">推荐</span>' : '') + scoreMarkup + '</div></div><p>' + citationText(text(detail, 340), context) + '</p>' + conditionMarkup + (channelMarkup ? '<div class="route-meta">' + channelMarkup + '</div>' : '') + '</div></article>';
     }).join('')); icons();
   }
 
