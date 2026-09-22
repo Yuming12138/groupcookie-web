@@ -186,3 +186,18 @@
   .selection-tools { justify-content: space-between; }
   .element-results { padding: 15px 14px 17px; }
 }
+
+@media (min-width: 701px) {
+  .periodic-wrap { width: min(100%, 1176px); padding: 22px 22px 24px; }
+  .periodic-toolbar,
+  .periodic-table,
+  .series-row { min-width: 912px; }
+  .periodic-table { gap: 6px; }
+  .series-elements { gap: 6px; }
+  .element-cell { padding: 10px 8px 9px; }
+  .element-cell strong { font-size: clamp(15px, 1.5vw, 21px); }
+  .element-cell small { font-size: 12px; }
+  .series-elements .element-cell { min-height: 53px; }
+  .legend,
+  .table-note { font-size: 12px; }
+}
