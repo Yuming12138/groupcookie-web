@@ -20,14 +20,14 @@
     <main id="main-content">
       <div class="record-layout">
         <aside class="record-sidebar" aria-label="材料目录">
-          <div class="record-hero-copy"><p class="kicker">材料记录 <span id="record-source">本地数据集</span></p><h1 id="material-formula">—</h1><p class="formula-note" id="material-meta">正在读取记录…</p><p class="hero-record-id" id="hero-record-id"></p><div class="tag-row" id="tag-row"></div></div>
+          <div class="record-hero-copy"><h1 id="material-formula">—</h1><div class="tag-row" id="tag-row"></div></div>
+          <div class="hero-score"><span class="score-caption">可合成性评分</span><strong id="hero-score">—<span>/100</span></strong><p id="hero-score-note">—</p></div>
           <div class="sidebar-block"><p class="sidebar-label">记录内容</p><nav class="record-nav"><a class="active" href="#overview">概览</a><a href="#evidence">证据与评分</a><a href="#synthesis">合成路径</a><a href="#references">文献参考</a><a href="#properties">性质与来源</a></nav></div>
           <div class="sidebar-block provenance"><p class="sidebar-label">数据来源</p><p id="source-summary">—</p><span id="updated-at">数据随批次更新</span></div>
           <button class="export-button" type="button" id="export-button"><i data-lucide="download" aria-hidden="true"></i>导出记录摘要</button>
         </aside>
 
         <div class="record-content">
-          <div class="hero-score"><span class="score-caption">可合成性评分</span><strong id="hero-score">—<span>/100</span></strong><p id="hero-score-note">—</p></div>
           <section class="overview-section" id="overview" aria-labelledby="overview-title">
             <div class="section-title"><p class="kicker">01 · 概览</p><h2 id="overview-title">材料数据</h2></div>
             <div class="overview-grid">

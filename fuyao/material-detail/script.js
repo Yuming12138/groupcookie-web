@@ -142,10 +142,7 @@
 
   function renderFacts(item) {
     setText('#record-id', item.id);
-    setText('#hero-record-id', item.id);
-    setText('#record-source', item.sourceCategory || item.sourceFamily || '本地数据集');
     setHtml('#material-formula', formula(item.formula || item.id));
-    setHtml('#material-meta', (item.spacegroup ? '空间群 ' + formatSpacegroup(item.spacegroup) : '空间群未报告') + ' · ' + esc(item.numSites ? item.numSites + ' 个原子位点' : '原子位点未报告'));
     const tags = Array.isArray(item.propertyTags) ? item.propertyTags : [];
     setHtml('#tag-row', (tags.length ? tags : ['未标注性质标签']).map((tag) => '<span class="tag">' + esc(tag) + '</span>').join(''));
     const score = Number(item.score);
@@ -455,7 +452,7 @@
   async function init() {
     icons();
     try { const response = await fetch(DATA_URL); if (!response.ok) throw new Error('数据文件读取失败'); const materials = await response.json(); const requested = new URL(window.location.href).searchParams.get('id'); const item = materials.find((entry) => entry.id === requested || entry.formula === requested) || materials[0]; const report = parseReport(await loadReport(item)); const referenceContext = renderReferences(item); renderFacts(item); renderStructure(item); renderEvidence(item, referenceContext, report); renderProperties(item); renderRoutes(item, referenceContext, report); icons(); $('#export-button')?.addEventListener('click', () => exportRecord(item)); }
-    catch (error) { setText('#record-id', '读取失败'); setText('#material-formula', '—'); setText('#material-meta', error.message); setText('#route-count', '读取失败'); }
+    catch (error) { setText('#record-id', '读取失败'); setText('#material-formula', '—'); setText('#route-count', '读取失败'); }
     observeDetailSections();
     $('#theme-toggle')?.addEventListener('click', () => { document.body.classList.toggle('soft-mode'); show(document.body.classList.contains('soft-mode') ? '已切换为柔和阅读背景。' : '已恢复标准阅读背景。'); });
   }

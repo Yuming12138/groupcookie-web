@@ -95,6 +95,7 @@
     resultPanel.dataset.catalogState = state;
     resultPanel.setAttribute('aria-busy', state === 'loading' ? 'true' : 'false');
   };
+  const configureMaterialLinks = () => resultBody?.querySelectorAll('a.result-material').forEach((link) => { link.target = '_blank'; link.rel = 'noopener noreferrer'; });
   const formatEhull = (value) => Number.isFinite(Number(value)) ? Number(value).toFixed(3) : '—';
   const formatTags = (candidate) => {
     const tags = Array.isArray(candidate.propertyTags) ? candidate.propertyTags.filter(Boolean).slice(0, 3) : [];
@@ -109,6 +110,7 @@
       const resultCount = document.querySelector('#element-result-count');
       if (resultCount) resultCount.textContent = previewRowCount;
       setCatalogState(catalogError ? 'partial' : 'loading');
+      configureMaterialLinks();
       return;
     }
     const matches = candidates.filter((candidate) => !symbols.length || symbols.every((symbol) => (candidate.elements || []).includes(symbol))).sort((a, b) => Number(b.score || 0) - Number(a.score || 0));
@@ -118,8 +120,9 @@
     if (!matches.length) {
       resultBody.innerHTML = '<tr><td colspan="5"><p class="empty-result">' + (symbols.length ? '当前数据中没有同时包含所选元素的候选相。' : (catalogLoaded ? '材料目录当前没有记录。' : '材料记录暂时无法读取。')) + '</p></td></tr>';
     } else {
-      resultBody.innerHTML = matches.map((candidate) => '<tr><td><a class="result-material" href="../material-detail/index.html?id=' + encodeURIComponent(candidate.recordId || candidate.id) + '"><strong>' + escapeHtml(candidate.formula) + '</strong><span>' + escapeHtml(candidate.recordIdLabel + ' · ' + (candidate.mpId || candidate.recordId || candidate.id)) + '</span></a></td><td>' + formatSpacegroup(candidate.spacegroup) + '</td><td class="result-number">' + escapeHtml(formatEhull(candidate.eHull)) + '</td><td class="result-score">' + escapeHtml(candidate.score ?? '—') + '</td><td class="result-properties">' + escapeHtml(formatTags(candidate)) + '</td></tr>').join('');
+      resultBody.innerHTML = matches.map((candidate) => '<tr><td><a class="result-material" href="../material-detail/index.html?id=' + encodeURIComponent(candidate.recordId || candidate.id) + '" target="_blank" rel="noopener noreferrer"><strong>' + escapeHtml(candidate.formula) + '</strong><span>' + escapeHtml(candidate.recordIdLabel + ' · ' + (candidate.mpId || candidate.recordId || candidate.id)) + '</span></a></td><td>' + formatSpacegroup(candidate.spacegroup) + '</td><td class="result-number">' + escapeHtml(formatEhull(candidate.eHull)) + '</td><td class="result-score">' + escapeHtml(candidate.score ?? '—') + '</td><td class="result-properties">' + escapeHtml(formatTags(candidate)) + '</td></tr>').join('');
     }
+    configureMaterialLinks();
     if (resultScroller) {
       resultScroller.scrollTop = 0;
       resultScroller.scrollLeft = 0;

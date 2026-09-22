@@ -57,3 +57,45 @@ html,body{height:100%}body{overflow:hidden}.detail-header{position:relative;z-in
   .record-content{display:grid;grid-template-columns:minmax(0,1240px) minmax(0,1fr);align-content:start}
   .record-content>*{grid-column:1;width:100%}
 }
+
+/* Keep identity and score together in the fixed rail, then give both panes readable type. */
+@media (min-width:901px){
+  .record-sidebar{padding-top:18px;padding-bottom:28px}
+  .record-sidebar .record-hero-copy{padding-bottom:20px;margin-bottom:20px}
+  .record-sidebar .record-hero-copy h1{font-size:clamp(44px,2.7vw,52px)}
+  .record-sidebar>.hero-score{width:auto;margin:0 0 20px;padding:0 0 20px;border:0;border-bottom:1px solid var(--line)}
+  .record-sidebar>.hero-score .score-caption{font-size:13px}
+  .record-sidebar>.hero-score strong{font-size:42px}
+  .record-sidebar>.hero-score p{margin-top:8px;font-size:13px}
+  .record-sidebar .sidebar-block{padding-bottom:21px;margin-bottom:20px}
+  .record-sidebar .sidebar-label{margin-bottom:14px;font-size:12px}
+  .record-sidebar .record-nav{gap:4px}
+  .record-sidebar .record-nav a{padding:10px 12px;font-size:14px}
+  .record-sidebar .provenance p{font-size:13px}
+  .record-sidebar .provenance span{font-size:12px}
+  .record-sidebar .export-button{min-height:46px;font-size:13px}
+  .detail-header .back-link{font-size:14px}
+  .detail-header .detail-brand{font-size:16px}
+  .detail-header .record-id{font-size:13px}
+  .section-title h2{font-size:32px}
+  .card-topline h3{font-size:17px}
+  .key-facts>div{padding:16px 0}
+  .key-facts dt,.key-facts dd{font-size:13px}
+  .facts-description-label{font-size:12px}
+  .facts-description p:last-child{font-size:13px}
+  .metric-head{font-size:13px}
+  .metric-card p,.record-summary p{font-size:12px}
+  .route-card h3{font-size:15px}
+  .route-card p{font-size:13px}
+  .property-list dt,.source-panel dt,.property-list dd,.source-panel dd{font-size:13px}
+}
+
+@media (min-width:1200px){
+  .overview-grid{grid-template-columns:minmax(0,1.08fr) minmax(360px,.92fr);gap:20px}
+}
+
+@media (max-width:900px){
+  .record-sidebar>.hero-score{width:100%;margin:0 0 20px;padding:0 0 20px;border:0;border-bottom:1px solid var(--line)}
+  .record-sidebar>.hero-score strong{font-size:40px}
+  .record-sidebar>.hero-score p{margin-top:7px;font-size:12px}
+}
