@@ -99,3 +99,117 @@ html,body{height:100%}body{overflow:hidden}.detail-header{position:relative;z-in
   .record-sidebar>.hero-score strong{font-size:40px}
   .record-sidebar>.hero-score p{margin-top:7px;font-size:12px}
 }
+
+/* Increase desktop reading size without changing the structure viewport scale. */
+@media (min-width:901px){
+  body{font-size:16px}
+  .record-sidebar .record-nav a{font-size:15px}
+  .record-sidebar .sidebar-label{font-size:13px}
+  .record-sidebar .provenance p{font-size:14px}
+  .record-sidebar .provenance span{font-size:13px}
+  .record-sidebar .export-button{font-size:14px}
+  .record-sidebar>.hero-score .score-caption{font-size:14px}
+  .record-sidebar>.hero-score strong{font-size:44px}
+  .record-sidebar>.hero-score p{font-size:14px}
+  .section-title h2{font-size:34px}
+  .section-title.inline>span{font-size:12px}
+  .card-topline h3{font-size:18px}
+  .data-state,.structure-format{font-size:12px}
+  .key-facts dt,.key-facts dd{font-size:14px}
+  .structure-legend{font-size:12px}
+  .structure-loading{font-size:13px}
+  .metric-head{font-size:14px}
+  .metric-head small{font-size:12px}
+  .metric-card .metric-value-text small{font-size:12px!important}
+  .metric-card p,.record-summary p{font-size:13px}
+  .record-summary strong{font-size:13px}
+  .route-overview-title strong{font-size:13px}
+  .route-overview-title span{font-size:11px}
+  .route-overview-facts span{font-size:12px}
+  .route-overview-facts small{font-size:11px}
+  .route-overview-facts span>b{font-size:12px}
+  .route-overview p{font-size:12px}
+  .route-card h3{font-size:16px}
+  .route-card p{font-size:14px}
+  .route-conditions span{font-size:11px}
+  .route-meta{font-size:11px}
+  .property-list dt,.source-panel dt,.property-list dd,.source-panel dd{font-size:14px}
+  .source-panel h3{font-size:16px}
+  .reference-title{font-size:14px}
+  .reference-item p{font-size:12px}
+  .reference-code{font-size:11px}
+  .source-evidence-title strong{font-size:13px}
+  .source-evidence-head strong{font-size:13px}
+  .source-evidence-card p{font-size:12px}
+  .source-codes{font-size:11px}
+  .detail-footer{font-size:12px}
+}
+
+/* Final readability pass: keep the detail header centered and lift small labels together. */
+.detail-header{position:relative;justify-content:center}
+.detail-header .header-tools{position:absolute;right:0}
+@media (min-width:901px){
+  body{font-size:17px}
+  .detail-header .detail-brand{font-size:17px}
+  .detail-header .record-id{font-size:14px}
+  .record-sidebar .record-hero-copy h1{font-size:clamp(46px,2.8vw,54px)}
+  .record-sidebar .record-nav a{font-size:16px}
+  .record-sidebar .sidebar-label{font-size:14px}
+  .record-sidebar .provenance p{font-size:15px}
+  .record-sidebar .provenance span{font-size:14px}
+  .record-sidebar .export-button{font-size:15px}
+  .record-sidebar>.hero-score .score-caption{font-size:15px}
+  .record-sidebar>.hero-score strong{font-size:46px}
+  .record-sidebar>.hero-score p{font-size:15px}
+  .section-title .kicker{font-size:13px}
+  .section-title h2{font-size:36px}
+  .section-title.inline>span{font-size:13px}
+  .card-topline h3{font-size:19px}
+  .data-state,.structure-format{font-size:13px}
+  .key-facts dt,.key-facts dd{font-size:15px}
+  .structure-legend{font-size:13px}
+  .structure-loading{font-size:14px}
+  .structure-empty strong{font-size:16px}
+  .structure-empty>span:last-child{font-size:13px}
+  .metric-head{font-size:15px}
+  .metric-head small{font-size:13px}
+  .metric-card .metric-value-text small{font-size:13px!important}
+  .metric-card p,.record-summary p{font-size:14px}
+  .record-summary strong{font-size:14px}
+  .route-overview-title strong{font-size:14px}
+  .route-overview-title span{font-size:12px}
+  .route-overview-facts span{font-size:13px}
+  .route-overview-facts small{font-size:12px}
+  .route-overview-facts span>b{font-size:13px}
+  .route-overview p{font-size:13px}
+  .route-card h3{font-size:17px}
+  .route-card p{font-size:15px}
+  .route-conditions span{font-size:12px}
+  .route-meta{font-size:12px}
+  .loading-row,.empty-row{font-size:13px}
+  .property-list dt,.source-panel dt,.property-list dd,.source-panel dd{font-size:15px}
+  .source-panel h3{font-size:17px}
+  .reference-title{font-size:15px}
+  .reference-item p{font-size:13px}
+  .reference-code{font-size:12px}
+  .source-evidence-title strong{font-size:14px}
+  .source-evidence-head strong{font-size:14px}
+  .source-evidence-card p{font-size:13px}
+  .source-codes{font-size:12px}
+  .detail-footer{font-size:13px}
+}
+@media (max-width:900px){
+  body{font-size:16px}
+  .detail-header .detail-brand{font-size:14px}
+  .record-sidebar .record-nav a{font-size:14px}
+  .record-sidebar .sidebar-label{font-size:12px}
+  .record-sidebar .provenance p{font-size:13px}
+  .record-sidebar .provenance span{font-size:12px}
+  .record-sidebar .export-button{font-size:13px}
+  .record-sidebar>.hero-score .score-caption{font-size:13px}
+  .record-sidebar>.hero-score p{font-size:13px}
+  .section-title h2{font-size:30px}
+  .key-facts dt,.key-facts dd{font-size:13px}
+  .route-card p{font-size:13px}
+  .property-list dt,.source-panel dt,.property-list dd,.source-panel dd{font-size:13px}
+}
