@@ -23,10 +23,11 @@
     const recordIdType = mpId ? 'materials-project' : (item?.wbmMaterialId ? 'wbm' : 'catalog');
     return { recordId, mpId, recordIdType, recordIdLabel: mpId ? 'MP ID' : (recordIdType === 'wbm' ? 'WBM ID' : '记录 ID') };
   };
+  const normalizeFormula = (value) => String(value || '').replace(/[₀-₉]/g, (digit) => String('₀₁₂₃₄₅₆₇₈₉'.indexOf(digit))).replace(/\s+/g, '').toLowerCase();
   const normalizeCandidate = (item) => ({
     ...item,
     ...identifyRecord(item),
-    plain: String(item.formula || '').replace(/[₀-₉]/g, (digit) => String('₀₁₂₃₄₅₆₇₈₉'.indexOf(digit))),
+    plain: normalizeFormula(item.formula),
     name: item.spacegroup ? '空间群 ' + item.spacegroup : '候选相',
     bandgap: Number.isFinite(Number(item.bandGapPbeEv)) ? Number(item.bandGapPbeEv) : null,
     ehull: Number.isFinite(Number(item.eHull)) ? Number(item.eHull) : null,
@@ -40,6 +41,10 @@
     bulk: { label: '体积模量', unit: 'GPa', decimals: 0 },
   };
   const selected = new Set();
+  const elementModeButtons = [...document.querySelectorAll('[data-element-mode]')];
+  const initialElementMode = new URL(window.location.href).searchParams.get('elementMode');
+  let elementMode = ['only', 'at-least', 'formula'].includes(initialElementMode) ? initialElementMode : 'at-least';
+  const input = document.querySelector('#quick-query');
   const toast = document.querySelector('#toast');
   let toastTimer;
   const showToast = (message) => {
@@ -101,6 +106,19 @@
     const tags = Array.isArray(candidate.propertyTags) ? candidate.propertyTags.filter(Boolean).slice(0, 3) : [];
     return tags.length ? tags.join(' · ') : '未标注';
   };
+  const matchesElementMode = (candidate, symbols) => {
+    if (elementMode === 'formula') {
+      const query = normalizeFormula(input?.value);
+      if (query) return candidate.plain === query;
+      if (!symbols.length) return true;
+      const candidateElements = new Set(candidate.elements || []);
+      return candidateElements.size === symbols.length && symbols.every((symbol) => candidateElements.has(symbol));
+    }
+    if (!symbols.length) return true;
+    const candidateElements = new Set(candidate.elements || []);
+    if (elementMode === 'only') return candidateElements.size === symbols.length && symbols.every((symbol) => candidateElements.has(symbol));
+    return symbols.every((symbol) => candidateElements.has(symbol));
+  };
   const renderSelection = () => {
     const symbols = [...selected];
     const selectionSummary = document.querySelector('#selection-summary');
@@ -113,12 +131,13 @@
       configureMaterialLinks();
       return;
     }
-    const matches = candidates.filter((candidate) => !symbols.length || symbols.every((symbol) => (candidate.elements || []).includes(symbol))).sort((a, b) => Number(b.score || 0) - Number(a.score || 0));
+    const matches = candidates.filter((candidate) => matchesElementMode(candidate, symbols)).sort((a, b) => Number(b.score || 0) - Number(a.score || 0));
     const resultCount = document.querySelector('#element-result-count');
     if (resultCount) resultCount.textContent = matches.length;
     if (!resultBody) return;
     if (!matches.length) {
-      resultBody.innerHTML = '<tr><td colspan="5"><p class="empty-result">' + (symbols.length ? '当前数据中没有同时包含所选元素的候选相。' : (catalogLoaded ? '材料目录当前没有记录。' : '材料记录暂时无法读取。')) + '</p></td></tr>';
+      const emptyMessage = elementMode === 'formula' && input?.value.trim() ? '当前数据中没有匹配该化学式的材料。' : (elementMode === 'only' && symbols.length ? '当前数据中没有仅由所选元素组成的候选相。' : (symbols.length ? '当前数据中没有同时包含所选元素的候选相。' : (catalogLoaded ? '材料目录当前没有记录。' : '材料记录暂时无法读取。')));
+      resultBody.innerHTML = '<tr><td colspan="5"><p class="empty-result">' + emptyMessage + '</p></td></tr>';
     } else {
       resultBody.innerHTML = matches.map((candidate) => '<tr><td><a class="result-material" href="../material-detail/index.html?id=' + encodeURIComponent(candidate.recordId || candidate.id) + '" target="_blank" rel="noopener noreferrer"><strong>' + escapeHtml(candidate.formula) + '</strong><span>' + escapeHtml(candidate.recordIdLabel + ' · ' + (candidate.mpId || candidate.recordId || candidate.id)) + '</span></a></td><td>' + formatSpacegroup(candidate.spacegroup) + '</td><td class="result-number">' + escapeHtml(formatEhull(candidate.eHull)) + '</td><td class="result-score">' + escapeHtml(candidate.score ?? '—') + '</td><td class="result-properties">' + escapeHtml(formatTags(candidate)) + '</td></tr>').join('');
     }
@@ -130,6 +149,17 @@
     setCatalogState(catalogLoaded ? 'ready' : 'loading');
   };
   renderSelection();
+  const setElementMode = (mode) => {
+    if (!['only', 'at-least', 'formula'].includes(mode)) return;
+    elementMode = mode;
+    elementModeButtons.forEach((button) => button.setAttribute('aria-pressed', button.dataset.elementMode === mode ? 'true' : 'false'));
+    updateUrl('elementMode', mode);
+    if (input) input.placeholder = mode === 'formula' ? '输入完整化学式，例如 BaTiO3…' : '例如 BaTiO3、Li Fe P O…';
+    renderSelection();
+    if (mode === 'formula' && input && !input.value.trim()) input.focus();
+  };
+  elementModeButtons.forEach((button) => button.addEventListener('click', () => setElementMode(button.dataset.elementMode)));
+  setElementMode(elementMode);
   document.querySelector('#clear-elements')?.addEventListener('click', () => { selected.clear(); document.querySelectorAll('.element-cell.selected').forEach((button) => { button.classList.remove('selected'); button.setAttribute('aria-pressed', 'false'); }); updateUrl('elements', ''); renderSelection(); });
   const propertyForm = document.querySelector('#property-form');
   const renderProperties = () => {
@@ -152,13 +182,12 @@
   document.querySelector('#property-select')?.addEventListener('change', renderProperties);
   propertyForm?.addEventListener('submit', (event) => { event.preventDefault(); renderProperties(); showToast('性质筛选已更新：' + propertyConfig[document.querySelector('#property-select').value].label + '。'); });
 
-  const input = document.querySelector('#quick-query');
   document.querySelector('#quick-search')?.addEventListener('submit', (event) => {
     event.preventDefault();
     const query = input.value.trim();
     if (!query) { showToast('请输入化学式、元素或性质。'); return; }
     const exact = candidates.find((candidate) => candidate.plain.toLowerCase() === query.toLowerCase());
-    if (exact) { selected.clear(); document.querySelectorAll('.element-cell.selected').forEach((button) => { button.classList.remove('selected'); button.setAttribute('aria-pressed', 'false'); }); exact.elements.forEach((symbol) => { const button = document.querySelector('[data-symbol="' + symbol + '"]'); selected.add(symbol); if (button) { button.classList.add('selected'); button.setAttribute('aria-pressed', 'true'); } }); renderSelection(); updateUrl('elements', exact.elements.join(',')); document.querySelector('#elements').scrollIntoView({ behavior: 'smooth' }); showToast('已按 ' + exact.formula + ' 选中元素组合。'); return; }
+    if (exact) { selected.clear(); document.querySelectorAll('.element-cell.selected').forEach((button) => { button.classList.remove('selected'); button.setAttribute('aria-pressed', 'false'); }); exact.elements.forEach((symbol) => { const button = document.querySelector('[data-symbol="' + symbol + '"]'); selected.add(symbol); if (button) { button.classList.add('selected'); button.setAttribute('aria-pressed', 'true'); } }); setElementMode('formula'); updateUrl('elements', exact.elements.join(',')); document.querySelector('#elements').scrollIntoView({ behavior: 'smooth' }); showToast('已按 ' + exact.formula + ' 匹配化学式。'); return; }
     if (/带隙|band.?gap|e.?hull|形成能|模量/i.test(query)) { const propertySection = document.querySelector('#properties'); if (propertySection) propertySection.scrollIntoView({ behavior: 'smooth' }); else window.location.href = '../properties/index.html?q=' + encodeURIComponent(query); return; }
     showToast('已记录检索词“' + query + '”，等待接入实时搜索接口。');
   });

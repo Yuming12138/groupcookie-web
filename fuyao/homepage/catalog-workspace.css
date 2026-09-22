@@ -68,6 +68,39 @@
 .legend { gap: 16px; font-size: 11px; }
 .table-note { font-size: 11px; }
 
+.periodic-table { position: relative; }
+.element-filter {
+  position: absolute;
+  z-index: 3;
+  top: 23%;
+  left: 50%;
+  display: inline-flex;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .96);
+  box-shadow: 0 3px 12px rgba(31, 41, 55, .08);
+  white-space: nowrap;
+}
+
+.element-filter-option {
+  min-height: 34px;
+  padding: 0 18px;
+  border: 0;
+  border-right: 1px solid var(--line);
+  background: transparent;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1;
+  transition: background-color 130ms ease-out, color 130ms ease-out;
+}
+
+.element-filter-option:last-child { border-right: 0; }
+.element-filter-option:hover { background: var(--surface-soft); color: var(--ink); }
+.element-filter-option[aria-pressed="true"] { background: var(--teal-soft); color: var(--teal-dark); font-weight: 700; }
+.element-filter-option:focus-visible { position: relative; z-index: 1; outline-offset: -3px; }
+
 /* The result list remains available, but follows the periodic-table workspace. */
 .element-results { width: 100%; }
 
@@ -183,6 +216,7 @@
   .intro { padding: 16px; width: 100%; }
   .workspace-section { width: calc(100% - 32px); padding-top: 20px; }
   .periodic-wrap { width: auto; margin-right: -16px; margin-left: -16px; border-right: 0; border-left: 0; border-radius: 0; }
+  .element-filter-option { padding: 0 14px; font-size: 11px; }
   .selection-tools { justify-content: space-between; }
   .element-results { padding: 15px 14px 17px; }
 }
