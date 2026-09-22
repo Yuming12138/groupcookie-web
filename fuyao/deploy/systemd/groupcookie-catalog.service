@@ -1,0 +1,19 @@
+[Unit]
+Description=GroupCookie material catalog API
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=groupcookie
+Group=groupcookie
+WorkingDirectory=/opt/groupcookie-fuyao/current
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/home/miniconda3/bin/python3 /opt/groupcookie-fuyao/current/catalog_server.py --host 127.0.0.1 --port 8766
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

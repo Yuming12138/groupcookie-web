@@ -1,0 +1,20 @@
+[Unit]
+Description=GroupCookie public single-origin proxy
+After=network-online.target groupcookie-catalog.service groupcookie-viewer.service
+Wants=network-online.target
+Requires=groupcookie-catalog.service groupcookie-viewer.service
+
+[Service]
+Type=simple
+User=groupcookie
+Group=groupcookie
+WorkingDirectory=/opt/groupcookie-fuyao/current
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/home/miniconda3/bin/python3 /opt/groupcookie-fuyao/current/public_proxy.py --host 127.0.0.1 --port 8110 --catalog-port 8766 --viewer-port 8767
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

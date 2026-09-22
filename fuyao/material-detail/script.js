@@ -33,11 +33,12 @@
   function viewerBaseUrl() {
     const protocol = window.location.protocol === 'file:' ? 'http:' : window.location.protocol;
     const hostname = window.location.hostname || '127.0.0.1';
-    // The local development site keeps the viewer on :8767.  A Cloudflare
-    // Quick Tunnel has one public origin, so its same-origin proxy is used for
-    // the iframe and Dash callbacks.  The hostname check keeps local fuyao
-    // development and file-based previews unchanged.
-    if (protocol !== 'file:' && hostname.endsWith('.trycloudflare.com')) {
+    // Local development keeps the viewer on :8767.  A deployed site has one
+    // public 80/443 origin (whether it is an IP, a custom domain, or a
+    // Cloudflare tunnel), so its same-origin proxy must carry both the iframe
+    // and Dash callbacks; the viewer ports remain loopback-only on the host.
+    const localHost = ['localhost', '127.0.0.1', '[::1]', '::1'].includes(hostname);
+    if (protocol !== 'file:' && !localHost) {
       return new URL('/__viewer/', window.location.origin);
     }
     return new URL(protocol + '//' + hostname + ':' + VIEWER_PORT + '/');
