@@ -6,6 +6,7 @@
     { id: 'chenguangming', group: 'student', groupLabel: '硕士研究生', name: '陈光明', latin: 'Guangming Chen', role: '硕士研究生 · 2024', email: '17634437488@163.com', photo: '../../assets/members/chenguangming.jpg', contain: true },
     { id: 'shayenan', group: 'student', groupLabel: '硕士研究生', name: '沙烨男', latin: 'Yenan Sha', role: '硕士研究生 · 2025', email: 'yenansha@outlook.com', photo: '../../assets/members/shayenan.jpg' },
     { id: 'chenjie', group: 'student', groupLabel: '硕士研究生', name: '陈杰', latin: 'Jie Chen', role: '硕士研究生 · 2025', email: '20254240042@stu.suda.edu.cn', photo: '../../assets/members/chenjie.jpg' },
+    { id: 'luoruoming', group: 'student', groupLabel: '硕士研究生', name: '罗若铭', latin: 'Ruoming Luo', role: '硕士研究生 · 2024', email: '737795805@qq.com', photo: '../../assets/members/luoruoming.jpg' },
   ];
   const directory = document.querySelector('#member-directory');
   const escapeHtml = (value) => String(value ?? '').replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
